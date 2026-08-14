@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-08-14T13:02:28.968411+00:00",
+  "status": "completed",
+  "iteration": 3000,
+  "iterations_planned": 3000,
+  "progress": 1.0,
+  "latest_train_loss": 0.251,
+  "smoothed_train_loss": 0.2586094322733272,
+  "latest_validation_loss": 0.475,
+  "best_validation_loss": 0.219,
+  "best_validation_iteration": 2900,
+  "peak_memory_gb": 3.308,
+  "iterations_per_second": 0.9544999999999999,
+  "eta_seconds": 0.0,
+  "checkpoints": 60
+}

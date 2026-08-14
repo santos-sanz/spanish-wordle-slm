@@ -6,6 +6,12 @@ import subprocess
 
 from .data import ROOT, prepare_data
 from .dataset import generate_training_data
+from .preference_training import train_dpo
+from .preference_visualization import (
+    render_preference_dashboard,
+    watch_preference_dashboard,
+)
+from .preferences import generate_preference_data
 from .training import download_model, serve, train
 from .validation import validate_all
 from .visualization import render_training_dashboard, watch_training_dashboard
@@ -24,6 +30,13 @@ def main() -> None:
     subparsers.add_parser("download-model")
     train_parser = subparsers.add_parser("train")
     train_parser.add_argument("--smoke", action="store_true")
+    subparsers.add_parser("prepare-preferences")
+    preference_parser = subparsers.add_parser("train-preference")
+    preference_parser.add_argument("--smoke", action="store_true")
+    preference_visualization_parser = subparsers.add_parser("visualize-preference")
+    preference_visualization_parser.add_argument("--smoke", action="store_true")
+    preference_visualization_parser.add_argument("--watch", action="store_true")
+    preference_visualization_parser.add_argument("--interval", type=float, default=15.0)
     visualization_parser = subparsers.add_parser("visualize-training")
     visualization_parser.add_argument("--watch", action="store_true")
     visualization_parser.add_argument("--interval", type=float, default=15.0)
@@ -46,6 +59,15 @@ def main() -> None:
         _print(download_model())
     elif arguments.command == "train":
         _print(train(smoke=arguments.smoke))
+    elif arguments.command == "prepare-preferences":
+        _print(generate_preference_data())
+    elif arguments.command == "train-preference":
+        _print(train_dpo(smoke=arguments.smoke))
+    elif arguments.command == "visualize-preference":
+        if arguments.watch:
+            watch_preference_dashboard(arguments.interval)
+        else:
+            _print(render_preference_dashboard(smoke=arguments.smoke))
     elif arguments.command == "visualize-training":
         if arguments.watch:
             watch_training_dashboard(arguments.interval)

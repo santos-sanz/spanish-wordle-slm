@@ -45,6 +45,23 @@ uv run wordle-slm visualize-training --watch --interval 15
 The PNG, SVG, machine-readable status, and normalized metric history are written
 under `artifacts/training/`.
 
+After selecting the best SFT checkpoint, build deterministic Wordle preference
+pairs and run the memory-efficient DPO phase:
+
+```bash
+uv run wordle-slm prepare-preferences
+uv run wordle-slm train-preference --smoke
+caffeinate -dimsu uv run wordle-slm train-preference
+uv run wordle-slm visualize-preference --watch --interval 15
+```
+
+DPO uses the SFT checkpoint at iteration 2,900 as a fixed reference and directly
+increases the probability margin of the solver's action over a weaker valid
+action. It is an offline preference-optimization alternative to GRPO: MLX-LM
+0.31.3 does not ship a native GRPO trainer, and this approach avoids keeping a
+second 2.6B model in unified memory. SFT and DPO objectives are not numerically
+comparable, so their curves are reported separately.
+
 Serve the trained adapter:
 
 ```bash

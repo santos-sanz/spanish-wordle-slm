@@ -1,0 +1,6 @@
+{"iteration": 1, "metric": "validation_loss", "run": "calibration-512-8", "value": 2.953}
+{"iteration": 5, "metric": "train_loss", "peak_memory_gb": 3.094, "run": "calibration-512-8", "value": 1.977}
+{"iteration": 10, "metric": "train_loss", "peak_memory_gb": 3.094, "run": "calibration-512-8", "value": 2.021}
+{"iteration": 15, "metric": "train_loss", "peak_memory_gb": 3.094, "run": "calibration-512-8", "value": 2.296}
+{"iteration": 20, "metric": "validation_loss", "run": "calibration-512-8", "value": 1.663}
+{"iteration": 20, "metric": "train_loss", "peak_memory_gb": 3.094, "run": "calibration-512-8", "value": 1.359}

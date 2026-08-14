@@ -1,0 +1,16 @@
+{
+  "method": "offline_direct_preference_optimization",
+  "seed": 20260814,
+  "source_splits": [
+    "train",
+    "valid"
+  ],
+  "hidden_test_used": false,
+  "train_validation_prompt_overlap": 0,
+  "counts": {
+    "train": 1960,
+    "valid": 225
+  },
+  "chosen": "deterministic Wordle solver action",
+  "rejected": "valid action with a worse deterministic solver key"
+}

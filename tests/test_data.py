@@ -1,3 +1,6 @@
+import json
+from pathlib import Path
+
 from wordle_slm.data import deterministic_split
 from wordle_slm.solver import entropy_for_counts
 from wordle_slm.visualization import parse_training_log
@@ -27,3 +30,19 @@ Iter 50: Saved adapter weights to adapter.safetensors.
     assert parsed.validation[0].loss == 0.786
     assert parsed.train[0].trained_tokens == 486
     assert parsed.checkpoints == [50]
+
+
+def test_preference_data_excludes_hidden_test_and_has_strict_preferences() -> None:
+    root = Path(__file__).parents[1] / "data" / "preferences"
+    manifest = json.loads(root.joinpath("manifest.json").read_text(encoding="utf-8"))
+    assert manifest["hidden_test_used"] is False
+    assert manifest["train_validation_prompt_overlap"] == 0
+    for split in ("train", "valid"):
+        records = [
+            json.loads(line)
+            for line in root.joinpath(f"{split}.jsonl").read_text(encoding="utf-8").splitlines()
+        ]
+        assert all(
+            tuple(record["chosen_solver_key"]) < tuple(record["rejected_solver_key"])
+            for record in records
+        )
