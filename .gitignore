@@ -18,3 +18,4 @@ artifacts/runs/training/*.yaml
 artifacts/runs/training/state.json
 artifacts/runs/preference/dpo-smoke.*
 artifacts/preference/dpo-smoke-*
+artifacts/runs/preference/reference-*.npz

@@ -68,9 +68,17 @@ def render_preference_dashboard(*, smoke: bool = False) -> dict[str, Any]:
     rows = _load_metrics(smoke)
     train = [row for row in rows if row["metric"] == "dpo_train"]
     validation = [row for row in rows if row["metric"] == "dpo_validation"]
-    planned = 5 if smoke else 400
+    name = "dpo-smoke" if smoke else "dpo"
+    state_path = PREFERENCE_RUN_DIR / f"{name}.state.json"
+    state = (
+        json.loads(state_path.read_text(encoding="utf-8"))
+        if state_path.exists()
+        else {}
+    )
+    planned = int(state.get("iterations_planned", 5 if smoke else 400))
+    run_status = str(state.get("status", "unknown"))
     current = max(int(row["iteration"]) for row in rows)
-    progress = current / planned
+    progress = min(current / planned, 1.0)
     best = min(validation, key=lambda row: float(row["loss"]))
     latest_validation = validation[-1]
     train_iterations = [int(row["iteration"]) for row in train]
@@ -209,6 +217,7 @@ def render_preference_dashboard(*, smoke: bool = False) -> dict[str, Any]:
         "generated_at": generated_at,
         "iteration": current,
         "iterations_planned": planned,
+        "run_status": run_status,
         "best_validation_loss": float(best["loss"]),
         "best_validation_iteration": int(best["iteration"]),
         "validation_reward_accuracy": float(latest_validation["reward_accuracy"]),
@@ -233,7 +242,12 @@ def watch_preference_dashboard(interval_seconds: float = 15.0) -> None:
                 f"accuracy={summary['validation_reward_accuracy']:.1%}",
                 flush=True,
             )
-            if summary["iteration"] >= summary["iterations_planned"]:
+            if summary["run_status"] in {
+                "target_reached",
+                "early_stopping",
+                "budget_exhausted",
+                "failed",
+            }:
                 return
             time.sleep(interval_seconds)
     except KeyboardInterrupt:

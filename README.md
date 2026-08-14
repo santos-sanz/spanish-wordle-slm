@@ -55,6 +55,21 @@ caffeinate -dimsu uv run wordle-slm train-preference
 uv run wordle-slm visualize-preference --watch --interval 15
 ```
 
+Continue the selected DPO policy to a larger total iteration target while the
+original SFT adapter remains the fixed reference:
+
+```bash
+caffeinate -dimsu uv run wordle-slm train-preference \
+  --resume --iterations 3000 --evaluate-every 100 --patience 8
+```
+
+The continuation uses all 1,960 training preference pairs, never reads the
+hidden test split, caches fixed-reference log probabilities, respects the
+cumulative 5 h 45 min training budget, and stops early after eight validation
+checks without a material improvement. The optimizer state cannot be recovered
+from the already completed 400-iteration run, so the continuation resumes the
+policy weights with a fresh AdamW state at the same `1e-6` learning rate.
+
 DPO uses the SFT checkpoint at iteration 2,900 as a fixed reference and directly
 increases the probability margin of the solver's action over a weaker valid
 action. It is an offline preference-optimization alternative to GRPO: MLX-LM

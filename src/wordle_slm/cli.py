@@ -33,6 +33,10 @@ def main() -> None:
     subparsers.add_parser("prepare-preferences")
     preference_parser = subparsers.add_parser("train-preference")
     preference_parser.add_argument("--smoke", action="store_true")
+    preference_parser.add_argument("--iterations", type=int)
+    preference_parser.add_argument("--resume", action="store_true")
+    preference_parser.add_argument("--patience", type=int, default=8)
+    preference_parser.add_argument("--evaluate-every", type=int)
     preference_visualization_parser = subparsers.add_parser("visualize-preference")
     preference_visualization_parser.add_argument("--smoke", action="store_true")
     preference_visualization_parser.add_argument("--watch", action="store_true")
@@ -62,7 +66,15 @@ def main() -> None:
     elif arguments.command == "prepare-preferences":
         _print(generate_preference_data())
     elif arguments.command == "train-preference":
-        _print(train_dpo(smoke=arguments.smoke))
+        _print(
+            train_dpo(
+                smoke=arguments.smoke,
+                target_iterations=arguments.iterations,
+                resume=arguments.resume,
+                patience=arguments.patience,
+                evaluate_every=arguments.evaluate_every,
+            )
+        )
     elif arguments.command == "visualize-preference":
         if arguments.watch:
             watch_preference_dashboard(arguments.interval)

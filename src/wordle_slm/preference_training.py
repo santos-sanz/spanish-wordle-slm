@@ -19,7 +19,7 @@ from mlx_lm.tuner.utils import linear_to_lora_layers, print_trainable_parameters
 
 from .data import ROOT
 from .preferences import PREFERENCE_DIR, generate_preference_data
-from .training import ADAPTER_DIR, MODEL_DIR
+from .training import ADAPTER_DIR, MAX_WALL_SECONDS, MODEL_DIR, RUN_DIR
 
 PREFERENCE_RUN_DIR = ROOT / "artifacts" / "runs" / "preference"
 REFERENCE_ADAPTER = ADAPTER_DIR / "selected"
@@ -141,10 +141,14 @@ def _reference_logps(
     model: nn.Module,
     pairs: list[PreparedPair],
     pad_token: int,
+    *,
+    deadline: float | None = None,
 ) -> list[tuple[float, float]]:
     model.eval()
     values: list[tuple[float, float]] = []
     for index, pair in enumerate(pairs, start=1):
+        if deadline is not None and time.monotonic() >= deadline - 300:
+            raise RuntimeError("preference reference cache exhausted the training budget")
         tokens, mask = _batch(pair, pad_token)
         logps = _completion_logps(model, tokens, mask)
         mx.eval(logps)
@@ -153,6 +157,53 @@ def _reference_logps(
             print(f"Reference log probabilities: {index}/{len(pairs)}", flush=True)
         mx.clear_cache()
     return values
+
+
+def _records_sha256(records: list[dict[str, Any]]) -> str:
+    payload = json.dumps(records, ensure_ascii=False, sort_keys=True).encode()
+    return hashlib.sha256(payload).hexdigest()
+
+
+def _cached_reference_logps(
+    model: nn.Module,
+    pairs: list[PreparedPair],
+    records: list[dict[str, Any]],
+    pad_token: int,
+    run_name: str,
+    deadline: float,
+) -> list[tuple[float, float]]:
+    key = hashlib.sha256(
+        (
+            _sha256(REFERENCE_ADAPTER / "adapters.safetensors")
+            + _records_sha256(records)
+        ).encode()
+    ).hexdigest()[:16]
+    cache = PREFERENCE_RUN_DIR / f"reference-{run_name}-{key}.npz"
+    if cache.exists():
+        values = np.load(cache)["values"]
+        if values.shape == (len(pairs), 2):
+            print(f"Loaded {len(pairs)} cached reference log probabilities", flush=True)
+            return [(float(row[0]), float(row[1])) for row in values]
+    references = _reference_logps(model, pairs, pad_token, deadline=deadline)
+    np.savez_compressed(cache, values=np.asarray(references, dtype=np.float32))
+    return references
+
+
+def _load_metrics(path: Path) -> list[dict[str, Any]]:
+    if not path.exists():
+        return []
+    rows: list[dict[str, Any]] = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if line.strip():
+            rows.append(json.loads(line))
+    return rows
+
+
+def _training_elapsed_seconds() -> float:
+    state = RUN_DIR / "state.json"
+    if not state.exists():
+        return 0.0
+    return float(json.loads(state.read_text(encoding="utf-8"))["elapsed_seconds"])
 
 
 def _evaluate(
@@ -198,25 +249,76 @@ def _save_adapter(model: nn.Module, output: Path, config: dict[str, Any], iterat
     return checkpoint
 
 
-def train_dpo(*, smoke: bool = False) -> dict[str, Any]:
+def train_dpo(
+    *,
+    smoke: bool = False,
+    target_iterations: int | None = None,
+    resume: bool = False,
+    patience: int = 8,
+    evaluate_every: int | None = None,
+) -> dict[str, Any]:
     if not PREFERENCE_DIR.joinpath("train.jsonl").exists():
         generate_preference_data()
-    iterations = 5 if smoke else 400
-    train_limit = 12 if smoke else 800
+    default_iterations = 5 if smoke else 400
+    iterations = target_iterations or default_iterations
+    if iterations <= 0:
+        raise ValueError("target iterations must be positive")
+    train_limit = 12 if smoke else 10_000
     valid_limit = 8 if smoke else 80
     beta = 0.2
     label_smoothing = 0.05
     learning_rate = 1e-6
     report_every = 1 if smoke else 10
-    evaluate_every = 5 if smoke else 50
-    save_every = 5 if smoke else 50
+    evaluate_every = evaluate_every or (5 if smoke else 50)
+    if evaluate_every <= 0:
+        raise ValueError("evaluation interval must be positive")
+    save_every = evaluate_every
     output = ADAPTER_DIR / ("dpo-smoke" if smoke else "dpo")
     selected_output = ADAPTER_DIR / ("dpo-smoke-selected" if smoke else "dpo-selected")
-    shutil.rmtree(output, ignore_errors=True)
     PREFERENCE_RUN_DIR.mkdir(parents=True, exist_ok=True)
     run_name = "dpo-smoke" if smoke else "dpo"
     log_path = PREFERENCE_RUN_DIR / f"{run_name}.log"
     metrics_path = PREFERENCE_RUN_DIR / f"{run_name}.metrics.jsonl"
+    result_path = PREFERENCE_RUN_DIR / f"{run_name}.json"
+    state_path = PREFERENCE_RUN_DIR / f"{run_name}.state.json"
+    previous_result: dict[str, Any] = {}
+    previous_elapsed = 0.0
+    start_iteration = 0
+    if resume:
+        if not result_path.exists() or not selected_output.joinpath(
+            "adapters.safetensors"
+        ).exists():
+            raise RuntimeError("a selected DPO adapter is required to resume")
+        previous_result = json.loads(result_path.read_text(encoding="utf-8"))
+        start_iteration = int(previous_result["iterations"])
+        previous_elapsed = float(previous_result.get("elapsed_seconds", 0.0))
+        if iterations <= start_iteration:
+            raise ValueError(
+                f"target iterations ({iterations}) must exceed resume iteration "
+                f"({start_iteration})"
+            )
+    else:
+        shutil.rmtree(output, ignore_errors=True)
+
+    remaining_budget = (
+        MAX_WALL_SECONDS - _training_elapsed_seconds() - previous_elapsed
+        if not smoke
+        else 1800.0
+    )
+    if remaining_budget < 600:
+        raise RuntimeError("less than ten minutes remain in the cumulative training budget")
+    stage_started = time.monotonic()
+    deadline = stage_started + remaining_budget
+    state = {
+        "status": "running",
+        "resume": resume,
+        "start_iteration": start_iteration,
+        "iterations_planned": iterations,
+        "patience": patience,
+        "evaluate_every": evaluate_every,
+        "remaining_budget_seconds_at_start": remaining_budget,
+    }
+    state_path.write_text(json.dumps(state, indent=2) + "\n", encoding="utf-8")
 
     model, tokenizer, adapter_config = _load_policy()
     print_trainable_parameters(model)
@@ -226,21 +328,53 @@ def train_dpo(*, smoke: bool = False) -> dict[str, Any]:
     train_pairs = [_prepare_pair(tokenizer, record) for record in train_records]
     valid_pairs = [_prepare_pair(tokenizer, record) for record in valid_records]
     all_pairs = train_pairs + valid_pairs
-    references = _reference_logps(model, all_pairs, pad_token)
+    references = _cached_reference_logps(
+        model,
+        all_pairs,
+        train_records + valid_records,
+        pad_token,
+        run_name,
+        deadline,
+    )
     train_references = references[: len(train_pairs)]
     valid_references = references[len(train_pairs) :]
+    if resume:
+        model.load_weights(
+            str(selected_output / "adapters.safetensors"), strict=False
+        )
+        mx.eval(model.parameters())
+        print(f"Resumed policy weights from iteration {start_iteration}", flush=True)
 
     optimizer = optim.AdamW(learning_rate=learning_rate, weight_decay=0.01)
     loss_and_grad = nn.value_and_grad(model, _dpo_loss)
     rng = random.Random(20260814)
     order = list(range(len(train_pairs)))
-    metrics: list[dict[str, Any]] = []
+    metrics = _load_metrics(metrics_path) if resume else []
     best: tuple[float, int, Path] | None = None
-    started = time.monotonic()
+    for row in metrics:
+        if row.get("metric") != "dpo_validation":
+            continue
+        checkpoint = output / f"{int(row['iteration']):07d}_adapters.safetensors"
+        candidate = (float(row["loss"]), int(row["iteration"]), checkpoint)
+        if checkpoint.exists() and (best is None or candidate[0] < best[0]):
+            best = candidate
+    stale_evaluations = 0
+    if best is not None:
+        stale_evaluations = sum(
+            1
+            for row in metrics
+            if row.get("metric") == "dpo_validation"
+            and int(row["iteration"]) > best[1]
+        )
+    completed_iteration = start_iteration
+    stop_reason = "target_reached"
     model.train()
-    with log_path.open("w", encoding="utf-8") as log:
-        for iteration in range(1, iterations + 1):
-            if (iteration - 1) % len(order) == 0:
+    completed_epochs = start_iteration // len(order)
+    for _ in range(completed_epochs + 1):
+        rng.shuffle(order)
+    with log_path.open("a" if resume else "w", encoding="utf-8") as log:
+        for iteration in range(start_iteration + 1, iterations + 1):
+            if iteration > start_iteration + 1 and (iteration - 1) % len(order) == 0:
                 rng.shuffle(order)
             pair_index = order[(iteration - 1) % len(order)]
             tokens, mask = _batch(train_pairs[pair_index], pad_token)
@@ -307,8 +441,33 @@ def train_dpo(*, smoke: bool = False) -> dict[str, Any]:
                 ]
                 latest_validation = validation_rows[-1]
                 candidate = (float(latest_validation["loss"]), iteration, checkpoint)
-                if best is None or candidate[0] < best[0]:
+                if best is None or candidate[0] < best[0] - 1e-4:
                     best = candidate
+                    stale_evaluations = 0
+                else:
+                    stale_evaluations += 1
+                state.update(
+                    {
+                        "completed_iteration": iteration,
+                        "best_iteration": best[1],
+                        "best_validation_loss": best[0],
+                        "stale_evaluations": stale_evaluations,
+                        "elapsed_seconds": previous_elapsed
+                        + time.monotonic()
+                        - stage_started,
+                    }
+                )
+                state_path.write_text(
+                    json.dumps(state, indent=2) + "\n", encoding="utf-8"
+                )
+                if patience > 0 and stale_evaluations >= patience:
+                    stop_reason = "early_stopping"
+                elif time.monotonic() >= deadline - 300:
+                    stop_reason = "budget_exhausted"
+                if stop_reason != "target_reached":
+                    completed_iteration = iteration
+                    break
+            completed_iteration = iteration
             mx.clear_cache()
 
     metrics_path.write_text(
@@ -324,8 +483,13 @@ def train_dpo(*, smoke: bool = False) -> dict[str, Any]:
     result = {
         "method": "dpo",
         "mode": "smoke" if smoke else "full",
-        "iterations": iterations,
-        "elapsed_seconds": time.monotonic() - started,
+        "iterations": completed_iteration,
+        "target_iterations": iterations,
+        "resumed_from_iteration": start_iteration if resume else None,
+        "optimizer_state_resumed": False,
+        "stop_reason": stop_reason,
+        "elapsed_seconds": previous_elapsed + time.monotonic() - stage_started,
+        "stage_elapsed_seconds": time.monotonic() - stage_started,
         "peak_memory_gb": mx.get_peak_memory() / 1e9,
         "best_validation_loss": best[0],
         "best_iteration": best[1],
@@ -334,8 +498,20 @@ def train_dpo(*, smoke: bool = False) -> dict[str, Any]:
         ),
         "adapter_path": str(output.relative_to(ROOT)),
         "selected_adapter_path": str(selected_output.relative_to(ROOT)),
+        "train_pairs": len(train_pairs),
+        "validation_pairs": len(valid_pairs),
     }
-    PREFERENCE_RUN_DIR.joinpath(f"{run_name}.json").write_text(
+    result_path.write_text(
         json.dumps(result, indent=2) + "\n", encoding="utf-8"
     )
+    state.update(
+        {
+            "status": stop_reason,
+            "completed_iteration": completed_iteration,
+            "best_iteration": best[1],
+            "best_validation_loss": best[0],
+            "elapsed_seconds": result["elapsed_seconds"],
+        }
+    )
+    state_path.write_text(json.dumps(state, indent=2) + "\n", encoding="utf-8")
     return result
