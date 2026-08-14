@@ -198,7 +198,8 @@ def render_preference_dashboard(*, smoke: bool = False) -> dict[str, Any]:
         color="#7A4500",
         arrowprops={"arrowstyle": "-", "color": "#A15C00", "linewidth": 0.9},
     )
-    axis.set_ylim(bottom=0, top=max(0.76, max(train_losses) * 1.08))
+    observed_losses = train_losses + [float(row["loss"]) for row in validation]
+    axis.set_ylim(bottom=0, top=max(0.76, max(observed_losses) * 1.08))
     axis.set_xlim(left=0, right=max(current * 1.05, planned * 0.05))
     axis.set_xlabel("Preference optimizer iteration", fontsize=10, labelpad=10)
     axis.set_ylabel("DPO objective (lower is better)", fontsize=10, labelpad=10)
