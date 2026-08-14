@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-08-14T13:58:59.422251+00:00",
+  "iteration": 400,
+  "iterations_planned": 400,
+  "best_validation_loss": 0.24448368065059184,
+  "best_validation_iteration": 400,
+  "validation_reward_accuracy": 0.9875,
+  "validation_reward_margin": 2.3940625302493572,
+  "peak_memory_gb": 3.222331042,
+  "png": "artifacts/preference/dpo-curves.png",
+  "svg": "artifacts/preference/dpo-curves.svg"
+}

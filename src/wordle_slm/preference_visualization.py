@@ -214,8 +214,8 @@ def render_preference_dashboard(*, smoke: bool = False) -> dict[str, Any]:
         "validation_reward_accuracy": float(latest_validation["reward_accuracy"]),
         "validation_reward_margin": float(latest_validation["reward_margin"]),
         "peak_memory_gb": peak_memory,
-        "png": str(png_path),
-        "svg": str(svg_path),
+        "png": str(png_path.relative_to(ROOT)),
+        "svg": str(svg_path.relative_to(ROOT)),
     }
     OUTPUT_DIR.joinpath(f"{prefix}-status.json").write_text(
         json.dumps(summary, indent=2) + "\n", encoding="utf-8"

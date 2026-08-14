@@ -1,0 +1,12 @@
+{
+  "method": "dpo",
+  "mode": "full",
+  "iterations": 400,
+  "elapsed_seconds": 1264.3041738749998,
+  "peak_memory_gb": 3.222331042,
+  "best_validation_loss": 0.24448368065059184,
+  "best_iteration": 400,
+  "reference_adapter_sha256": "cd45874847a25ba81e3e8b0402322230e3d54083210b9b1631a77e3b2db82099",
+  "adapter_path": "adapters/dpo",
+  "selected_adapter_path": "adapters/dpo-selected"
+}

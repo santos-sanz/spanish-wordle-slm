@@ -289,13 +289,18 @@ def train_dpo(*, smoke: bool = False) -> dict[str, Any]:
                 config = {
                     **adapter_config,
                     "method": "dpo",
-                    "reference_adapter": str(REFERENCE_ADAPTER),
+                    "adapter_path": "adapters/dpo-selected",
+                    "config": "configs/lora-reference.yaml",
+                    "data": "data/training",
+                    "model": "LiquidAI/LFM2.5-2.6B-MLX-6bit",
+                    "reference_adapter": "adapters/selected",
                     "beta": beta,
                     "label_smoothing": label_smoothing,
                     "learning_rate": learning_rate,
                     "preference_seed": 20260814,
-                    "preference_manifest": str(PREFERENCE_DIR / "manifest.json"),
+                    "preference_manifest": "data/preferences/manifest.json",
                 }
+                config.pop("resume_adapter_file", None)
                 checkpoint = _save_adapter(model, output, config, iteration)
                 validation_rows = [
                     row for row in metrics if row["metric"] == "dpo_validation"
@@ -327,8 +332,8 @@ def train_dpo(*, smoke: bool = False) -> dict[str, Any]:
         "reference_adapter_sha256": _sha256(
             REFERENCE_ADAPTER / "adapters.safetensors"
         ),
-        "adapter_path": str(output),
-        "selected_adapter_path": str(selected_output),
+        "adapter_path": str(output.relative_to(ROOT)),
+        "selected_adapter_path": str(selected_output.relative_to(ROOT)),
     }
     PREFERENCE_RUN_DIR.joinpath(f"{run_name}.json").write_text(
         json.dumps(result, indent=2) + "\n", encoding="utf-8"
