@@ -35,6 +35,16 @@ Start the time-bounded training run (maximum cumulative wall time: 5h45m):
 caffeinate -dimsu uv run wordle-slm train
 ```
 
+Generate the loss dashboard once, or keep it refreshed while training:
+
+```bash
+uv run wordle-slm visualize-training
+uv run wordle-slm visualize-training --watch --interval 15
+```
+
+The PNG, SVG, machine-readable status, and normalized metric history are written
+under `artifacts/training/`.
+
 Serve the trained adapter:
 
 ```bash
