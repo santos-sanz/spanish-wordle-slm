@@ -24,6 +24,7 @@ from .training import ADAPTER_DIR, MAX_WALL_SECONDS, MODEL_DIR, RUN_DIR
 PREFERENCE_RUN_DIR = ROOT / "artifacts" / "runs" / "preference"
 REFERENCE_ADAPTER = ADAPTER_DIR / "selected"
 DPO_ADAPTER = ADAPTER_DIR / "dpo"
+PREFERENCE_BUDGET_PATH = PREFERENCE_RUN_DIR / "budget.json"
 
 
 @dataclass(frozen=True)
@@ -72,7 +73,8 @@ def _prepare_pair(tokenizer: Any, record: dict[str, Any]) -> PreparedPair:
 
 
 def _batch(pair: PreparedPair, pad_token: int) -> tuple[mx.array, mx.array]:
-    length = max(len(pair.chosen), len(pair.rejected))
+    unpadded_length = max(len(pair.chosen), len(pair.rejected))
+    length = ((unpadded_length + 15) // 16) * 16
     tokens = np.full((2, length), pad_token, dtype=np.int32)
     masks = np.zeros((2, length - 1), dtype=np.float32)
     for row, (values, start) in enumerate(
@@ -103,8 +105,11 @@ def _dpo_loss(
     reference_logratio = reference_logps[0] - reference_logps[1]
     preference_logit = beta * (policy_logratio - reference_logratio)
     positive_loss = mx.logaddexp(mx.array(0.0), -preference_logit)
-    negative_loss = mx.logaddexp(mx.array(0.0), preference_logit)
-    loss = (1 - label_smoothing) * positive_loss + label_smoothing * negative_loss
+    if label_smoothing == 0:
+        loss = positive_loss
+    else:
+        negative_loss = mx.logaddexp(mx.array(0.0), preference_logit)
+        loss = (1 - label_smoothing) * positive_loss + label_smoothing * negative_loss
     chosen_reward = beta * (policy_logps[0] - reference_logps[0])
     rejected_reward = beta * (policy_logps[1] - reference_logps[1])
     margin = chosen_reward - rejected_reward
@@ -206,6 +211,23 @@ def _training_elapsed_seconds() -> float:
     return float(json.loads(state.read_text(encoding="utf-8"))["elapsed_seconds"])
 
 
+def _preference_elapsed_seconds() -> float:
+    if not PREFERENCE_BUDGET_PATH.exists():
+        return 0.0
+    return float(
+        json.loads(PREFERENCE_BUDGET_PATH.read_text(encoding="utf-8"))[
+            "elapsed_seconds"
+        ]
+    )
+
+
+def _write_preference_budget(elapsed_seconds: float) -> None:
+    PREFERENCE_BUDGET_PATH.write_text(
+        json.dumps({"elapsed_seconds": elapsed_seconds}, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+
 def _evaluate(
     model: nn.Module,
     pairs: list[PreparedPair],
@@ -256,6 +278,7 @@ def train_dpo(
     resume: bool = False,
     patience: int = 8,
     evaluate_every: int | None = None,
+    label_smoothing: float = 0.05,
 ) -> dict[str, Any]:
     if not PREFERENCE_DIR.joinpath("train.jsonl").exists():
         generate_preference_data()
@@ -266,7 +289,8 @@ def train_dpo(
     train_limit = 12 if smoke else 10_000
     valid_limit = 8 if smoke else 80
     beta = 0.2
-    label_smoothing = 0.05
+    if not 0 <= label_smoothing < 0.5:
+        raise ValueError("label smoothing must be in [0, 0.5)")
     learning_rate = 1e-6
     report_every = 1 if smoke else 10
     evaluate_every = evaluate_every or (5 if smoke else 50)
@@ -299,9 +323,13 @@ def train_dpo(
             )
     else:
         shutil.rmtree(output, ignore_errors=True)
+        log_path.unlink(missing_ok=True)
+        metrics_path.unlink(missing_ok=True)
+        result_path.unlink(missing_ok=True)
 
+    preference_elapsed = _preference_elapsed_seconds()
     remaining_budget = (
-        MAX_WALL_SECONDS - _training_elapsed_seconds() - previous_elapsed
+        MAX_WALL_SECONDS - _training_elapsed_seconds() - preference_elapsed
         if not smoke
         else 1800.0
     )
@@ -316,6 +344,13 @@ def train_dpo(
         "iterations_planned": iterations,
         "patience": patience,
         "evaluate_every": evaluate_every,
+        "label_smoothing": label_smoothing,
+        "theoretical_loss_floor": (
+            -(1 - label_smoothing) * np.log(1 - label_smoothing)
+            - label_smoothing * np.log(label_smoothing)
+            if label_smoothing > 0
+            else 0.0
+        ),
         "remaining_budget_seconds_at_start": remaining_budget,
     }
     state_path.write_text(json.dumps(state, indent=2) + "\n", encoding="utf-8")
@@ -460,6 +495,10 @@ def train_dpo(
                 state_path.write_text(
                     json.dumps(state, indent=2) + "\n", encoding="utf-8"
                 )
+                if not smoke:
+                    _write_preference_budget(
+                        preference_elapsed + time.monotonic() - stage_started
+                    )
                 if patience > 0 and stale_evaluations >= patience:
                     stop_reason = "early_stopping"
                 elif time.monotonic() >= deadline - 300:
@@ -500,6 +539,8 @@ def train_dpo(
         "selected_adapter_path": str(selected_output.relative_to(ROOT)),
         "train_pairs": len(train_pairs),
         "validation_pairs": len(valid_pairs),
+        "label_smoothing": label_smoothing,
+        "theoretical_loss_floor": state["theoretical_loss_floor"],
     }
     result_path.write_text(
         json.dumps(result, indent=2) + "\n", encoding="utf-8"
@@ -514,4 +555,6 @@ def train_dpo(
         }
     )
     state_path.write_text(json.dumps(state, indent=2) + "\n", encoding="utf-8")
+    if not smoke:
+        _write_preference_budget(float(result["elapsed_seconds"]) - previous_elapsed + preference_elapsed)
     return result

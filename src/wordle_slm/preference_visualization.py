@@ -77,6 +77,13 @@ def render_preference_dashboard(*, smoke: bool = False) -> dict[str, Any]:
     )
     planned = int(state.get("iterations_planned", 5 if smoke else 400))
     run_status = str(state.get("status", "unknown"))
+    label_smoothing = float(state.get("label_smoothing", 0.05))
+    theoretical_floor = (
+        -(1 - label_smoothing) * math.log(1 - label_smoothing)
+        - label_smoothing * math.log(label_smoothing)
+        if label_smoothing > 0
+        else 0.0
+    )
     current = max(int(row["iteration"]) for row in rows)
     progress = min(current / planned, 1.0)
     best = min(validation, key=lambda row: float(row["loss"]))
@@ -145,6 +152,13 @@ def render_preference_dashboard(*, smoke: bool = False) -> dict[str, Any]:
         linestyle=":",
         linewidth=1.1,
         label="Unchanged-policy baseline · ln(2)",
+    )
+    axis.axhline(
+        theoretical_floor,
+        color="#586474",
+        linestyle="--",
+        linewidth=1.0,
+        label=f"Theoretical floor · ε={label_smoothing:g}",
     )
     axis.plot(
         train_iterations,
@@ -218,6 +232,8 @@ def render_preference_dashboard(*, smoke: bool = False) -> dict[str, Any]:
         "iteration": current,
         "iterations_planned": planned,
         "run_status": run_status,
+        "label_smoothing": label_smoothing,
+        "theoretical_loss_floor": theoretical_floor,
         "best_validation_loss": float(best["loss"]),
         "best_validation_iteration": int(best["iteration"]),
         "validation_reward_accuracy": float(latest_validation["reward_accuracy"]),
@@ -235,7 +251,12 @@ def render_preference_dashboard(*, smoke: bool = False) -> dict[str, Any]:
 def watch_preference_dashboard(interval_seconds: float = 15.0) -> None:
     try:
         while True:
-            summary = render_preference_dashboard()
+            try:
+                summary = render_preference_dashboard()
+            except RuntimeError as error:
+                print(f"waiting for preference metrics: {error}", flush=True)
+                time.sleep(interval_seconds)
+                continue
             print(
                 f"iteration={summary['iteration']}/{summary['iterations_planned']} "
                 f"best={summary['best_validation_loss']:.3f} "

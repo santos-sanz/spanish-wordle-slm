@@ -70,6 +70,18 @@ checks without a material improvement. The optimizer state cannot be recovered
 from the already completed 400-iteration run, so the continuation resumes the
 policy weights with a fresh AdamW state at the same `1e-6` learning rate.
 
+To restart DPO from the selected SFT checkpoint with a theoretical loss floor
+of zero, omit `--resume` and disable preference label smoothing explicitly:
+
+```bash
+caffeinate -dimsu uv run wordle-slm train-preference \
+  --iterations 3000 --evaluate-every 100 --patience 8 --label-smoothing 0
+```
+
+With `label_smoothing=0`, zero is an asymptotic infimum rather than a value that
+finite model weights are guaranteed to attain. Validation checkpoint selection,
+early stopping, and the cumulative wall-clock watchdog remain authoritative.
+
 DPO uses the SFT checkpoint at iteration 2,900 as a fixed reference and directly
 increases the probability margin of the solver's action over a weaker valid
 action. It is an offline preference-optimization alternative to GRPO: MLX-LM

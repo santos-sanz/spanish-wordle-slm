@@ -37,6 +37,7 @@ def main() -> None:
     preference_parser.add_argument("--resume", action="store_true")
     preference_parser.add_argument("--patience", type=int, default=8)
     preference_parser.add_argument("--evaluate-every", type=int)
+    preference_parser.add_argument("--label-smoothing", type=float, default=0.05)
     preference_visualization_parser = subparsers.add_parser("visualize-preference")
     preference_visualization_parser.add_argument("--smoke", action="store_true")
     preference_visualization_parser.add_argument("--watch", action="store_true")
@@ -73,6 +74,7 @@ def main() -> None:
                 resume=arguments.resume,
                 patience=arguments.patience,
                 evaluate_every=arguments.evaluate_every,
+                label_smoothing=arguments.label_smoothing,
             )
         )
     elif arguments.command == "visualize-preference":
