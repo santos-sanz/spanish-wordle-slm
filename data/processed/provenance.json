@@ -1,0 +1,27 @@
+{
+  "answers": {
+    "url": "https://raw.githubusercontent.com/adrian154/blog/093fe54b5425beb8ab8e4599256f6aee2e405938/public/blogposts/wordle-es-wordlist/wordle-words.txt",
+    "commit": "093fe54b5425beb8ab8e4599256f6aee2e405938",
+    "sha256": "f79c1dcf0d9841623b1bc9004eda80e58a3d855615b9278561808a4bd081be6a",
+    "raw_count": 617,
+    "normalized_count": 616
+  },
+  "guesses": {
+    "url": "https://raw.githubusercontent.com/cjsaavedra76/WORDLE-ES-resolver_csr/c85f31b94b0805cace081b51c983315bc66302ee/wordle-es-resolver_csr.py",
+    "commit": "c85f31b94b0805cace081b51c983315bc66302ee",
+    "sha256": "b9caa1c47c915b3c5ff9c1c3133302ce258e3d23c4f7b6f1316b06f40dcd1613",
+    "raw_count": 11180,
+    "normalized_union_count": 11088
+  },
+  "split_seed": 20260814,
+  "split_counts": {
+    "train": 431,
+    "valid": 61,
+    "test": 124
+  },
+  "matrix_shape": [
+    11088,
+    616
+  ],
+  "matrix_sha256": "e203d4fa925055f58dbbc68c0e5bdf307e5ce96823255fd4a04beacc8aa5eaca"
+}

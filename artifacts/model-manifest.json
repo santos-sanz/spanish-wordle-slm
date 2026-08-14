@@ -1,0 +1,7 @@
+{
+  "model_id": "LiquidAI/LFM2.5-2.6B-MLX-6bit",
+  "revision": "95f71f1c30e3247bc7f042c6fd64d7ca60258780",
+  "weight_file": "model.safetensors",
+  "weight_size": 2191851544,
+  "weight_sha256": "c78541214b57816a6b97b7676db7943b036b65b6edfce5fdf0181bb76b25646a"
+}

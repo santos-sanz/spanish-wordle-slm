@@ -1,0 +1,17 @@
+.DS_Store
+.env
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.py[cod]
+node_modules/
+.npm-cache/
+dist/
+models/
+adapters/
+checkpoints/
+artifacts/runs/*/raw/
+data/cache/
+*.log
+artifacts/runs/training/*.yaml

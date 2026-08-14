@@ -1,0 +1,32 @@
+{
+  "answers": 616,
+  "guesses": 11088,
+  "splits": {
+    "train": 431,
+    "valid": 61,
+    "test": 124
+  },
+  "matrix_sha256": "e203d4fa925055f58dbbc68c0e5bdf307e5ce96823255fd4a04beacc8aa5eaca",
+  "matrix_exhaustive_check": true,
+  "oracle": {
+    "answers": 616,
+    "solved": 616,
+    "failures": [],
+    "mean_turns": 3.034090909090909,
+    "max_turns": 5
+  },
+  "training_tokenization": {
+    "train": {
+      "records": 8866,
+      "zero_supervised": 0,
+      "over_512": 0,
+      "longest_tokens": 425
+    },
+    "valid": {
+      "records": 1260,
+      "zero_supervised": 0,
+      "over_512": 0,
+      "longest_tokens": 425
+    }
+  }
+}

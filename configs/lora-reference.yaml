@@ -1,0 +1,23 @@
+# The executable training command writes the calibrated configuration under
+# artifacts/runs/training/. This file documents the frozen starting policy.
+model: models/LFM2.5-2.6B-MLX-6bit
+train: true
+fine_tune_type: lora
+optimizer: adamw
+data: data/training
+seed: 20260814
+num_layers: 8
+batch_size: 1
+val_batches: 20
+learning_rate: 2.0e-5
+steps_per_report: 5
+steps_per_eval: 50
+grad_accumulation_steps: 8
+save_every: 50
+max_seq_length: 512
+mask_prompt: true
+grad_checkpoint: true
+lora_parameters:
+  rank: 8
+  scale: 16.0
+  dropout: 0.05
