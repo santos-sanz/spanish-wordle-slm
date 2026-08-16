@@ -314,9 +314,18 @@ def train(*, smoke: bool = False) -> dict[str, Any]:
 
 
 def serve() -> None:
-    adapter = ADAPTER_DIR / "final"
+    configured_adapter = os.environ.get("WORDLE_ADAPTER_PATH")
+    adapter = (
+        Path(configured_adapter).expanduser()
+        if configured_adapter
+        else ADAPTER_DIR / "dpo-selected"
+    )
+    if not adapter.is_absolute():
+        adapter = ROOT / adapter
+    if not configured_adapter and not adapter.joinpath("adapters.safetensors").exists():
+        adapter = ADAPTER_DIR / "final"
     if not adapter.joinpath("adapters.safetensors").exists():
-        raise RuntimeError("final adapter is not available")
+        raise RuntimeError(f"adapter is not available: {adapter}")
     os.execvp(
         sys.executable,
         [

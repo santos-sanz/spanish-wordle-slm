@@ -95,6 +95,10 @@ Serve the trained adapter:
 uv run wordle-slm serve
 ```
 
+The server selects `adapters/dpo-selected` by default and falls back to the
+SFT adapter only when no selected DPO policy exists. Set `WORDLE_ADAPTER_PATH`
+to override it explicitly.
+
 Run one paired benchmark track and generate the statistical report:
 
 ```bash
