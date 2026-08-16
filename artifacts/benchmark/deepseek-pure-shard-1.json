@@ -1,0 +1,1277 @@
+{
+  "complete": true,
+  "targetCount": 62,
+  "targetOffset": 62,
+  "summary": {
+    "provider": "deepseek",
+    "model": "deepseek/deepseek-v4-flash-0731",
+    "track": "pure",
+    "split": "test",
+    "games": 62,
+    "wins": 0,
+    "winRate": 0,
+    "meanScoredTurns": 7,
+    "invalidActions": 28,
+    "toolCalls": 0,
+    "latencyMs": 530865.0265820001,
+    "inputTokens": 11750,
+    "outputTokens": 23470,
+    "costUsd": 0.008216600000000001,
+    "errors": 50,
+    "effectiveProviders": [
+      "openrouter"
+    ],
+    "responseModels": [
+      "deepseek/deepseek-v4-flash-0731"
+    ]
+  },
+  "games": [
+    {
+      "target": "jamas",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 48801.47012500001,
+      "inputTokens": 1199,
+      "outputTokens": 2469,
+      "costUsd": 0.00085918,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "12000"
+        },
+        {
+          "guess": "casco",
+          "feedback": "02100"
+        }
+      ]
+    },
+    {
+      "target": "jugar",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 33807.52762500001,
+      "inputTokens": 781,
+      "outputTokens": 1608,
+      "costUsd": 0.0005595800000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01002"
+        }
+      ]
+    },
+    {
+      "target": "justo",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 35996.41770800002,
+      "inputTokens": 781,
+      "outputTokens": 1751,
+      "costUsd": 0.0005996200000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "10000"
+        }
+      ]
+    },
+    {
+      "target": "koala",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 50675.006499999974,
+      "inputTokens": 1199,
+      "outputTokens": 2601,
+      "costUsd": 0.0008961399999999999,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01100"
+        },
+        {
+          "guess": "clavo",
+          "feedback": "01201"
+        }
+      ]
+    },
+    {
+      "target": "kurdo",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 32013.959500000026,
+      "inputTokens": 781,
+      "outputTokens": 1603,
+      "costUsd": 0.0005581800000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00001"
+        }
+      ]
+    },
+    {
+      "target": "labio",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 6286.544374999998,
+      "inputTokens": 175,
+      "outputTokens": 312,
+      "costUsd": 0.00011186,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": [
+        {
+          "guess": "salen",
+          "feedback": "02100"
+        }
+      ]
+    },
+    {
+      "target": "leche",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "legua",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "lejos",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "libro",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "lloro",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "macho",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "mania",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "manta",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "matar",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "mayor",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "media",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 31887.265041000006,
+      "inputTokens": 781,
+      "outputTokens": 1608,
+      "costUsd": 0.0005595800000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01020"
+        }
+      ]
+    },
+    {
+      "target": "menor",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 1,
+      "toolCalls": 0,
+      "latencyMs": 16447.955749999965,
+      "inputTokens": 566,
+      "outputTokens": 853,
+      "costUsd": 0.00031808000000000004,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00002"
+        },
+        {
+          "guess": "mujer",
+          "feedback": "20012"
+        }
+      ]
+    },
+    {
+      "target": "metro",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "mosca",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "nariz",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "negro",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 39746.16320900002,
+      "inputTokens": 781,
+      "outputTokens": 1603,
+      "costUsd": 0.0005581800000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00001"
+        }
+      ]
+    },
+    {
+      "target": "nueva",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 1912.9359169999952,
+      "inputTokens": 175,
+      "outputTokens": 67,
+      "costUsd": 0.00004326,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01000"
+        }
+      ]
+    },
+    {
+      "target": "olivo",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "pasta",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "patio",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "peaje",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "pinta",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "pinza",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "pollo",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "polvo",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "pongo",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "preso",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "prisa",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "pulpa",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "quema",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "ruedo",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "rumba",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "sabio",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "salmo",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "salsa",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "sanar",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "sarza",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 52376.55312499998,
+      "inputTokens": 781,
+      "outputTokens": 1604,
+      "costUsd": 0.0005584600000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "22001"
+        }
+      ]
+    },
+    {
+      "target": "sauco",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 62542.19187499996,
+      "inputTokens": 1199,
+      "outputTokens": 2424,
+      "costUsd": 0.00084658,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "22000"
+        },
+        {
+          "guess": "santo",
+          "feedback": "22002"
+        }
+      ]
+    },
+    {
+      "target": "secar",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "secta",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "sexta",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "señal",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "siete",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "signo",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "sorda",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "tallo",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "tarde",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "tibio",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "tieso",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "trama",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "tribu",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "tumor",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "valla",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 0,
+      "latencyMs": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUsd": 0,
+      "effectiveProviders": [],
+      "responseModels": [],
+      "errors": [
+        "Pi provider error: 429: {\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"deepseek/deepseek-v4-flash-0731 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"StreamLake\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing\"}}"
+      ],
+      "history": []
+    },
+    {
+      "target": "vapor",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 43230.51029100001,
+      "inputTokens": 781,
+      "outputTokens": 1603,
+      "costUsd": 0.0005581800000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "02002"
+        }
+      ]
+    },
+    {
+      "target": "vejez",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 37289.95749900001,
+      "inputTokens": 989,
+      "outputTokens": 1760,
+      "costUsd": 0.0006312599999999999,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00000"
+        },
+        {
+          "guess": "buceo",
+          "feedback": "00020"
+        }
+      ]
+    },
+    {
+      "target": "vieja",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 37850.56804200006,
+      "inputTokens": 781,
+      "outputTokens": 1604,
+      "costUsd": 0.0005584600000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01010"
+        }
+      ]
+    }
+  ]
+}

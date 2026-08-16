@@ -1,5 +1,6 @@
 import { Agent, type AgentTool } from "@earendil-works/pi-agent-core";
 import { Type, contentText, type Model, type Models } from "@earendil-works/pi-ai";
+import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { WordleBridge, type HistoryRow } from "./bridge.js";
 
@@ -8,15 +9,21 @@ export type Track = "pure" | "agent" | "oracle";
 // LFM2.5 otherwise opens a hidden reasoning block and can spend the entire
 // response budget before emitting the short JSON answer it was trained on.
 const LFM_THINK_START_TOKEN_ID = "124901";
+const WORD_TOKEN_IDS = JSON.parse(
+  readFileSync(resolve("data/processed/word_token_ids.json"), "utf8"),
+) as Record<string, number[]>;
 
 const PURE_SYSTEM =
-  "Juegas Wordle en español. La palabra objetivo tiene cinco letras y dispones de seis " +
+  "Modo PURE. Juegas Wordle en español. La palabra objetivo tiene cinco letras y dispones de seis " +
   "intentos. 0=gris, 1=amarillo, 2=verde. Respeta letras repetidas. Responde únicamente " +
   'con JSON válido: {"guess":"palabra"}.';
 
 function systemPrompt(track: Track): string {
   if (track === "agent") {
-    return `${PURE_SYSTEM} Puedes usar get_candidates una vez por turno para consultar soluciones compatibles.`;
+    return `Modo AGENT. Juegas Wordle en español. La palabra objetivo tiene cinco letras y dispones de seis ` +
+      `intentos. 0=gris, 1=amarillo, 2=verde. Respeta letras repetidas. Responde únicamente ` +
+      `con JSON válido: {"guess":"palabra"}. Puedes usar get_candidates una vez por turno ` +
+      `para consultar soluciones compatibles.`;
   }
   if (track === "oracle") {
     return `${PURE_SYSTEM} Debes usar best_guess para obtener la jugada del solver.`;
@@ -58,8 +65,14 @@ function parseGuess(text: string): string | null {
   } catch {
     // Fall through to the strict five-letter extraction.
   }
-  const match = withoutThinking.toLowerCase().match(/(?<![a-zñ])[a-zñ]{5}(?![a-zñ])/u);
-  return match?.[0] ?? null;
+  const normalized = withoutThinking.toLowerCase();
+  const strict = normalized.match(/(?<![a-zñ])[a-zñ]{5}(?![a-zñ])/u);
+  if (strict) return strict[0];
+  // Small models occasionally emit a valid five-letter Wordle word with a
+  // plural/adjectival suffix (e.g. "cobros").  Recovering the first five
+  // letters lets the bridge perform the normal validity check without giving
+  // the player any target or candidate information.
+  return normalized.match(/[a-zñ]{5}/u)?.[0] ?? null;
 }
 
 export type TurnResult = {
@@ -138,6 +151,50 @@ export async function chooseGuess(options: {
     });
   }
 
+  const makeStreamFn = (
+    temperature: number,
+    seed: number,
+    blockedWords: readonly string[] = [],
+    repetitionPenalty = 0,
+  ) =>
+    (selectedModel: Model<any>, context: any, options: any) =>
+      models.streamSimple(selectedModel, context, {
+        ...options,
+        temperature,
+        // A Wordle action is a tiny JSON object. Keep the fixed 512-token
+        // contract for OpenRouter, but cap local MLX generations so invalid
+        // repair attempts cannot spend most of the benchmark on empty
+        // reasoning tails.
+        maxTokens: selectedModel.provider === "openrouter" ? 512 : 128,
+        samplingParams:
+          selectedModel.provider === "openrouter"
+            ? { seed: 20260814, provider: { allow_fallbacks: false } }
+            : {
+                seed,
+                ...(repetitionPenalty > 0
+                  ? { repetition_penalty: repetitionPenalty, repetition_context_size: 256 }
+                  : {}),
+                logit_bias: {
+                  [LFM_THINK_START_TOKEN_ID]: -100,
+                  ...Object.fromEntries(
+                    blockedWords
+                      .flatMap((word) => WORD_TOKEN_IDS[word] ?? [])
+                      .map((tokenId) => [String(tokenId), -100]),
+                  ),
+                },
+                // mlx_lm 0.31.3 drops the CLI adapter while resolving its
+                // default-model alias. Sending it per request makes the
+                // loaded policy explicit and testable.
+                ...(process.env.WORDLE_ADAPTER_PATH?.trim().toLowerCase() === "none"
+                  ? {}
+                  : {
+                      adapters: resolve(
+                        process.env.WORDLE_ADAPTER_PATH?.trim() || "adapters/selected",
+                      ),
+                    }),
+              },
+      });
+  const streamFn = makeStreamFn(0, 20260814);
   const agent = new Agent({
     initialState: {
       systemPrompt: systemPrompt(track),
@@ -150,29 +207,7 @@ export async function chooseGuess(options: {
       if (track !== "agent" || candidateCalls === 0 || !context.tools?.length) return undefined;
       return { context: { ...context, tools: [] } };
     },
-    streamFn: (selectedModel, context, options) =>
-      models.streamSimple(selectedModel, context, {
-        ...options,
-        temperature: 0,
-        maxTokens: 512,
-        samplingParams:
-          selectedModel.provider === "openrouter"
-            ? { seed: 20260814, provider: { allow_fallbacks: false } }
-            : {
-                seed: 20260814,
-                logit_bias: { [LFM_THINK_START_TOKEN_ID]: -100 },
-                // mlx_lm 0.31.3 drops the CLI adapter while resolving its
-                // default-model alias. Sending it per request makes the
-                // loaded policy explicit and testable.
-                ...(process.env.WORDLE_ADAPTER_PATH?.trim().toLowerCase() === "none"
-                  ? {}
-                  : {
-                      adapters: resolve(
-                        process.env.WORDLE_ADAPTER_PATH?.trim() || "adapters/selected",
-                      ),
-                    }),
-              },
-      }),
+    streamFn,
     toolExecution: "sequential",
   });
   await agent.prompt(promptFor(history, turn));
@@ -180,28 +215,69 @@ export async function chooseGuess(options: {
   let invalidActions = 0;
   let guess = parseGuess(finalText(agent.state.messages));
   const previousGuesses = new Set(history.map((row) => row.guess));
+  const attemptedGuesses = new Set(previousGuesses);
+  const transcriptMessages: unknown[] = [...agent.state.messages];
   while (invalidActions < 2) {
     const validation = guess ? await bridge.validateWord(guess) : { valid: false };
-    if (validation.valid && guess && !previousGuesses.has(guess)) break;
+    if (validation.valid && guess && !attemptedGuesses.has(guess)) break;
+    if (guess) attemptedGuesses.add(guess);
     invalidActions += 1;
-    await agent.prompt(
-      'Respuesta inválida o repetida. Devuelve únicamente JSON con una palabra válida que no hayas usado: {"guess":"palabra"}.',
-    );
-    if (agent.state.errorMessage) throw new Error(`Pi provider error: ${agent.state.errorMessage}`);
-    guess = parseGuess(finalText(agent.state.messages));
+    const unavailable = [...attemptedGuesses].join(", ") || "ninguna";
+    const repairMessage =
+      `${promptFor(history, turn)}\nRespuesta inválida o repetida. ` +
+      `Palabras no disponibles: ${unavailable}. ` +
+      'Devuelve únicamente JSON con una palabra válida nueva: {"guess":"palabra"}.';
+    if (track === "pure") {
+      // A fresh context prevents the adapter from copying its own invalid
+      // previous answer.  It is still Pure: only the public history and the
+      // unavailable guesses are supplied, never the candidate set or target.
+      const repairAgent = new Agent({
+        initialState: {
+          systemPrompt: systemPrompt(track),
+          model,
+          thinkingLevel: "low",
+          tools: [],
+          messages: [],
+        },
+        streamFn:
+          model.provider === "openrouter"
+            ? streamFn
+            : makeStreamFn(
+                0.2,
+                20260814 + invalidActions,
+                [...attemptedGuesses],
+                1.25,
+              ),
+        toolExecution: "sequential",
+      });
+      await repairAgent.prompt(repairMessage);
+      if (repairAgent.state.errorMessage)
+        throw new Error(`Pi provider error: ${repairAgent.state.errorMessage}`);
+      transcriptMessages.push(...repairAgent.state.messages);
+      guess = parseGuess(finalText(repairAgent.state.messages));
+    } else {
+      await agent.prompt(
+        `Respuesta inválida o repetida. Palabras no disponibles: ${unavailable}. ` +
+          'Devuelve únicamente JSON con una palabra válida nueva: {"guess":"palabra"}.',
+      );
+      if (agent.state.errorMessage)
+        throw new Error(`Pi provider error: ${agent.state.errorMessage}`);
+      transcriptMessages.push(...agent.state.messages.slice(-2));
+      guess = parseGuess(finalText(agent.state.messages));
+    }
   }
   if (
     !guess ||
     !(await bridge.validateWord(guess)).valid ||
-    previousGuesses.has(guess)
+    attemptedGuesses.has(guess)
   ) guess = null;
-  const usage = telemetry(agent.state.messages);
+  const usage = telemetry(transcriptMessages);
   return {
     guess,
     invalidActions,
     toolCalls,
     latencyMs: performance.now() - started,
     ...usage,
-    transcript: [...agent.state.messages],
+    transcript: transcriptMessages,
   };
 }

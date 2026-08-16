@@ -1,0 +1,5 @@
+provider,model,track,games,wins,winRate,meanScoredTurns,invalidActions,toolCalls,latencyMs,inputTokens,outputTokens,costUsd,errors
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,124,2,0.016129032258064516,6.919354838709677,325,0,12364959.481174992,138060,9027,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,124,1,0.008064516129032258,6.967741935483871,63,0,1209141.3906690003,26371,53219,0.018593260000000004,99
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,124,115,0.9274193548387096,3.967741935483871,21,477,12235613.504703011,422547,8337,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,124,8,0.06451612903225806,6.693548387096774,31,24,888248.5558750001,46455,32969,0.015935724000000002,109

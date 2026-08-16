@@ -1,0 +1,1 @@
+6c7a48c8fa56b1f08fa4f902e7c044e520aec672c71952ff489db85113cb71c6  adapters/selected/adapters.safetensors

@@ -1,0 +1,28 @@
+{
+  "success": false,
+  "criterion": "SLM must win with a positive paired 95% bootstrap CI in Pure and Agent",
+  "tracks": {
+    "pure": {
+      "targets": 124,
+      "observedWinRateDifference": 0.008064516129032258,
+      "observedTurnAdvantage": 0.04838709677419355,
+      "decisiveMetric": "win_rate",
+      "ci95": [
+        -0.016129032258064516,
+        0.03225806451612903
+      ],
+      "slmWins": false
+    },
+    "agent": {
+      "targets": 124,
+      "observedWinRateDifference": 0.8629032258064516,
+      "observedTurnAdvantage": 2.725806451612903,
+      "decisiveMetric": "win_rate",
+      "ci95": [
+        0.7983870967741935,
+        0.9193548387096774
+      ],
+      "slmWins": true
+    }
+  }
+}

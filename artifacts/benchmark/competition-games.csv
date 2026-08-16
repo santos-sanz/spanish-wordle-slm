@@ -1,0 +1,497 @@
+provider,model,track,target,solved,turns,scoredTurns,invalidActions,toolCalls,latencyMs,inputTokens,outputTokens,costUsd
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,adios,False,4,7,2,0,106840.996833,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,agrio,False,4,7,2,0,98219.03620999999,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,albur,False,4,7,2,0,100658.74304200002,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,altar,False,4,7,2,0,121712.08804299997,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,amiga,False,5,7,3,0,113447.41691599996,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,amigo,False,3,7,2,0,87780.66404299997,784,54,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,andar,False,4,7,2,0,99299.61758400011,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,arete,False,4,7,2,0,109966.71745700005,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,arpon,False,4,7,2,0,103874.19041799998,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,arroz,False,4,7,2,0,97118.71566500003,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,atril,False,4,7,2,0,92637.07816599985,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,audaz,False,5,7,3,0,162482.43325099978,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,bahia,True,2,2,0,0,20753.31299999985,215,18,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,bajon,False,4,7,2,0,114014.44149999996,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,banco,False,5,7,3,0,100331.79441700014,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,bañar,False,5,7,3,0,149498.2235839998,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,bollo,False,5,7,4,0,137335.73937500012,1428,90,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,bolso,False,5,7,4,0,158538.5698340002,1428,90,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,botar,False,4,7,2,0,93033.55737599987,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,botin,False,5,7,2,0,105339.71991799981,1099,73,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,boxeo,False,5,7,3,0,136238.87800000003,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,boxer,False,5,7,3,0,114841.67433400033,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,braza,False,4,7,2,0,121878.61620899895,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,bruja,False,4,7,2,0,89760.34600099921,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,busca,False,5,7,4,0,122045.59683299996,1428,90,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,cacao,False,5,7,3,0,114130.35362499999,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,cacho,False,3,7,2,0,85699.93350000028,792,58,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,caido,False,3,7,2,0,81575.18020900013,792,58,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,cajon,False,5,7,3,0,101120.83449899917,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,caldo,False,3,7,2,0,76573.90612500021,792,58,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,calvo,False,3,7,2,0,89637.41374999983,792,58,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,cañon,False,3,7,2,0,85855.30691599986,792,58,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,cerca,False,2,7,2,0,79853.2782920003,642,45,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,cerco,True,2,2,0,0,32886.980792000424,215,18,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,chico,False,5,7,3,0,130827.83941800008,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,chile,False,5,7,3,0,131194.27770900028,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,china,False,5,7,3,0,112424.98804100044,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,clima,False,5,7,3,0,118837.17941600038,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,cobro,False,5,7,4,0,126474.74474799959,1420,90,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,cotar,False,6,7,3,0,119984.26816600002,1247,84,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,deseo,False,5,7,3,0,136424.1264999993,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,dobla,False,4,7,2,0,69692.7881679982,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,doler,False,5,7,3,0,138388.99237599876,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,espia,False,5,7,3,0,91713.96700000111,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,fallo,False,4,7,2,0,113712.8580830004,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,falto,False,4,7,2,0,99986.3972509997,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,farsa,False,4,7,2,0,110410.05503999908,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,fauna,False,5,7,3,0,113044.51529100072,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,feliz,False,5,7,3,0,109411.269458998,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,firme,False,5,7,3,0,121201.54837500025,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,flama,False,5,7,3,0,111650.42912600096,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,flora,False,4,7,2,0,89813.61587300152,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,flota,False,4,7,2,0,87074.75141700078,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,fluir,False,5,7,3,0,109759.80320699792,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,fruto,False,5,7,3,0,140959.1457080003,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,gente,False,5,7,3,0,108574.8469170006,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,gordo,False,5,7,3,0,96527.09466500115,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,grasa,False,4,7,2,0,32370.07608400099,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,hogar,False,4,7,2,0,31399.483083000407,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,hueco,False,4,7,2,0,35042.35800000187,938,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,hueso,False,6,7,1,0,35630.18758399971,907,64,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,huevo,False,6,7,1,0,29083.801582999527,907,64,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,jamas,False,6,7,2,0,144908.27904,1081,72,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,jugar,False,4,7,2,0,117325.84858299998,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,justo,False,5,7,4,0,129952.823874,1428,90,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,koala,False,4,7,2,0,98017.62275000004,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,kurdo,False,5,7,3,0,148522.5608320001,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,labio,False,4,7,2,0,107449.52154100011,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,leche,False,5,7,3,0,142508.69383399992,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,legua,False,5,7,3,0,117052.09804399998,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,lejos,False,4,7,3,0,103341.1535019998,1105,72,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,libro,False,5,7,3,0,119342.15329100005,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,lloro,False,5,7,3,0,114959.0222909993,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,macho,False,5,7,3,0,141380.68141599977,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,mania,False,5,7,3,0,99238.95395799982,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,manta,False,5,7,3,0,116827.75912599987,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,matar,False,5,7,3,0,110238.11620899988,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,mayor,False,4,7,2,0,89134.43366800016,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,media,False,5,7,3,0,138078.18341500033,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,menor,False,5,7,3,0,116512.55470900005,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,metro,False,4,7,3,0,113165.56825100025,1105,72,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,mosca,False,4,7,2,0,78392.55629100045,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,nariz,False,4,7,2,0,126822.78129199939,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,negro,False,4,7,3,0,107974.24262399971,1105,72,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,nueva,False,5,7,3,0,110228.1095020012,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,olivo,False,5,7,4,0,105409.9617089997,1428,90,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,pasta,False,5,7,3,0,144561.69691700023,1270,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,patio,False,4,7,2,0,93929.3010820006,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,peaje,False,5,7,3,0,118897.77958300011,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,pinta,False,5,7,3,0,118680.68866499979,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,pinza,False,5,7,3,0,92272.56008299999,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,pollo,False,5,7,4,0,130726.87424999988,1428,90,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,polvo,False,5,7,4,0,144187.15958299953,1428,90,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,pongo,False,5,7,4,0,123033.13599999994,1428,90,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,preso,False,4,7,3,0,109518.90912499977,1105,72,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,prisa,False,4,7,2,0,91154.79662499996,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,pulpa,False,5,7,3,0,117147.55195800075,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,quema,False,5,7,3,0,119893.32254200056,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,ruedo,False,4,7,3,0,106975.41795799881,1105,72,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,rumba,False,4,7,2,0,90745.89174899925,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,sabio,False,4,7,2,0,70656.5707510002,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,salmo,False,4,7,2,0,87990.32304000016,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,salsa,False,5,7,3,0,111882.40325200092,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,sanar,False,5,7,3,0,117890.61341600027,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,sarza,False,4,7,2,0,70530.18458299804,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,sauco,False,5,7,3,0,115596.97070800047,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,secar,False,5,7,4,0,117965.36695899907,1428,90,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,secta,False,4,7,3,0,88759.98341800086,1102,72,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,sexta,False,5,7,3,0,60979.84799899906,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,señal,False,5,7,3,0,61093.808501000516,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,siete,False,5,7,3,0,56936.6920819981,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,signo,False,5,7,4,0,91207.43683600146,1428,90,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,sorda,False,4,7,2,0,46489.45966699999,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,tallo,False,4,7,2,0,57397.53125,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,tarde,False,3,7,2,0,33226.315334999934,782,54,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,tibio,False,5,7,4,0,67155.97454299871,1428,90,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,tieso,False,6,7,1,0,47029.73845799826,907,64,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,trama,False,4,7,2,0,50769.0549169993,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,tribu,False,5,7,4,0,63378.42512500007,1428,90,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,tumor,False,5,7,3,0,66511.00608200021,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,valla,False,5,7,3,0,63413.812916001305,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,vapor,False,4,7,2,0,47949.81566699967,929,63,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,vejez,False,5,7,3,0,59740.84137599915,1271,81,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,pure,vieja,False,5,7,3,0,55301.77441699989,1271,81,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,adios,False,1,7,2,0,33333.157167,781,1608,0.0005595800000000001
+deepseek,deepseek/deepseek-v4-flash-0731,pure,agrio,False,1,7,0,0,2291.355834000002,175,73,4.494e-05
+deepseek,deepseek/deepseek-v4-flash-0731,pure,albur,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,altar,False,1,7,2,0,31699.422792000005,781,1611,0.0005604200000000001
+deepseek,deepseek/deepseek-v4-flash-0731,pure,amiga,False,1,7,0,0,9205.697833999991,175,68,4.354000000000001e-05
+deepseek,deepseek/deepseek-v4-flash-0731,pure,amigo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,andar,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,arete,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,arpon,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,arroz,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,atril,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,audaz,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,bahia,False,1,7,2,0,34203.41558300002,781,1608,0.0005595800000000001
+deepseek,deepseek/deepseek-v4-flash-0731,pure,bajon,False,2,7,2,0,45104.56254100002,984,1994,0.00069608
+deepseek,deepseek/deepseek-v4-flash-0731,pure,banco,True,3,3,2,0,38465.49749999997,974,1993,0.0006944
+deepseek,deepseek/deepseek-v4-flash-0731,pure,bañar,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,bollo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,bolso,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,botar,False,3,7,5,0,105030.40508299996,1844,4115,0.00141036
+deepseek,deepseek/deepseek-v4-flash-0731,pure,botin,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,boxeo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,boxer,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,braza,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,bruja,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,busca,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,cacao,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,cacho,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,caido,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,cajon,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,caldo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,calvo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,cañon,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,cerca,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,cerco,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,chico,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,chile,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,china,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,clima,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,cobro,False,2,7,3,0,56208.267292000004,1199,2601,0.0008961399999999999
+deepseek,deepseek/deepseek-v4-flash-0731,pure,cotar,False,1,7,2,0,32883.53037499997,781,1640,0.0005685400000000001
+deepseek,deepseek/deepseek-v4-flash-0731,pure,deseo,False,2,7,2,0,46463.39500000002,987,1787,0.00063854
+deepseek,deepseek/deepseek-v4-flash-0731,pure,dobla,False,2,7,3,0,47493.772209000075,1199,2455,0.00085526
+deepseek,deepseek/deepseek-v4-flash-0731,pure,doler,False,2,7,2,0,29899.21558400005,781,1612,0.0005607000000000001
+deepseek,deepseek/deepseek-v4-flash-0731,pure,espia,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,fallo,False,2,7,2,0,50005.67958400003,984,1933,0.0006789999999999999
+deepseek,deepseek/deepseek-v4-flash-0731,pure,falto,False,1,7,2,0,28711.974959000014,781,1603,0.0005581800000000001
+deepseek,deepseek/deepseek-v4-flash-0731,pure,farsa,False,2,7,4,0,87277.01475000009,1414,3048,0.0010514
+deepseek,deepseek/deepseek-v4-flash-0731,pure,fauna,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,feliz,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,firme,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,flama,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,flora,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,flota,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,fluir,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,fruto,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,gente,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,gordo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,grasa,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,hogar,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,hueco,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,hueso,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,huevo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,jamas,False,2,7,3,0,48801.47012500001,1199,2469,0.00085918
+deepseek,deepseek/deepseek-v4-flash-0731,pure,jugar,False,1,7,2,0,33807.52762500001,781,1608,0.0005595800000000001
+deepseek,deepseek/deepseek-v4-flash-0731,pure,justo,False,1,7,2,0,35996.41770800002,781,1751,0.0005996200000000001
+deepseek,deepseek/deepseek-v4-flash-0731,pure,koala,False,2,7,3,0,50675.006499999974,1199,2601,0.0008961399999999999
+deepseek,deepseek/deepseek-v4-flash-0731,pure,kurdo,False,1,7,2,0,32013.959500000026,781,1603,0.0005581800000000001
+deepseek,deepseek/deepseek-v4-flash-0731,pure,labio,False,1,7,0,0,6286.544374999998,175,312,0.00011186
+deepseek,deepseek/deepseek-v4-flash-0731,pure,leche,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,legua,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,lejos,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,libro,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,lloro,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,macho,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,mania,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,manta,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,matar,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,mayor,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,media,False,1,7,2,0,31887.265041000006,781,1608,0.0005595800000000001
+deepseek,deepseek/deepseek-v4-flash-0731,pure,menor,False,2,7,1,0,16447.955749999965,566,853,0.00031808000000000004
+deepseek,deepseek/deepseek-v4-flash-0731,pure,metro,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,mosca,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,nariz,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,negro,False,1,7,2,0,39746.16320900002,781,1603,0.0005581800000000001
+deepseek,deepseek/deepseek-v4-flash-0731,pure,nueva,False,1,7,0,0,1912.9359169999952,175,67,4.326e-05
+deepseek,deepseek/deepseek-v4-flash-0731,pure,olivo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,pasta,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,patio,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,peaje,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,pinta,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,pinza,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,pollo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,polvo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,pongo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,preso,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,prisa,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,pulpa,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,quema,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,ruedo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,rumba,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,sabio,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,salmo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,salsa,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,sanar,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,sarza,False,1,7,2,0,52376.55312499998,781,1604,0.0005584600000000001
+deepseek,deepseek/deepseek-v4-flash-0731,pure,sauco,False,2,7,3,0,62542.19187499996,1199,2424,0.00084658
+deepseek,deepseek/deepseek-v4-flash-0731,pure,secar,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,secta,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,sexta,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,señal,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,siete,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,signo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,sorda,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,tallo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,tarde,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,tibio,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,tieso,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,trama,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,tribu,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,tumor,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,valla,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,pure,vapor,False,1,7,2,0,43230.51029100001,781,1603,0.0005581800000000001
+deepseek,deepseek/deepseek-v4-flash-0731,pure,vejez,False,2,7,2,0,37289.95749900001,989,1760,0.0006312599999999999
+deepseek,deepseek/deepseek-v4-flash-0731,pure,vieja,False,1,7,2,0,37850.56804200006,781,1604,0.0005584600000000001
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,adios,True,3,3,0,3,100529.19287500001,2910,50,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,agrio,True,3,3,0,3,89121.43337500001,2924,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,albur,True,2,2,0,2,57610.19658399999,2548,34,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,altar,True,3,3,0,3,88654.134334,2950,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,amiga,True,3,3,0,3,96564.74449900002,2945,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,amigo,True,4,4,0,4,103229.52833200007,3301,68,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,andar,True,4,4,0,4,108184.69433299999,3319,67,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,arete,True,4,4,0,4,120476.09691600013,3284,68,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,arpon,True,3,3,0,3,91618.82179199997,2913,50,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,arroz,True,4,4,0,4,110482.81470900006,3278,67,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,atril,True,3,3,0,3,89250.36654100008,2914,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,audaz,True,4,4,0,4,100607.28062500036,3312,68,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,bahia,True,2,2,0,2,72124.96729199984,2577,34,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,bajon,True,2,2,0,2,81475.87341600005,2549,35,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,banco,True,2,2,0,2,56450.33454199997,2558,34,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,bañar,True,5,5,1,5,146732.3477500002,3762,98,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,bollo,True,3,3,0,3,87742.96162399976,2966,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,bolso,True,4,4,0,4,118115.88691699994,3333,68,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,botar,True,3,3,0,3,90797.85716699995,2930,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,botin,True,3,3,0,3,89703.97845899989,2926,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,boxeo,True,4,4,0,4,108398.98845699988,3333,68,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,boxer,True,3,3,0,3,86527.59108299972,2923,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,braza,True,3,3,0,3,84322.49220899958,2904,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,bruja,True,2,2,0,2,64921.88970900001,2548,34,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,busca,True,5,5,0,5,125152.03000100004,3682,85,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,cacao,True,2,2,0,2,60163.15016699955,2548,34,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,cacho,True,2,2,0,2,64910.468291,2665,34,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,caido,True,3,3,0,3,87084.18245900003,3036,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,cajon,True,2,2,0,2,59920.7847919995,2559,35,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,caldo,True,4,4,0,4,100080.67004199931,3403,68,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,calvo,True,5,5,0,5,126285.31383200083,3796,85,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,cañon,False,3,7,2,4,122720.4285420007,3544,86,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,cerca,False,5,7,3,6,180292.34320800006,4660,129,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,cerco,True,2,2,0,2,66598.02404200006,2866,34,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,chico,True,3,3,0,3,85642.48929299973,3219,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,chile,True,2,2,0,2,64347.737751000095,2652,34,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,china,True,4,4,0,4,128389.09879099997,3634,68,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,clima,True,4,4,0,4,116048.17379199993,3634,68,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,cobro,True,3,3,0,3,76601.5920420005,2960,52,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,cotar,True,4,4,0,4,104210.21054200036,3415,68,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,deseo,True,3,3,0,3,85547.9947499996,3231,52,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,dobla,True,3,3,0,3,82350.35795800015,2930,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,doler,False,4,7,3,5,157562.90362500027,4007,113,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,espia,True,4,4,0,4,111739.94179099984,3696,69,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,fallo,True,3,3,0,3,83547.33233300038,3086,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,falto,True,5,5,0,5,125442.30379100051,3837,85,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,farsa,True,3,3,0,3,82939.4969159998,3052,52,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,fauna,True,5,5,0,5,124163.14520800114,3829,85,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,feliz,True,3,3,0,3,85941.56825000048,3007,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,firme,True,3,3,0,3,82596.21845899988,3020,52,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,flama,True,3,3,0,3,92380.54954099935,2928,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,flora,True,4,4,0,4,112175.81241600029,3459,68,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,flota,True,5,5,0,5,125114.36849800125,3840,85,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,fluir,True,3,3,0,3,82151.26750000007,3012,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,fruto,True,4,4,0,4,109667.90004100092,3607,68,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,gente,True,4,4,0,4,99704.45224999823,3379,67,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,gordo,True,4,4,0,4,99731.31008300092,3601,68,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,grasa,True,3,3,0,3,76828.28841600008,2925,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,hogar,True,4,4,0,4,101002.04883399978,3406,68,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,hueco,True,3,3,0,3,84467.9215000011,3220,52,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,hueso,True,5,5,0,5,121317.57408299949,4053,86,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,huevo,False,6,7,0,6,149760.499040002,4451,104,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,jamas,True,2,2,0,2,64188.521374,2551,34,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,jugar,True,3,3,0,3,104092.928043,2923,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,justo,True,5,5,0,5,141672.75279199996,3679,86,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,koala,True,2,2,0,2,67420.831457,2548,34,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,kurdo,True,4,4,0,4,107453.03237500001,3604,68,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,labio,True,3,3,0,3,93698.41412500001,2915,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,leche,True,3,3,0,3,90954.81029099994,3005,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,legua,True,3,3,0,3,96618.29158299998,3261,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,lejos,True,2,2,0,2,57102.33245799993,2555,34,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,libro,True,3,3,0,3,90479.72787400021,2957,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,lloro,True,4,4,0,4,108555.26158300007,3610,68,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,macho,True,3,3,0,3,81908.71145900001,3018,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,mania,True,4,4,0,4,109216.11129100015,3447,67,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,manta,True,5,5,0,5,124994.23891599989,3826,84,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,matar,True,3,3,0,3,83964.44829199999,3041,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,mayor,False,5,7,3,6,183536.6667899997,4431,129,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,media,True,4,4,0,4,109322.32833299995,3692,68,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,menor,True,4,4,0,4,102286.80354199978,3401,68,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,metro,True,3,3,0,3,78232.36895899987,3224,50,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,mosca,True,3,3,0,3,85494.75854099984,3039,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,nariz,True,5,5,0,5,126040.12450199993,4024,85,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,negro,True,4,4,0,4,111328.68787499983,3589,67,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,nueva,True,6,6,0,6,158004.91112599988,4443,102,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,olivo,True,4,4,0,4,131258.90062599955,3670,69,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,pasta,True,5,5,0,5,123627.21570800059,3849,85,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,patio,True,6,6,0,6,148683.61608400056,4294,103,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,peaje,True,2,2,0,2,64833.76245799987,2554,34,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,pinta,True,4,4,0,4,111126.48570900038,3695,68,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,pinza,True,4,4,0,4,103100.94212400028,3692,68,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,pollo,True,5,5,0,5,132864.3643749999,4076,90,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,polvo,False,6,7,1,6,158359.27846000018,4567,116,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,pongo,True,5,5,0,5,127372.38595800009,4056,86,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,preso,True,4,4,0,4,101902.02829100005,3611,68,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,prisa,True,5,5,0,5,129704.72000099998,4076,85,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,pulpa,True,5,5,0,5,139918.76004100032,4048,85,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,quema,True,6,6,0,6,152632.74462500075,4443,102,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,ruedo,True,5,5,0,5,127874.66199899977,3995,85,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,rumba,True,3,3,0,3,83776.68241699971,2931,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,sabio,True,4,4,0,4,108277.20287500042,3283,69,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,salmo,False,5,7,3,6,170154.22400100157,4467,129,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,salsa,True,5,5,0,5,121963.9457080001,3849,85,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,sanar,True,5,5,0,5,125411.10550100077,3795,85,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,sarza,True,4,4,0,4,103560.38812399935,3421,69,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,sauco,True,5,5,0,5,125142.17579300143,3787,86,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,secar,True,5,5,0,5,117356.84375,4025,84,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,secta,True,4,4,0,4,91025.24470900092,3646,67,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,sexta,True,5,5,0,5,66926.89195699897,4084,87,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,señal,False,6,7,1,6,80151.07154199947,4580,120,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,siete,True,5,5,0,5,65746.16787599958,3778,86,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,signo,True,4,4,0,4,77651.15075000003,3670,69,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,sorda,True,4,4,0,4,58862.76179300062,3456,68,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,tallo,True,5,5,0,5,70383.2025000006,3837,85,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,tarde,True,4,4,0,4,55762.85237499885,3637,68,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,tibio,True,4,4,0,4,52676.762000000104,3325,69,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,tieso,True,5,5,0,5,65021.1910819998,4032,86,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,trama,True,3,3,0,3,43111.38095900044,2925,51,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,tribu,True,4,4,0,4,58789.10516599938,3286,68,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,tumor,True,5,5,0,5,71623.2602079995,3792,86,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,valla,True,6,6,0,6,73113.08129199967,4250,102,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,vapor,True,5,5,0,5,63028.52400100045,3799,85,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,vejez,False,2,7,4,3,45092.644332000054,3179,88,0
+slm,/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit,agent,vieja,True,2,2,0,2,22954.28754199948,2548,34,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,adios,True,2,2,0,1,23736.576833,1177,814,0.00039270000000000006
+deepseek,deepseek/deepseek-v4-flash-0731,agent,agrio,True,2,2,1,1,25163.11929200001,1875,1219,0.00060382
+deepseek,deepseek/deepseek-v4-flash-0731,agent,albur,False,2,7,1,1,31317.153416,1374,1170,0.000534296
+deepseek,deepseek/deepseek-v4-flash-0731,agent,altar,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,amiga,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,amigo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,andar,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,arete,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,arpon,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,arroz,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,atril,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,audaz,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,bahia,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,bajon,False,2,7,3,1,52334.061874999985,3580,2692,0.0012549600000000003
+deepseek,deepseek/deepseek-v4-flash-0731,agent,banco,False,2,7,3,1,52657.38395900003,3345,2716,0.001235948
+deepseek,deepseek/deepseek-v4-flash-0731,agent,bañar,False,1,7,0,0,4934.700374999986,463,199,0.00012054000000000001
+deepseek,deepseek/deepseek-v4-flash-0731,agent,bollo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,bolso,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,botar,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,botin,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,boxeo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,boxer,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,braza,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,bruja,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,busca,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,cacao,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,cacho,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,caido,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,cajon,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,caldo,True,2,2,1,1,32747.200458000007,2055,1418,0.0006847400000000002
+deepseek,deepseek/deepseek-v4-flash-0731,agent,calvo,False,2,7,3,1,75746.01133400004,2277,2782,0.00113358
+deepseek,deepseek/deepseek-v4-flash-0731,agent,cañon,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,cerca,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,cerco,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,chico,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,chile,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,china,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,clima,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,cobro,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,cotar,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,deseo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,dobla,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,doler,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,espia,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,fallo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,falto,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,farsa,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,fauna,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,feliz,True,2,2,0,1,12816.93991700001,921,544,0.000288428
+deepseek,deepseek/deepseek-v4-flash-0731,agent,firme,True,3,3,1,2,69310.42608399992,1461,1397,0.000610036
+deepseek,deepseek/deepseek-v4-flash-0731,agent,flama,False,1,7,0,0,26455.271791000036,207,221,9.8028e-05
+deepseek,deepseek/deepseek-v4-flash-0731,agent,flora,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,flota,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,fluir,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,fruto,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,gente,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,gordo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,grasa,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,hogar,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,hueco,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,hueso,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,huevo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,jamas,False,2,7,0,1,16155.358040999998,1201,692,0.0003619
+deepseek,deepseek/deepseek-v4-flash-0731,agent,jugar,False,1,7,3,2,55780.56391600001,6953,2407,0.001661716
+deepseek,deepseek/deepseek-v4-flash-0731,agent,justo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,koala,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,kurdo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,labio,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,leche,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,legua,False,2,7,3,2,118121.96812400002,3088,2828,0.001231328
+deepseek,deepseek/deepseek-v4-flash-0731,agent,lejos,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,libro,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,lloro,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,macho,False,1,7,2,2,50536.75583399998,4871,2155,0.0012925080000000002
+deepseek,deepseek/deepseek-v4-flash-0731,agent,mania,False,2,7,1,1,39091.20433300006,1403,1192,0.000544516
+deepseek,deepseek/deepseek-v4-flash-0731,agent,manta,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,matar,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,mayor,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,media,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,menor,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,metro,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,mosca,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,nariz,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,negro,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,nueva,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,olivo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,pasta,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,patio,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,peaje,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,pinta,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,pinza,False,3,7,6,2,108600.88425000006,5136,4624,0.0020424320000000003
+deepseek,deepseek/deepseek-v4-flash-0731,agent,pollo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,polvo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,pongo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,preso,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,prisa,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,pulpa,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,quema,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,ruedo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,rumba,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,sabio,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,salmo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,salsa,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,sanar,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,sarza,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,sauco,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,secar,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,secta,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,sexta,True,3,3,2,2,57250.38858399994,2279,2213,0.0009602040000000001
+deepseek,deepseek/deepseek-v4-flash-0731,agent,señal,True,2,2,0,1,9466.405167000019,919,366,0.000238308
+deepseek,deepseek/deepseek-v4-flash-0731,agent,siete,True,2,2,1,1,21098.473124999902,1407,1092,0.000517076
+deepseek,deepseek/deepseek-v4-flash-0731,agent,signo,False,1,7,0,0,4927.709167000023,463,228,0.00012866
+deepseek,deepseek/deepseek-v4-flash-0731,agent,sorda,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,tallo,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,tarde,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,tibio,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,tieso,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,trama,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,tribu,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,tumor,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,valla,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,vapor,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,vejez,False,0,7,0,0,0,0,0,0
+deepseek,deepseek/deepseek-v4-flash-0731,agent,vieja,False,0,7,0,0,0,0,0,0

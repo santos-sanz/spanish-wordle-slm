@@ -34,7 +34,7 @@ export async function loadModel(target: ModelTarget): Promise<{
     name: "LFM2.5 Spanish Wordle",
     api: "openai-completions",
     provider: "mlx-local",
-    baseUrl: "http://127.0.0.1:8080/v1",
+      baseUrl: process.env.WORDLE_SLM_BASE_URL?.trim() || "http://127.0.0.1:8080/v1",
     reasoning: false,
     input: ["text"],
     cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 },

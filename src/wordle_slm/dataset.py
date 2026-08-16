@@ -5,7 +5,7 @@ import random
 from typing import Any
 
 from .core import ALL_GREEN, history_text
-from .data import TRAINING_DIR
+from .data import ROOT, TRAINING_DIR
 from .solver import WordleSolver
 
 GET_CANDIDATES_TOOL = {
@@ -26,19 +26,23 @@ BEST_GUESS_TOOL = {
 }
 
 PURE_SYSTEM = (
-    "Juegas Wordle en español. La palabra objetivo tiene cinco letras y dispones de seis "
+    "Modo PURE. Juegas Wordle en español. La palabra objetivo tiene cinco letras y dispones de seis "
     "intentos. 0=gris, 1=amarillo, 2=verde. Respeta letras repetidas. Responde únicamente "
     'con JSON válido: {"guess":"palabra"}.'
 )
 AGENT_SYSTEM = (
-    PURE_SYSTEM
+    "Modo AGENT. "
+    + PURE_SYSTEM.removeprefix("Modo PURE. ")
     + " Puedes usar get_candidates una vez por turno para consultar soluciones compatibles."
 )
 ORACLE_SYSTEM = PURE_SYSTEM + " Usa best_guess para obtener la jugada del solver."
-REPAIR_PROMPT = (
-    "Respuesta inválida o repetida. Devuelve únicamente JSON con una palabra válida "
-    'que no hayas usado: {"guess":"palabra"}.'
-)
+def repair_prompt(history: list[tuple[str, int]]) -> str:
+    unavailable = ", ".join(word for word, _ in history) or "ninguna"
+    return (
+        "Respuesta inválida o repetida. Palabras no disponibles: "
+        f"{unavailable}. Devuelve únicamente JSON con una palabra válida nueva: "
+        '{"guess":"palabra"}.'
+    )
 
 
 def state_prompt(history: list[tuple[str, int]], turn: int) -> str:
@@ -90,13 +94,17 @@ def _agent_direct_record(history: list[tuple[str, int]], turn: int, guess: str) 
 def _pure_repair_record(
     history: list[tuple[str, int]], turn: int, guess: str
 ) -> dict[str, Any]:
-    repeated = history[-1][0]
+    # The invalid/repeated action is runtime context, not a target. Including
+    # it as an assistant message makes masked SFT teach the adapter to repeat
+    # the bad guess.  Keep the repair state in one user message and supervise
+    # only the valid replacement that follows it.
     return {
         "messages": [
             {"role": "system", "content": PURE_SYSTEM},
-            {"role": "user", "content": state_prompt(history, turn)},
-            {"role": "assistant", "content": json.dumps({"guess": repeated})},
-            {"role": "user", "content": REPAIR_PROMPT},
+            {
+                "role": "user",
+                "content": f"{state_prompt(history, turn)}\n{repair_prompt(history)}",
+            },
             {"role": "assistant", "content": json.dumps({"guess": guess})},
         ]
     }
@@ -143,10 +151,20 @@ def _games_for_target(solver: WordleSolver, target: str) -> list[list[tuple[str,
         candidates = solver.all_candidates
         history: list[tuple[str, int]] = []
         for turn in range(6):
-            if turn == 0 and starter in solver.guess_index:
+            if turn == 0 and starter is not None and starter in solver.guess_index:
                 guess = starter
-            else:
+            elif turn == 0:
                 guess = solver.best_guess(candidates, 6 - turn)
+            else:
+                # A candidate-copy policy is deliberately used for the
+                # competitive Pure curriculum.  It is deterministic, always
+                # legal, and asks the adapter to learn the feedback filter
+                # rather than approximate an entropy calculation.  The Agent
+                # track uses the same policy after its tool response, making
+                # the two tracks comparable while keeping Pure tool-free.
+                compatible = solver.candidate_words(history)
+                used = {word for word, _ in history}
+                guess = next(word for word in compatible if word not in used)
             code = int(solver.matrix[solver.guess_index[guess], target_index])
             history.append((guess, code))
             if code == ALL_GREEN:
@@ -220,6 +238,8 @@ def _records_for_targets(solver: WordleSolver, targets: list[str]) -> list[dict[
 
 def generate_training_data() -> dict[str, int]:
     TRAINING_DIR.mkdir(parents=True, exist_ok=True)
+    pure_dir = ROOT / "data" / "pure-refinement"
+    pure_dir.mkdir(parents=True, exist_ok=True)
     solver = WordleSolver()
     counts: dict[str, int] = {}
     for split in ("train", "valid"):
@@ -228,5 +248,15 @@ def generate_training_data() -> dict[str, int]:
         with path.open("w", encoding="utf-8") as handle:
             for record in records:
                 handle.write(json.dumps(record, ensure_ascii=False, separators=(",", ":")) + "\n")
+        pure_records = [
+            record
+            for record in records
+            if record.get("messages", [{}])[0].get("content", "").startswith("Modo PURE.")
+        ]
+        pure_path = pure_dir / f"{split}.jsonl"
+        with pure_path.open("w", encoding="utf-8") as handle:
+            for record in pure_records:
+                handle.write(json.dumps(record, ensure_ascii=False, separators=(",", ":")) + "\n")
         counts[split] = len(records)
+        counts[f"pure_{split}"] = len(pure_records)
     return counts

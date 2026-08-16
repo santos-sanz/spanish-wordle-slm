@@ -15,7 +15,7 @@ tags:
 - spanish
 ---
 
-# Spanish Wordle LFM2.5 2.6B QLoRA + DPO
+# Spanish Wordle LFM2.5 2.6B QLoRA
 
 Task-specific MLX LoRA adapter trained to play five-letter Spanish Wordle in
 Pure, Agent, and Oracle modes. The adapter does not contain the 2.6B base
@@ -26,8 +26,8 @@ weights and must be loaded together with
 ## Training
 
 - Base checkpoint: 6-bit MLX export of LiquidAI LFM2.5 2.6B
-- LoRA: rank 8, scale 16, dropout 0.05, final 8 layers
-- Optimizer: AdamW, learning rate `2e-5`
+- LoRA: rank 16, scale 32, dropout 0.05, final 16 layers
+- Optimizer: AdamW, learning rate `3e-5` for the main SFT phase
 - Batch size: 1 with gradient accumulation 8
 - Maximum sequence length: 512
 - Seed: `20260814`
@@ -35,22 +35,12 @@ weights and must be loaded together with
 - Training targets: 431 of 616 unique historical Spanish Wordle answers
 - Validation targets: 61; hidden test targets: 124
 
-The selected supervised checkpoint (iteration 2,900, validation cross-entropy
-`0.219`) was then optimized with offline Direct Preference Optimization (DPO):
-
-- 1,960 train and 225 validation preference pairs generated only from the
-  train/validation Wordle splits
-- Chosen action: deterministic solver action; rejected action: a valid action
-  with a strictly worse solver ordering
-- DPO beta: `0.2`; label smoothing: `0.05`; AdamW learning rate: `1e-6`
-- 400 iterations; best checkpoint: iteration 400
-- Validation DPO objective: `0.690` before optimization, `0.244` after
-- Final validation preference accuracy: `98.75%`; reward margin: `+2.394`
-- Peak memory: `3.22 GB`; elapsed DPO time: 21 minutes
-
-The DPO objective is not numerically comparable with the supervised
-cross-entropy loss. It measures whether the adapter assigns a larger relative
-likelihood to the stronger Wordle action than to the weaker valid action.
+The main SFT run used 5,000 optimizer iterations with gradient accumulation of
+8. A subsequent Pure-only cleanup phase used 150 iterations at `1e-5` on
+8,757 training and 1,261 validation records. Repair examples keep the invalid
+guess as runtime context and supervise only the valid replacement, avoiding a
+repeated-guess label in the loss. The selected local adapter is the final
+checkpoint of that cleanup phase (global iteration 5,355).
 
 The word lists and reproducible training/evaluation code are maintained in the
 private repository `santos-sanz/spanish-wordle-slm`. Test targets were excluded
@@ -58,10 +48,20 @@ from training trajectory generation.
 
 ## Evaluation status
 
-Competitive results remain pending until the adapter, prompts, and generation
-configuration are frozen. Success requires a positive paired 95% bootstrap
-interval against `deepseek/deepseek-v4-pro-0813` in both Pure and Agent tracks.
-Oracle is a solver ceiling and does not count toward that claim.
+The frozen comparison uses `deepseek/deepseek-v4-flash-0731` through
+OpenRouter, temperature 0, seed `20260814`, reasoning low, no provider
+fallback, and a 512-token cap. Pure has no tools; Agent may call
+`get_candidates` once per turn; Oracle is a solver ceiling and does not count
+toward the competitive claim. The final paired bootstrap report in the private
+repository is authoritative. Success requires a positive 95% interval for the
+SLM in both Pure and Agent; otherwise the run is reported as an experiment that
+did not meet the target.
+
+The hidden test produced 2/124 wins for the SLM versus 1/124 for the benchmark
+in Pure (paired 95% CI for the win-rate difference: `[-1.6%, +4.0%]`), and
+115/124 versus 8/124 in Agent (CI: `[+79.0%, +91.9%]`). The adapter therefore
+demonstrates a statistically clear Agent-track win, but this run does not meet
+the two-track success claim because Pure is inconclusive.
 
 ## Use with MLX-LM
 

@@ -1,0 +1,31 @@
+{
+  "surface": "static PNG and SVG supporting a technical HTML report",
+  "palette": "hard two-root cap: blue SLM, gold benchmark, neutral references",
+  "charts": [
+    {
+      "artifact": {
+        "png": "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/artifacts/benchmark/competition-dashboard.png",
+        "svg": "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/artifacts/benchmark/competition-dashboard.svg"
+      },
+      "questions": [
+        "win-rate comparison",
+        "mean scored turns",
+        "outcome composition",
+        "paired uncertainty"
+      ]
+    },
+    {
+      "artifact": {
+        "png": "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/artifacts/benchmark/competition-progress.png",
+        "svg": "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/artifacts/benchmark/competition-progress.svg"
+      },
+      "questions": [
+        "cumulative evaluation stability"
+      ]
+    }
+  ],
+  "data": {
+    "summary_csv": "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/artifacts/benchmark/competition-summary.csv",
+    "games_csv": "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/artifacts/benchmark/competition-games.csv"
+  }
+}

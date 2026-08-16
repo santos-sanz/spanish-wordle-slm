@@ -1,0 +1,13 @@
+Loading configuration file configs/pure-clean-refinement.yaml
+Training
+Loading fine-tuned weights from adapters/selected/adapters.safetensors
+Iter 1: Val loss 0.843, Val took 17.673s
+Iter 5: Train loss 0.573, Learning Rate 1.000e-05, It/sec 0.579, Tokens/sec 6.486, Trained Tokens 56, Peak mem 2.905 GB
+Iter 50: Val loss 0.853, Val took 24.366s
+Iter 50: Train loss 0.471, Learning Rate 1.000e-05, It/sec 0.372, Tokens/sec 4.163, Trained Tokens 558, Peak mem 3.068 GB
+Iter 100: Val loss 0.743, Val took 25.920s
+Iter 100: Train loss 0.531, Learning Rate 1.000e-05, It/sec 0.406, Tokens/sec 4.384, Trained Tokens 1116, Peak mem 3.156 GB
+Iter 150: Val loss 0.693, Val took 25.331s
+Iter 150: Train loss 0.611, Learning Rate 1.000e-05, It/sec 0.363, Tokens/sec 3.922, Trained Tokens 1668, Peak mem 3.156 GB
+Iter 150: Saved adapter weights to adapters/pure-clean-refinement/adapters.safetensors and adapters/pure-clean-refinement/0000150_adapters.safetensors.
+Saved final weights to adapters/pure-clean-refinement/adapters.safetensors.

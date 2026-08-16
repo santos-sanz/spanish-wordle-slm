@@ -1,0 +1,28 @@
+# Competitive Pure refinement: warm-start the selected multitask adapter and
+# spend the remaining watchdog budget on the deterministic candidate-copy
+# policy.  The Agent records remain in data/training so tool competence is not
+# discarded while the tool-free track gets a clear signal.
+model: models/LFM2.5-2.6B-MLX-6bit
+train: true
+fine_tune_type: lora
+optimizer: adamw
+data: data/pure-refinement
+seed: 20260814
+num_layers: 16
+batch_size: 1
+iters: 205
+val_batches: 20
+learning_rate: 1.5e-5
+steps_per_report: 5
+steps_per_eval: 50
+grad_accumulation_steps: 8
+adapter_path: adapters/pure-refinement
+resume_adapter_file: adapters/selected/adapters.safetensors
+save_every: 50
+max_seq_length: 512
+mask_prompt: true
+grad_checkpoint: true
+lora_parameters:
+  rank: 16
+  scale: 32.0
+  dropout: 0.05

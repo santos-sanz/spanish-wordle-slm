@@ -397,7 +397,7 @@ def serve() -> None:
             "--host",
             "127.0.0.1",
             "--port",
-            "8080",
+            os.environ.get("WORDLE_SLM_PORT", "8080"),
         ]
     )
     os.execvp(

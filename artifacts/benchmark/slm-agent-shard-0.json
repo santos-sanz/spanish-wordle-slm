@@ -1,0 +1,2184 @@
+{
+  "complete": true,
+  "targetCount": 62,
+  "targetOffset": 0,
+  "summary": {
+    "provider": "slm",
+    "model": "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit",
+    "track": "agent",
+    "split": "test",
+    "games": 62,
+    "wins": 58,
+    "winRate": 0.9354838709677419,
+    "meanScoredTurns": 3.596774193548387,
+    "invalidActions": 9,
+    "toolCalls": 216,
+    "latencyMs": 6088224.426410005,
+    "inputTokens": 199756,
+    "outputTokens": 3764,
+    "costUsd": 0,
+    "errors": 0,
+    "effectiveProviders": [
+      "mlx-local"
+    ],
+    "responseModels": [
+      "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+    ]
+  },
+  "games": [
+    {
+      "target": "adios",
+      "solved": true,
+      "turns": 3,
+      "scoredTurns": 3,
+      "invalidActions": 0,
+      "toolCalls": 3,
+      "latencyMs": 100529.19287500001,
+      "inputTokens": 2910,
+      "outputTokens": 50,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "20001"
+        },
+        {
+          "guess": "actor",
+          "feedback": "20020"
+        },
+        {
+          "guess": "adios",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "agrio",
+      "solved": true,
+      "turns": 3,
+      "scoredTurns": 3,
+      "invalidActions": 0,
+      "toolCalls": 3,
+      "latencyMs": 89121.43337500001,
+      "inputTokens": 2924,
+      "outputTokens": 51,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "20002"
+        },
+        {
+          "guess": "acero",
+          "feedback": "20012"
+        },
+        {
+          "guess": "agrio",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "albur",
+      "solved": true,
+      "turns": 2,
+      "scoredTurns": 2,
+      "invalidActions": 0,
+      "toolCalls": 2,
+      "latencyMs": 57610.19658399999,
+      "inputTokens": 2548,
+      "outputTokens": 34,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "21000"
+        },
+        {
+          "guess": "albur",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "altar",
+      "solved": true,
+      "turns": 3,
+      "scoredTurns": 3,
+      "invalidActions": 0,
+      "toolCalls": 3,
+      "latencyMs": 88654.134334,
+      "inputTokens": 2950,
+      "outputTokens": 51,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "20100"
+        },
+        {
+          "guess": "acera",
+          "feedback": "20011"
+        },
+        {
+          "guess": "altar",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "amiga",
+      "solved": true,
+      "turns": 3,
+      "scoredTurns": 3,
+      "invalidActions": 0,
+      "toolCalls": 3,
+      "latencyMs": 96564.74449900002,
+      "inputTokens": 2945,
+      "outputTokens": 51,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "20100"
+        },
+        {
+          "guess": "acera",
+          "feedback": "20002"
+        },
+        {
+          "guess": "amiga",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "amigo",
+      "solved": true,
+      "turns": 4,
+      "scoredTurns": 4,
+      "invalidActions": 0,
+      "toolCalls": 4,
+      "latencyMs": 103229.52833200007,
+      "inputTokens": 3301,
+      "outputTokens": 68,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "20002"
+        },
+        {
+          "guess": "acero",
+          "feedback": "20002"
+        },
+        {
+          "guess": "agudo",
+          "feedback": "21002"
+        },
+        {
+          "guess": "amigo",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "andar",
+      "solved": true,
+      "turns": 4,
+      "scoredTurns": 4,
+      "invalidActions": 0,
+      "toolCalls": 4,
+      "latencyMs": 108184.69433299999,
+      "inputTokens": 3319,
+      "outputTokens": 67,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "20100"
+        },
+        {
+          "guess": "acera",
+          "feedback": "20011"
+        },
+        {
+          "guess": "altar",
+          "feedback": "20022"
+        },
+        {
+          "guess": "andar",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "arete",
+      "solved": true,
+      "turns": 4,
+      "scoredTurns": 4,
+      "invalidActions": 0,
+      "toolCalls": 4,
+      "latencyMs": 120476.09691600013,
+      "inputTokens": 3284,
+      "outputTokens": 68,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "20000"
+        },
+        {
+          "guess": "alpes",
+          "feedback": "20010"
+        },
+        {
+          "guess": "anime",
+          "feedback": "20002"
+        },
+        {
+          "guess": "arete",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "arpon",
+      "solved": true,
+      "turns": 3,
+      "scoredTurns": 3,
+      "invalidActions": 0,
+      "toolCalls": 3,
+      "latencyMs": 91618.82179199997,
+      "inputTokens": 2913,
+      "outputTokens": 50,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "20001"
+        },
+        {
+          "guess": "actor",
+          "feedback": "20021"
+        },
+        {
+          "guess": "arpon",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "arroz",
+      "solved": true,
+      "turns": 4,
+      "scoredTurns": 4,
+      "invalidActions": 0,
+      "toolCalls": 4,
+      "latencyMs": 110482.81470900006,
+      "inputTokens": 3278,
+      "outputTokens": 67,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "20001"
+        },
+        {
+          "guess": "actor",
+          "feedback": "20021"
+        },
+        {
+          "guess": "arpon",
+          "feedback": "22020"
+        },
+        {
+          "guess": "arroz",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "atril",
+      "solved": true,
+      "turns": 3,
+      "scoredTurns": 3,
+      "invalidActions": 0,
+      "toolCalls": 3,
+      "latencyMs": 89250.36654100008,
+      "inputTokens": 2914,
+      "outputTokens": 51,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "20000"
+        },
+        {
+          "guess": "alpes",
+          "feedback": "21000"
+        },
+        {
+          "guess": "atril",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "audaz",
+      "solved": true,
+      "turns": 4,
+      "scoredTurns": 4,
+      "invalidActions": 0,
+      "toolCalls": 4,
+      "latencyMs": 100607.28062500036,
+      "inputTokens": 3312,
+      "outputTokens": 68,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "20100"
+        },
+        {
+          "guess": "acera",
+          "feedback": "20001"
+        },
+        {
+          "guess": "anual",
+          "feedback": "20120"
+        },
+        {
+          "guess": "audaz",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "bahia",
+      "solved": true,
+      "turns": 2,
+      "scoredTurns": 2,
+      "invalidActions": 0,
+      "toolCalls": 2,
+      "latencyMs": 72124.96729199984,
+      "inputTokens": 2577,
+      "outputTokens": 34,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "11100"
+        },
+        {
+          "guess": "bahia",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "bajon",
+      "solved": true,
+      "turns": 2,
+      "scoredTurns": 2,
+      "invalidActions": 0,
+      "toolCalls": 2,
+      "latencyMs": 81475.87341600005,
+      "inputTokens": 2549,
+      "outputTokens": 35,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "11011"
+        },
+        {
+          "guess": "bajon",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "banco",
+      "solved": true,
+      "turns": 2,
+      "scoredTurns": 2,
+      "invalidActions": 0,
+      "toolCalls": 2,
+      "latencyMs": 56450.33454199997,
+      "inputTokens": 2558,
+      "outputTokens": 34,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "11002"
+        },
+        {
+          "guess": "banco",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "bañar",
+      "solved": true,
+      "turns": 5,
+      "scoredTurns": 5,
+      "invalidActions": 1,
+      "toolCalls": 5,
+      "latencyMs": 146732.3477500002,
+      "inputTokens": 3762,
+      "outputTokens": 98,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "11100"
+        },
+        {
+          "guess": "bahia",
+          "feedback": "22001"
+        },
+        {
+          "guess": "bajar",
+          "feedback": "22022"
+        },
+        {
+          "guess": "calla",
+          "feedback": "02001"
+        },
+        {
+          "guess": "bañar",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "bollo",
+      "solved": true,
+      "turns": 3,
+      "scoredTurns": 3,
+      "invalidActions": 0,
+      "toolCalls": 3,
+      "latencyMs": 87742.96162399976,
+      "inputTokens": 2966,
+      "outputTokens": 51,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "01002"
+        },
+        {
+          "guess": "bingo",
+          "feedback": "20002"
+        },
+        {
+          "guess": "bollo",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "bolso",
+      "solved": true,
+      "turns": 4,
+      "scoredTurns": 4,
+      "invalidActions": 0,
+      "toolCalls": 4,
+      "latencyMs": 118115.88691699994,
+      "inputTokens": 3333,
+      "outputTokens": 68,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "01002"
+        },
+        {
+          "guess": "bingo",
+          "feedback": "20002"
+        },
+        {
+          "guess": "bollo",
+          "feedback": "22202"
+        },
+        {
+          "guess": "bolso",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "botar",
+      "solved": true,
+      "turns": 3,
+      "scoredTurns": 3,
+      "invalidActions": 0,
+      "toolCalls": 3,
+      "latencyMs": 90797.85716699995,
+      "inputTokens": 2930,
+      "outputTokens": 51,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "11001"
+        },
+        {
+          "guess": "bolsa",
+          "feedback": "22001"
+        },
+        {
+          "guess": "botar",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "botin",
+      "solved": true,
+      "turns": 3,
+      "scoredTurns": 3,
+      "invalidActions": 0,
+      "toolCalls": 3,
+      "latencyMs": 89703.97845899989,
+      "inputTokens": 2926,
+      "outputTokens": 51,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "01001"
+        },
+        {
+          "guess": "bonus",
+          "feedback": "22100"
+        },
+        {
+          "guess": "botin",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "boxeo",
+      "solved": true,
+      "turns": 4,
+      "scoredTurns": 4,
+      "invalidActions": 0,
+      "toolCalls": 4,
+      "latencyMs": 108398.98845699988,
+      "inputTokens": 3333,
+      "outputTokens": 68,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "01002"
+        },
+        {
+          "guess": "bingo",
+          "feedback": "20002"
+        },
+        {
+          "guess": "bollo",
+          "feedback": "22002"
+        },
+        {
+          "guess": "boxeo",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "boxer",
+      "solved": true,
+      "turns": 3,
+      "scoredTurns": 3,
+      "invalidActions": 0,
+      "toolCalls": 3,
+      "latencyMs": 86527.59108299972,
+      "inputTokens": 2923,
+      "outputTokens": 51,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "01001"
+        },
+        {
+          "guess": "bonus",
+          "feedback": "22000"
+        },
+        {
+          "guess": "boxer",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "braza",
+      "solved": true,
+      "turns": 3,
+      "scoredTurns": 3,
+      "invalidActions": 0,
+      "toolCalls": 3,
+      "latencyMs": 84322.49220899958,
+      "inputTokens": 2904,
+      "outputTokens": 51,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "11200"
+        },
+        {
+          "guess": "brava",
+          "feedback": "22202"
+        },
+        {
+          "guess": "braza",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "bruja",
+      "solved": true,
+      "turns": 2,
+      "scoredTurns": 2,
+      "invalidActions": 0,
+      "toolCalls": 2,
+      "latencyMs": 64921.88970900001,
+      "inputTokens": 2548,
+      "outputTokens": 34,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "11020"
+        },
+        {
+          "guess": "bruja",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "busca",
+      "solved": true,
+      "turns": 5,
+      "scoredTurns": 5,
+      "invalidActions": 0,
+      "toolCalls": 5,
+      "latencyMs": 125152.03000100004,
+      "inputTokens": 3682,
+      "outputTokens": 85,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "11000"
+        },
+        {
+          "guess": "baile",
+          "feedback": "21000"
+        },
+        {
+          "guess": "burra",
+          "feedback": "22002"
+        },
+        {
+          "guess": "busco",
+          "feedback": "22220"
+        },
+        {
+          "guess": "busca",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "cacao",
+      "solved": true,
+      "turns": 2,
+      "scoredTurns": 2,
+      "invalidActions": 0,
+      "toolCalls": 2,
+      "latencyMs": 60163.15016699955,
+      "inputTokens": 2548,
+      "outputTokens": 34,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "10102"
+        },
+        {
+          "guess": "cacao",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "cacho",
+      "solved": true,
+      "turns": 2,
+      "scoredTurns": 2,
+      "invalidActions": 0,
+      "toolCalls": 2,
+      "latencyMs": 64910.468291,
+      "inputTokens": 2665,
+      "outputTokens": 34,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "10002"
+        },
+        {
+          "guess": "cacho",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "caido",
+      "solved": true,
+      "turns": 3,
+      "scoredTurns": 3,
+      "invalidActions": 0,
+      "toolCalls": 3,
+      "latencyMs": 87084.18245900003,
+      "inputTokens": 3036,
+      "outputTokens": 51,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "10002"
+        },
+        {
+          "guess": "cacho",
+          "feedback": "22002"
+        },
+        {
+          "guess": "caido",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "cajon",
+      "solved": true,
+      "turns": 2,
+      "scoredTurns": 2,
+      "invalidActions": 0,
+      "toolCalls": 2,
+      "latencyMs": 59920.7847919995,
+      "inputTokens": 2559,
+      "outputTokens": 35,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "10011"
+        },
+        {
+          "guess": "cajon",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "caldo",
+      "solved": true,
+      "turns": 4,
+      "scoredTurns": 4,
+      "invalidActions": 0,
+      "toolCalls": 4,
+      "latencyMs": 100080.67004199931,
+      "inputTokens": 3403,
+      "outputTokens": 68,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "10002"
+        },
+        {
+          "guess": "cacho",
+          "feedback": "22002"
+        },
+        {
+          "guess": "caido",
+          "feedback": "22022"
+        },
+        {
+          "guess": "caldo",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "calvo",
+      "solved": true,
+      "turns": 5,
+      "scoredTurns": 5,
+      "invalidActions": 0,
+      "toolCalls": 5,
+      "latencyMs": 126285.31383200083,
+      "inputTokens": 3796,
+      "outputTokens": 85,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "10002"
+        },
+        {
+          "guess": "cacho",
+          "feedback": "22002"
+        },
+        {
+          "guess": "caido",
+          "feedback": "22002"
+        },
+        {
+          "guess": "callo",
+          "feedback": "22202"
+        },
+        {
+          "guess": "calvo",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "cañon",
+      "solved": false,
+      "turns": 3,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 4,
+      "latencyMs": 122720.4285420007,
+      "inputTokens": 3544,
+      "outputTokens": 86,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "10001"
+        },
+        {
+          "guess": "cagon",
+          "feedback": "22022"
+        },
+        {
+          "guess": "caian",
+          "feedback": "22002"
+        }
+      ]
+    },
+    {
+      "target": "cerca",
+      "solved": false,
+      "turns": 5,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 6,
+      "latencyMs": 180292.34320800006,
+      "inputTokens": 4660,
+      "outputTokens": 129,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "10000"
+        },
+        {
+          "guess": "cague",
+          "feedback": "21001"
+        },
+        {
+          "guess": "celda",
+          "feedback": "22002"
+        },
+        {
+          "guess": "cerda",
+          "feedback": "22202"
+        },
+        {
+          "guess": "cerco",
+          "feedback": "22220"
+        }
+      ]
+    },
+    {
+      "target": "cerco",
+      "solved": true,
+      "turns": 2,
+      "scoredTurns": 2,
+      "invalidActions": 0,
+      "toolCalls": 2,
+      "latencyMs": 66598.02404200006,
+      "inputTokens": 2866,
+      "outputTokens": 34,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "00002"
+        },
+        {
+          "guess": "cerco",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "chico",
+      "solved": true,
+      "turns": 3,
+      "scoredTurns": 3,
+      "invalidActions": 0,
+      "toolCalls": 3,
+      "latencyMs": 85642.48929299973,
+      "inputTokens": 3219,
+      "outputTokens": 51,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "00002"
+        },
+        {
+          "guess": "cerco",
+          "feedback": "20022"
+        },
+        {
+          "guess": "chico",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "chile",
+      "solved": true,
+      "turns": 2,
+      "scoredTurns": 2,
+      "invalidActions": 0,
+      "toolCalls": 2,
+      "latencyMs": 64347.737751000095,
+      "inputTokens": 2652,
+      "outputTokens": 34,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "00000"
+        },
+        {
+          "guess": "chile",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "china",
+      "solved": true,
+      "turns": 4,
+      "scoredTurns": 4,
+      "invalidActions": 0,
+      "toolCalls": 4,
+      "latencyMs": 128389.09879099997,
+      "inputTokens": 3634,
+      "outputTokens": 68,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "10000"
+        },
+        {
+          "guess": "cague",
+          "feedback": "21000"
+        },
+        {
+          "guess": "chica",
+          "feedback": "22202"
+        },
+        {
+          "guess": "china",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "clima",
+      "solved": true,
+      "turns": 4,
+      "scoredTurns": 4,
+      "invalidActions": 0,
+      "toolCalls": 4,
+      "latencyMs": 116048.17379199993,
+      "inputTokens": 3634,
+      "outputTokens": 68,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "10000"
+        },
+        {
+          "guess": "cague",
+          "feedback": "21000"
+        },
+        {
+          "guess": "chica",
+          "feedback": "20202"
+        },
+        {
+          "guess": "clima",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "cobro",
+      "solved": true,
+      "turns": 3,
+      "scoredTurns": 3,
+      "invalidActions": 0,
+      "toolCalls": 3,
+      "latencyMs": 76601.5920420005,
+      "inputTokens": 2960,
+      "outputTokens": 52,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "01002"
+        },
+        {
+          "guess": "bingo",
+          "feedback": "10002"
+        },
+        {
+          "guess": "cobro",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "cotar",
+      "solved": true,
+      "turns": 4,
+      "scoredTurns": 4,
+      "invalidActions": 0,
+      "toolCalls": 4,
+      "latencyMs": 104210.21054200036,
+      "inputTokens": 3415,
+      "outputTokens": 68,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "10001"
+        },
+        {
+          "guess": "cagon",
+          "feedback": "21010"
+        },
+        {
+          "guess": "colar",
+          "feedback": "22022"
+        },
+        {
+          "guess": "cotar",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "deseo",
+      "solved": true,
+      "turns": 3,
+      "scoredTurns": 3,
+      "invalidActions": 0,
+      "toolCalls": 3,
+      "latencyMs": 85547.9947499996,
+      "inputTokens": 3231,
+      "outputTokens": 52,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "00002"
+        },
+        {
+          "guess": "cerco",
+          "feedback": "02002"
+        },
+        {
+          "guess": "deseo",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "dobla",
+      "solved": true,
+      "turns": 3,
+      "scoredTurns": 3,
+      "invalidActions": 0,
+      "toolCalls": 3,
+      "latencyMs": 82350.35795800015,
+      "inputTokens": 2930,
+      "outputTokens": 51,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "11001"
+        },
+        {
+          "guess": "bolsa",
+          "feedback": "12102"
+        },
+        {
+          "guess": "dobla",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "doler",
+      "solved": false,
+      "turns": 4,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 5,
+      "latencyMs": 157562.90362500027,
+      "inputTokens": 4007,
+      "outputTokens": 113,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "00001"
+        },
+        {
+          "guess": "cocer",
+          "feedback": "02022"
+        },
+        {
+          "guess": "dolor",
+          "feedback": "22202"
+        },
+        {
+          "guess": "limon",
+          "feedback": "10010"
+        }
+      ]
+    },
+    {
+      "target": "espia",
+      "solved": true,
+      "turns": 4,
+      "scoredTurns": 4,
+      "invalidActions": 0,
+      "toolCalls": 4,
+      "latencyMs": 111739.94179099984,
+      "inputTokens": 3696,
+      "outputTokens": 69,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "10000"
+        },
+        {
+          "guess": "cague",
+          "feedback": "01001"
+        },
+        {
+          "guess": "dieta",
+          "feedback": "01102"
+        },
+        {
+          "guess": "espia",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "fallo",
+      "solved": true,
+      "turns": 3,
+      "scoredTurns": 3,
+      "invalidActions": 0,
+      "toolCalls": 3,
+      "latencyMs": 83547.33233300038,
+      "inputTokens": 3086,
+      "outputTokens": 51,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "10002"
+        },
+        {
+          "guess": "cacho",
+          "feedback": "02002"
+        },
+        {
+          "guess": "fallo",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "falto",
+      "solved": true,
+      "turns": 5,
+      "scoredTurns": 5,
+      "invalidActions": 0,
+      "toolCalls": 5,
+      "latencyMs": 125442.30379100051,
+      "inputTokens": 3837,
+      "outputTokens": 85,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "10002"
+        },
+        {
+          "guess": "cacho",
+          "feedback": "02002"
+        },
+        {
+          "guess": "fallo",
+          "feedback": "22202"
+        },
+        {
+          "guess": "falso",
+          "feedback": "22202"
+        },
+        {
+          "guess": "falto",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "farsa",
+      "solved": true,
+      "turns": 3,
+      "scoredTurns": 3,
+      "invalidActions": 0,
+      "toolCalls": 3,
+      "latencyMs": 82939.4969159998,
+      "inputTokens": 3052,
+      "outputTokens": 52,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "10100"
+        },
+        {
+          "guess": "cagar",
+          "feedback": "02011"
+        },
+        {
+          "guess": "farsa",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "fauna",
+      "solved": true,
+      "turns": 5,
+      "scoredTurns": 5,
+      "invalidActions": 0,
+      "toolCalls": 5,
+      "latencyMs": 124163.14520800114,
+      "inputTokens": 3829,
+      "outputTokens": 85,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "10100"
+        },
+        {
+          "guess": "cagar",
+          "feedback": "02010"
+        },
+        {
+          "guess": "danza",
+          "feedback": "02102"
+        },
+        {
+          "guess": "faena",
+          "feedback": "22022"
+        },
+        {
+          "guess": "fauna",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "feliz",
+      "solved": true,
+      "turns": 3,
+      "scoredTurns": 3,
+      "invalidActions": 0,
+      "toolCalls": 3,
+      "latencyMs": 85941.56825000048,
+      "inputTokens": 3007,
+      "outputTokens": 51,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "00000"
+        },
+        {
+          "guess": "chile",
+          "feedback": "00111"
+        },
+        {
+          "guess": "feliz",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "firme",
+      "solved": true,
+      "turns": 3,
+      "scoredTurns": 3,
+      "invalidActions": 0,
+      "toolCalls": 3,
+      "latencyMs": 82596.21845899988,
+      "inputTokens": 3020,
+      "outputTokens": 52,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "00000"
+        },
+        {
+          "guess": "chile",
+          "feedback": "00102"
+        },
+        {
+          "guess": "firme",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "flama",
+      "solved": true,
+      "turns": 3,
+      "scoredTurns": 3,
+      "invalidActions": 0,
+      "toolCalls": 3,
+      "latencyMs": 92380.54954099935,
+      "inputTokens": 2928,
+      "outputTokens": 51,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "10200"
+        },
+        {
+          "guess": "drama",
+          "feedback": "00222"
+        },
+        {
+          "guess": "flama",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "flora",
+      "solved": true,
+      "turns": 4,
+      "scoredTurns": 4,
+      "invalidActions": 0,
+      "toolCalls": 4,
+      "latencyMs": 112175.81241600029,
+      "inputTokens": 3459,
+      "outputTokens": 68,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "10001"
+        },
+        {
+          "guess": "cagon",
+          "feedback": "01010"
+        },
+        {
+          "guess": "diosa",
+          "feedback": "00202"
+        },
+        {
+          "guess": "flora",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "flota",
+      "solved": true,
+      "turns": 5,
+      "scoredTurns": 5,
+      "invalidActions": 0,
+      "toolCalls": 5,
+      "latencyMs": 125114.36849800125,
+      "inputTokens": 3840,
+      "outputTokens": 85,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "10001"
+        },
+        {
+          "guess": "cagon",
+          "feedback": "01010"
+        },
+        {
+          "guess": "diosa",
+          "feedback": "00202"
+        },
+        {
+          "guess": "flora",
+          "feedback": "22202"
+        },
+        {
+          "guess": "flota",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "fluir",
+      "solved": true,
+      "turns": 3,
+      "scoredTurns": 3,
+      "invalidActions": 0,
+      "toolCalls": 3,
+      "latencyMs": 82151.26750000007,
+      "inputTokens": 3012,
+      "outputTokens": 51,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "00000"
+        },
+        {
+          "guess": "chile",
+          "feedback": "00110"
+        },
+        {
+          "guess": "fluir",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "fruto",
+      "solved": true,
+      "turns": 4,
+      "scoredTurns": 4,
+      "invalidActions": 0,
+      "toolCalls": 4,
+      "latencyMs": 109667.90004100092,
+      "inputTokens": 3607,
+      "outputTokens": 68,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "00002"
+        },
+        {
+          "guess": "cerco",
+          "feedback": "00102"
+        },
+        {
+          "guess": "frito",
+          "feedback": "22022"
+        },
+        {
+          "guess": "fruto",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "gente",
+      "solved": true,
+      "turns": 4,
+      "scoredTurns": 4,
+      "invalidActions": 0,
+      "toolCalls": 4,
+      "latencyMs": 99704.45224999823,
+      "inputTokens": 3379,
+      "outputTokens": 67,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "00000"
+        },
+        {
+          "guess": "chile",
+          "feedback": "00002"
+        },
+        {
+          "guess": "entre",
+          "feedback": "11102"
+        },
+        {
+          "guess": "gente",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "gordo",
+      "solved": true,
+      "turns": 4,
+      "scoredTurns": 4,
+      "invalidActions": 0,
+      "toolCalls": 4,
+      "latencyMs": 99731.31008300092,
+      "inputTokens": 3601,
+      "outputTokens": 68,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "00002"
+        },
+        {
+          "guess": "cerco",
+          "feedback": "00202"
+        },
+        {
+          "guess": "forro",
+          "feedback": "02202"
+        },
+        {
+          "guess": "gordo",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "grasa",
+      "solved": true,
+      "turns": 3,
+      "scoredTurns": 3,
+      "invalidActions": 0,
+      "toolCalls": 3,
+      "latencyMs": 76828.28841600008,
+      "inputTokens": 2925,
+      "outputTokens": 51,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "10200"
+        },
+        {
+          "guess": "drama",
+          "feedback": "02202"
+        },
+        {
+          "guess": "grasa",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "hogar",
+      "solved": true,
+      "turns": 4,
+      "scoredTurns": 4,
+      "invalidActions": 0,
+      "toolCalls": 4,
+      "latencyMs": 101002.04883399978,
+      "inputTokens": 3406,
+      "outputTokens": 68,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "10001"
+        },
+        {
+          "guess": "cagon",
+          "feedback": "01210"
+        },
+        {
+          "guess": "dogma",
+          "feedback": "02201"
+        },
+        {
+          "guess": "hogar",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "hueco",
+      "solved": true,
+      "turns": 3,
+      "scoredTurns": 3,
+      "invalidActions": 0,
+      "toolCalls": 3,
+      "latencyMs": 84467.9215000011,
+      "inputTokens": 3220,
+      "outputTokens": 52,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "00002"
+        },
+        {
+          "guess": "cerco",
+          "feedback": "01022"
+        },
+        {
+          "guess": "hueco",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "hueso",
+      "solved": true,
+      "turns": 5,
+      "scoredTurns": 5,
+      "invalidActions": 0,
+      "toolCalls": 5,
+      "latencyMs": 121317.57408299949,
+      "inputTokens": 4053,
+      "outputTokens": 86,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "00002"
+        },
+        {
+          "guess": "cerco",
+          "feedback": "01002"
+        },
+        {
+          "guess": "duelo",
+          "feedback": "02202"
+        },
+        {
+          "guess": "fuego",
+          "feedback": "02202"
+        },
+        {
+          "guess": "hueso",
+          "feedback": "22222"
+        }
+      ]
+    },
+    {
+      "target": "huevo",
+      "solved": false,
+      "turns": 6,
+      "scoredTurns": 7,
+      "invalidActions": 0,
+      "toolCalls": 6,
+      "latencyMs": 149760.499040002,
+      "inputTokens": 4451,
+      "outputTokens": 104,
+      "costUsd": 0,
+      "effectiveProviders": [
+        "mlx-local"
+      ],
+      "responseModels": [
+        "/Users/andressantos/Documents/ChatGPT/Worlde Model ES/models/LFM2.5-2.6B-MLX-6bit"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "abajo",
+          "feedback": "00002"
+        },
+        {
+          "guess": "cerco",
+          "feedback": "01002"
+        },
+        {
+          "guess": "duelo",
+          "feedback": "02202"
+        },
+        {
+          "guess": "fuego",
+          "feedback": "02202"
+        },
+        {
+          "guess": "hueso",
+          "feedback": "22202"
+        },
+        {
+          "guess": "huero",
+          "feedback": "22202"
+        }
+      ]
+    }
+  ]
+}

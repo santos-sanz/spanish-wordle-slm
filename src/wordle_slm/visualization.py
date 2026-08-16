@@ -91,12 +91,35 @@ def parse_training_log(text: str, *, iteration_offset: int = 0) -> TrainingSerie
 
 def load_training_series() -> TrainingSeries:
     paths = sorted(RUN_DIR.glob("full-*.log"))
+    # A competitive refinement may run outside the cumulative full-run
+    # wrapper.  Include its live log so the same watcher renders the new phase
+    # instead of appearing frozen at the previous 5,000 iterations.
+    refinement_paths = [
+        RUN_DIR / "pure-refinement.log",
+        RUN_DIR / "pure-clean-refinement.log",
+    ]
+    paths.extend(path for path in refinement_paths if path.exists())
     planned = _planned_iterations()
     state_path = RUN_DIR / "state.json"
     state = json.loads(state_path.read_text(encoding="utf-8")) if state_path.exists() else {}
     configured_offsets = state.get("run_iteration_offsets", {})
     offsets: list[int] = []
     for index, path in enumerate(paths):
+        if path.name in {"pure-refinement.log", "pure-clean-refinement.log"}:
+            previous_offset = int(
+                state.get(
+                    "refinement_iteration_offset",
+                    state.get("completed_iterations", planned),
+                )
+            )
+            if path.name == "pure-clean-refinement.log":
+                previous_offset = int(
+                    state.get("clean_refinement_iteration_offset", previous_offset)
+                )
+            offsets.append(
+                previous_offset
+            )
+            continue
         if path.stem in configured_offsets:
             offsets.append(int(configured_offsets[path.stem]))
             continue
@@ -131,6 +154,13 @@ def load_training_series() -> TrainingSeries:
         if state_path.exists()
         else bool(paths and parse_training_log(paths[-1].read_text(encoding="utf-8")).completed)
     )
+    existing_refinements = [path for path in refinement_paths if path.exists()]
+    if existing_refinements:
+        # An earlier exploratory refinement may have been intentionally
+        # interrupted.  The newest refinement is the active phase and its
+        # terminal marker determines whether the dashboard is complete.
+        latest_text = existing_refinements[-1].read_text(encoding="utf-8", errors="replace")
+        completed = completed and "Saved final weights" in latest_text
     return TrainingSeries(train, validation, checkpoints, completed)
 
 
@@ -154,9 +184,18 @@ def _duration(seconds: object) -> str:
 def _planned_iterations() -> int:
     state = RUN_DIR / "state.json"
     if state.exists():
-        return int(
-            json.loads(state.read_text(encoding="utf-8")).get("iterations_planned", 3000)
-        )
+        payload = json.loads(state.read_text(encoding="utf-8"))
+        planned = int(payload.get("iterations_planned", 3000))
+        total = int(payload.get("refinement_iteration_offset", planned))
+        for name in ("pure-refinement.yaml", "pure-clean-refinement.yaml"):
+            refinement = ROOT / "configs" / name
+            if refinement.exists():
+                match = re.search(
+                    r"^iters:\s*(\d+)$", refinement.read_text(encoding="utf-8"), re.MULTILINE
+                )
+                if match:
+                    total += int(match.group(1))
+        return total
     config = RUN_DIR / "full-01.yaml"
     if config.exists():
         match = re.search(
@@ -172,7 +211,15 @@ def summarize(series: TrainingSeries) -> dict[str, object]:
     state_path = RUN_DIR / "state.json"
     state = json.loads(state_path.read_text(encoding="utf-8")) if state_path.exists() else {}
     phase_start = max(
-        (int(value) for value in state.get("run_iteration_offsets", {}).values()),
+        [
+            *(
+                int(value)
+                for value in state.get("run_iteration_offsets", {}).values()
+            ),
+            int(state["refinement_iteration_offset"])
+            if "refinement_iteration_offset" in state
+            else 0,
+        ],
         default=0,
     )
     current_iteration = max((point.iteration for point in series.train), default=0)

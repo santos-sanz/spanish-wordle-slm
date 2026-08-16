@@ -69,13 +69,16 @@ def test_repair_curriculum_replaces_the_repeated_guess() -> None:
     repairs = [
         record
         for record in records
-        if len(record["messages"]) == 5 and record["messages"][-2]["role"] == "user"
+        if len(record["messages"]) == 3
+        and "Palabras no disponibles:" in record["messages"][1]["content"]
     ]
     assert repairs
     for record in repairs:
-        repeated = json.loads(record["messages"][-3]["content"])["guess"]
+        unavailable = record["messages"][1]["content"].split(
+            "Palabras no disponibles:", 1
+        )[1].split(".", 1)[0]
         corrected = json.loads(record["messages"][-1]["content"])["guess"]
-        assert repeated != corrected
+        assert corrected not in {word.strip() for word in unavailable.split(",")}
 
 
 def test_distilled_agent_policy_solves_validation_with_small_tool_results() -> None:

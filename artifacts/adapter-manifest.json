@@ -2,35 +2,49 @@
   "adapter": {
     "repository": "santos-sanz/spanish-wordle-lfm2.5-2.6b-qlora",
     "private": true,
-    "revision": "fbac6981bc6699a13e1f1206ca4ffff09bbf1507",
-    "config_sha256": "200b3dca93f1498f488f65225001fccea9a12e3d04b566041081abd7b5faa932",
-    "weights_sha256": "c8e81e7bfee6cd4fcf0b8fd1d52f5b3fb24c8cf1a160e8285085caa5790a8a61"
+    "revision": "655ef00f9060d994a61cc6ad237f4c50554e65e3",
+    "config_sha256": "3a908e78c170e359141b50bfa4a9b2fd85673c0151311dfc0e504f042bde48aa",
+    "weights_sha256": "6c7a48c8fa56b1f08fa4f902e7c044e520aec672c71952ff489db85113cb71c6"
   },
   "base_model": {
     "repository": "LiquidAI/LFM2.5-2.6B-MLX-6bit",
     "revision": "95f71f1c30e3247bc7f042c6fd64d7ca60258780"
   },
-  "supervised_reference": {
-    "selected_iteration": 2900,
-    "validation_loss": 0.219,
-    "adapter_sha256": "cd45874847a25ba81e3e8b0402322230e3d54083210b9b1631a77e3b2db82099"
-  },
-  "preference_optimization": {
-    "method": "offline_dpo",
-    "iterations": 400,
-    "selected_iteration": 400,
-    "elapsed_seconds": 1264.3041738749998,
-    "peak_memory_gb": 3.222331042,
-    "initial_validation_loss": 0.6901898860931397,
-    "selected_validation_loss": 0.24448368065059184,
-    "validation_reward_accuracy": 0.9875,
-    "validation_reward_margin": 2.3940625302493572,
-    "beta": 0.2,
-    "label_smoothing": 0.05,
-    "learning_rate": 0.000001
+  "training": {
+    "method": "multitask_sft_with_pure_cleanup",
+    "main_iterations": 5000,
+    "main_learning_rate": 0.00003,
+    "pure_cleanup_iterations": 150,
+    "pure_cleanup_learning_rate": 0.00001,
+    "rank": 16,
+    "scale": 32.0,
+    "dropout": 0.05,
+    "layers": 16,
+    "max_seq_length": 512,
+    "seed": 20260814,
+    "peak_memory_gb": 3.499
   },
   "data_safety": {
     "hidden_test_used": false,
-    "train_validation_prompt_overlap": 0
+    "train_validation_prompt_overlap": 0,
+    "pure_train_records": 8757,
+    "pure_validation_records": 1261
+  },
+  "hidden_evaluation": {
+    "rival": "deepseek/deepseek-v4-flash-0731",
+    "targets": 124,
+    "pure": {
+      "slm_wins": 2,
+      "rival_wins": 1,
+      "paired_ci95_win_rate_difference": [-0.0161290323, 0.0322580645],
+      "criterion_met": false
+    },
+    "agent": {
+      "slm_wins": 115,
+      "rival_wins": 8,
+      "paired_ci95_win_rate_difference": [0.7983870968, 0.9193548387],
+      "criterion_met": true
+    },
+    "two_track_success": false
   }
 }

@@ -1,0 +1,390 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "Spanish Wordle SLM competition",
+    "description": "Paired hidden-test comparison of a local MLX SLM and a larger OpenRouter model.",
+    "generatedAt": "2026-08-16T19:27:53.144Z",
+    "cards": [
+      {
+        "id": "pure_slm",
+        "description": "Frozen SLM performance without tools.",
+        "dataset": "competition",
+        "sourceId": "benchmark_results",
+        "filter": {
+          "track": "Pure",
+          "policy": "Spanish Wordle SLM"
+        },
+        "metrics": [
+          {
+            "label": "Pure win rate",
+            "field": "winRate",
+            "format": "percent"
+          },
+          {
+            "label": "Mean turns",
+            "field": "meanScoredTurns",
+            "format": "number"
+          }
+        ]
+      },
+      {
+        "id": "agent_slm",
+        "description": "Frozen SLM performance with candidate lookup.",
+        "dataset": "competition",
+        "sourceId": "benchmark_results",
+        "filter": {
+          "track": "Agent",
+          "policy": "Spanish Wordle SLM"
+        },
+        "metrics": [
+          {
+            "label": "Agent win rate",
+            "field": "winRate",
+            "format": "percent"
+          },
+          {
+            "label": "Mean turns",
+            "field": "meanScoredTurns",
+            "format": "number"
+          }
+        ]
+      }
+    ],
+    "charts": [
+      {
+        "id": "win_rate",
+        "title": "Win rate by competitive track",
+        "subtitle": "Higher is better; every policy receives the same hidden targets.",
+        "type": "bar",
+        "dataset": "competition",
+        "sourceId": "benchmark_results",
+        "valueFormat": "percent",
+        "encodings": {
+          "x": {
+            "field": "track",
+            "type": "nominal",
+            "label": "Track"
+          },
+          "y": {
+            "field": "winRate",
+            "type": "quantitative",
+            "label": "Win rate"
+          },
+          "color": {
+            "field": "policy",
+            "type": "nominal",
+            "label": "Policy"
+          },
+          "tooltip": [
+            {
+              "field": "wins",
+              "type": "quantitative",
+              "label": "Wins"
+            },
+            {
+              "field": "games",
+              "type": "quantitative",
+              "label": "Games"
+            }
+          ]
+        }
+      },
+      {
+        "id": "mean_turns",
+        "title": "Mean scored turns",
+        "subtitle": "Lower is better; unsolved games count as seven turns.",
+        "type": "bar",
+        "dataset": "competition",
+        "sourceId": "benchmark_results",
+        "encodings": {
+          "x": {
+            "field": "track",
+            "type": "nominal",
+            "label": "Track"
+          },
+          "y": {
+            "field": "meanScoredTurns",
+            "type": "quantitative",
+            "label": "Mean turns"
+          },
+          "color": {
+            "field": "policy",
+            "type": "nominal",
+            "label": "Policy"
+          }
+        }
+      }
+    ],
+    "tables": [
+      {
+        "id": "competition_table",
+        "title": "Complete competition summary",
+        "subtitle": "Outcomes, behavior, latency, tokens, and hosted-model cost.",
+        "dataset": "competition",
+        "sourceId": "benchmark_results",
+        "columns": [
+          {
+            "field": "track",
+            "label": "Track",
+            "type": "text"
+          },
+          {
+            "field": "policy",
+            "label": "Policy",
+            "type": "text"
+          },
+          {
+            "field": "wins",
+            "label": "Wins",
+            "format": "number"
+          },
+          {
+            "field": "games",
+            "label": "Games",
+            "format": "number"
+          },
+          {
+            "field": "winRate",
+            "label": "Win rate",
+            "format": "percent"
+          },
+          {
+            "field": "meanScoredTurns",
+            "label": "Mean turns",
+            "format": "number"
+          },
+          {
+            "field": "invalidActions",
+            "label": "Invalid",
+            "format": "number"
+          },
+          {
+            "field": "toolCalls",
+            "label": "Tool calls",
+            "format": "number"
+          },
+          {
+            "field": "latencySeconds",
+            "label": "Latency (s)",
+            "format": "number"
+          },
+          {
+            "field": "costUsd",
+            "label": "Cost",
+            "format": "currency"
+          }
+        ]
+      },
+      {
+        "id": "decision_table",
+        "title": "Paired statistical decisions",
+        "subtitle": "The 95% interval must be strictly positive for the first metric that differs.",
+        "dataset": "decisions",
+        "sourceId": "paired_bootstrap",
+        "columns": [
+          {
+            "field": "track",
+            "label": "Track",
+            "type": "text"
+          },
+          {
+            "field": "decisiveMetric",
+            "label": "Metric",
+            "type": "text"
+          },
+          {
+            "field": "observedWinRateDifference",
+            "label": "Win-rate diff",
+            "format": "percent"
+          },
+          {
+            "field": "observedTurnAdvantage",
+            "label": "Turn advantage",
+            "format": "number"
+          },
+          {
+            "field": "ci95Low",
+            "label": "CI low",
+            "format": "number"
+          },
+          {
+            "field": "ci95High",
+            "label": "CI high",
+            "format": "number"
+          },
+          {
+            "field": "decision",
+            "label": "Decision",
+            "type": "text"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "benchmark_results",
+        "label": "Immutable paired benchmark JSON",
+        "path": "artifacts/benchmark/*.json"
+      },
+      {
+        "id": "paired_bootstrap",
+        "label": "Seeded paired bootstrap implementation",
+        "path": "agent/src/report.ts"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "executive_summary",
+        "type": "markdown",
+        "body": "## Technical conclusion\n\n**Objective achieved: no.** The adapter is judged on Pure and Agent only. Oracle is a non-competitive ceiling."
+      },
+      {
+        "id": "metrics",
+        "type": "metric-strip",
+        "cardIds": [
+          "pure_slm",
+          "agent_slm"
+        ]
+      },
+      {
+        "id": "win_chart",
+        "type": "chart",
+        "chartId": "win_rate"
+      },
+      {
+        "id": "turn_chart",
+        "type": "chart",
+        "chartId": "mean_turns"
+      },
+      {
+        "id": "decision_detail",
+        "type": "table",
+        "tableId": "decision_table"
+      },
+      {
+        "id": "methodology",
+        "type": "markdown",
+        "body": "## Methodology and controls\n\n- 124 paired hidden targets per track; deterministic order and seed 20260814.\n- Pure receives history only. Agent may call get_candidates once per turn.\n- At most two invalid-output repairs per turn; a loss scores seven turns.\n- The adapter, prompt, and harness are frozen before opening the hidden test.\n- OpenRouter fallback is disabled; the effective provider and response model are recorded."
+      },
+      {
+        "id": "full_results",
+        "type": "table",
+        "tableId": "competition_table"
+      },
+      {
+        "id": "limitations",
+        "type": "markdown",
+        "body": "## Limitations\n\nResults apply to the fixed Spanish Wordle distribution. Hosted latency and cost may vary. Statistical intervals quantify target-level uncertainty, not future provider drift."
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-08-16T19:27:53.144Z",
+    "status": "complete",
+    "datasets": {
+      "competition": [
+        {
+          "track": "Pure",
+          "policy": "Spanish Wordle SLM",
+          "model": "LFM2.5 2.6B + QLoRA",
+          "games": 124,
+          "wins": 2,
+          "winRate": 0.016129032258064516,
+          "meanScoredTurns": 6.919354838709677,
+          "invalidActions": 325,
+          "toolCalls": 0,
+          "latencySeconds": 12364.959481174992,
+          "inputTokens": 138060,
+          "outputTokens": 9027,
+          "costUsd": 0
+        },
+        {
+          "track": "Pure",
+          "policy": "Benchmark model",
+          "model": "deepseek/deepseek-v4-flash-0731",
+          "games": 124,
+          "wins": 1,
+          "winRate": 0.008064516129032258,
+          "meanScoredTurns": 6.967741935483871,
+          "invalidActions": 63,
+          "toolCalls": 0,
+          "latencySeconds": 1209.1413906690004,
+          "inputTokens": 26371,
+          "outputTokens": 53219,
+          "costUsd": 0.018593260000000004
+        },
+        {
+          "track": "Agent",
+          "policy": "Spanish Wordle SLM",
+          "model": "LFM2.5 2.6B + QLoRA",
+          "games": 124,
+          "wins": 115,
+          "winRate": 0.9274193548387096,
+          "meanScoredTurns": 3.967741935483871,
+          "invalidActions": 21,
+          "toolCalls": 477,
+          "latencySeconds": 12235.613504703011,
+          "inputTokens": 422547,
+          "outputTokens": 8337,
+          "costUsd": 0
+        },
+        {
+          "track": "Agent",
+          "policy": "Benchmark model",
+          "model": "deepseek/deepseek-v4-flash-0731",
+          "games": 124,
+          "wins": 8,
+          "winRate": 0.06451612903225806,
+          "meanScoredTurns": 6.693548387096774,
+          "invalidActions": 31,
+          "toolCalls": 24,
+          "latencySeconds": 888.2485558750001,
+          "inputTokens": 46455,
+          "outputTokens": 32969,
+          "costUsd": 0.015935724000000002
+        }
+      ],
+      "decisions": [
+        {
+          "track": "Pure",
+          "decisiveMetric": "win_rate",
+          "observedWinRateDifference": 0.008064516129032258,
+          "observedTurnAdvantage": 0.04838709677419355,
+          "ci95Low": -0.016129032258064516,
+          "ci95High": 0.03225806451612903,
+          "decision": "Not demonstrated"
+        },
+        {
+          "track": "Agent",
+          "decisiveMetric": "win_rate",
+          "observedWinRateDifference": 0.8629032258064516,
+          "observedTurnAdvantage": 2.725806451612903,
+          "ci95Low": 0.7983870967741935,
+          "ci95High": 0.9193548387096774,
+          "decision": "SLM wins"
+        }
+      ]
+    },
+    "accessIssues": []
+  },
+  "sources": [
+    {
+      "id": "benchmark_results",
+      "description": "Four complete paired benchmark result files."
+    },
+    {
+      "id": "paired_bootstrap",
+      "description": "10,000 resamples with deterministic seed 20260814."
+    }
+  ],
+  "package_info": {
+    "originUrl": "artifact://spanish-wordle-slm-competition",
+    "controls": {
+      "edit": false,
+      "refresh": false
+    }
+  }
+}
