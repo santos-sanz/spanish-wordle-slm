@@ -324,12 +324,14 @@ def render_training_dashboard() -> dict[str, object]:
         axis.axvline(phase_start, color="#7A5AF8", linewidth=1.2, linestyle="--")
         axis.text(
             phase_start,
-            0.98,
-            " refinement data",
+            0.72,
+            "refinement data",
             transform=axis.get_xaxis_transform(),
             color="#6941C6",
             fontsize=8.5,
-            va="top",
+            rotation=90,
+            va="bottom",
+            ha="right",
         )
     if series.checkpoints:
         axis.scatter(
