@@ -4,6 +4,7 @@ import argparse
 import json
 import subprocess
 
+from .benchmark_visualization import render_benchmark_visuals
 from .data import ROOT, prepare_data
 from .dataset import generate_training_data
 from .preference_training import train_dpo
@@ -53,6 +54,7 @@ def main() -> None:
     benchmark_parser.add_argument("--limit", type=int)
     benchmark_parser.add_argument("--resume", action="store_true")
     subparsers.add_parser("report")
+    subparsers.add_parser("visualize-benchmark")
     arguments = parser.parse_args()
 
     if arguments.command == "prepare-data":
@@ -113,6 +115,8 @@ def main() -> None:
         if not report.exists():
             raise SystemExit("benchmark summary does not exist")
         _print(json.loads(report.read_text(encoding="utf-8")))
+    elif arguments.command == "visualize-benchmark":
+        _print(render_benchmark_visuals())
 
 
 if __name__ == "__main__":

@@ -109,6 +109,7 @@ uv run wordle-slm benchmark --provider slm --track pure --split test
 uv run wordle-slm benchmark --provider deepseek --track pure --split test
 npm run report
 uv run wordle-slm report
+uv run wordle-slm visualize-benchmark
 ```
 
 Long benchmarks persist after every game and can continue safely with

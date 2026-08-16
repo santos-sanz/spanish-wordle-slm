@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 
+from wordle_slm.benchmark_visualization import _paired_win_interval
 from wordle_slm.data import deterministic_split
 from wordle_slm.dataset import _records_for_targets
 from wordle_slm.solver import WordleSolver, entropy_for_counts
@@ -23,11 +24,17 @@ def test_empty_history_has_one_canonical_supervised_action() -> None:
     first_turn_answers = {
         record["messages"][-1]["content"]
         for record in records
-        if "tools" not in record
-        and record["messages"][1]["content"].startswith("Turno 1/6")
+        if "tools" not in record and record["messages"][1]["content"].startswith("Turno 1/6")
     }
     expected = solver.best_guess(solver.all_candidates, 6)
     assert first_turn_answers == {json.dumps({"guess": expected})}
+
+
+def test_paired_win_interval_detects_clear_slm_advantage() -> None:
+    slm = [{"target": str(index), "solved": True} for index in range(20)]
+    rival = [{"target": str(index), "solved": False} for index in range(20)]
+    observed, low, high = _paired_win_interval(slm, rival, samples=500)
+    assert (observed, low, high) == (1.0, 1.0, 1.0)
 
 
 def test_entropy_prefers_even_partition() -> None:
