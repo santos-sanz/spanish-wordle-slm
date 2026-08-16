@@ -97,7 +97,10 @@ uv run wordle-slm serve
 
 The server selects `adapters/dpo-selected` by default and falls back to the
 SFT adapter only when no selected DPO policy exists. Set `WORDLE_ADAPTER_PATH`
-to override it explicitly.
+to override it explicitly. It also uses the tracked no-thinking inference chat
+template so generation matches the response-only format used during training.
+The local request also suppresses LFM's `<think>` opener; otherwise reasoning
+can consume the full output budget before the trained JSON answer is emitted.
 
 Run one paired benchmark track and generate the statistical report:
 

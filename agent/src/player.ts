@@ -4,6 +4,10 @@ import { WordleBridge, type HistoryRow } from "./bridge.js";
 
 export type Track = "pure" | "agent" | "oracle";
 
+// LFM2.5 otherwise opens a hidden reasoning block and can spend the entire
+// response budget before emitting the short JSON answer it was trained on.
+const LFM_THINK_START_TOKEN_ID = "124901";
+
 const PURE_SYSTEM =
   "Juegas Wordle en español. La palabra objetivo tiene cinco letras y dispones de seis " +
   "intentos. 0=gris, 1=amarillo, 2=verde. Respeta letras repetidas. Responde únicamente " +
@@ -149,7 +153,7 @@ export async function chooseGuess(options: {
         samplingParams:
           selectedModel.provider === "openrouter"
             ? { seed: 20260814, provider: { allow_fallbacks: false } }
-            : { seed: 20260814 },
+            : { seed: 20260814, logit_bias: { [LFM_THINK_START_TOKEN_ID]: -100 } },
       }),
     toolExecution: "sequential",
   });

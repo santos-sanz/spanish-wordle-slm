@@ -21,6 +21,7 @@ MODEL_ID = "LiquidAI/LFM2.5-2.6B-MLX-6bit"
 MODEL_REVISION = "95f71f1c30e3247bc7f042c6fd64d7ca60258780"
 MODEL_DIR = ROOT / "models" / "LFM2.5-2.6B-MLX-6bit"
 ADAPTER_DIR = ROOT / "adapters"
+INFERENCE_CHAT_TEMPLATE = ROOT / "configs" / "chat_template_no_think.jinja"
 RUN_DIR = ROOT / "artifacts" / "runs" / "training"
 MAX_WALL_SECONDS = 5 * 3600 + 45 * 60
 
@@ -337,6 +338,8 @@ def serve() -> None:
             str(MODEL_DIR),
             "--adapter-path",
             str(adapter),
+            "--chat-template",
+            INFERENCE_CHAT_TEMPLATE.read_text(encoding="utf-8"),
             "--host",
             "127.0.0.1",
             "--port",

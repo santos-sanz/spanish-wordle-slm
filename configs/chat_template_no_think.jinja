@@ -1,0 +1,90 @@
+{# <|tool_list_start|> detection hint for mlx_lm #}
+
+{{- bos_token -}}
+
+{%- macro format_arg_value(arg_value) -%}
+    {%- if arg_value is string -%}
+        {{- "'" + (arg_value | replace("\\", "\\\\") | replace("'", "\\'") | replace("\n", "\\n") | replace("\r", "\\r")) + "'" -}}
+    {%- elif arg_value is mapping or arg_value is iterable -%}
+        {{- arg_value | tojson -}}
+    {%- else -%}
+        {{- arg_value | string -}}
+    {%- endif -%}
+{%- endmacro -%}
+
+{%- macro parse_content(content) -%}
+    {%- if content is string -%}
+        {{- content -}}
+    {%- elif content is mapping -%}
+        {{- content | tojson -}}
+    {%- elif content is iterable -%}
+        {%- set content_ns = namespace(result="") -%}
+        {%- for item in content -%}
+            {%- if item is string -%}
+                {%- set content_ns.result = content_ns.result + item -%}
+            {%- elif item is mapping and item.get("type") == "text" -%}
+                {%- set content_ns.result = content_ns.result + ((item.get("text") or "") | string) -%}
+            {%- endif -%}
+        {%- endfor -%}
+        {{- content_ns.result -}}
+    {%- endif -%}
+{%- endmacro -%}
+
+{%- macro render_tool_calls(tool_calls) -%}
+    {%- set calls_ns = namespace(calls=[]) -%}
+    {%- for tool_call in tool_calls -%}
+        {%- set function = tool_call["function"] if "function" in tool_call else tool_call -%}
+        {%- set arguments = function.get("arguments") -%}
+        {%- set args_ns = namespace(values=[]) -%}
+        {%- if arguments is mapping -%}
+            {%- for name, value in arguments.items() -%}
+                {%- set args_ns.values = args_ns.values + [name + "=" + format_arg_value(value)] -%}
+            {%- endfor -%}
+        {%- endif -%}
+        {%- set calls_ns.calls = calls_ns.calls + [function["name"] + "(" + (args_ns.values | join(", ")) + ")"] -%}
+    {%- endfor -%}
+    {{- "<|tool_call_start|>[" + (calls_ns.calls | join(", ")) + "]<|tool_call_end|>" -}}
+{%- endmacro -%}
+
+{%- set state = namespace(system_prompt="") -%}
+{%- if messages and messages[0]["role"] == "system" -%}
+    {%- if messages[0].get("content") -%}
+        {%- set state.system_prompt = parse_content(messages[0]["content"]) -%}
+    {%- endif -%}
+    {%- set messages = messages[1:] -%}
+{%- endif -%}
+{%- if tools -%}
+    {%- set state.system_prompt = state.system_prompt + ("\n" if state.system_prompt else "") + "List of tools: [" -%}
+    {%- for tool in tools -%}
+        {%- set state.system_prompt = state.system_prompt + (tool if tool is string else (tool | tojson)) -%}
+        {%- if not loop.last -%}
+            {%- set state.system_prompt = state.system_prompt + ", " -%}
+        {%- endif -%}
+    {%- endfor -%}
+    {%- set state.system_prompt = state.system_prompt + "]" -%}
+{%- endif -%}
+{%- if state.system_prompt -%}
+    {{- "<|im_start|>system\n" + state.system_prompt + "<|im_end|>\n" -}}
+{%- endif -%}
+{%- for message in messages -%}
+    {{- "<|im_start|>" + message.role + "\n" -}}
+    {%- if message.role == "assistant" -%}
+        {%- generation -%}
+        {%- if message.get("content") -%}
+            {{- parse_content(message.content) -}}
+        {%- endif -%}
+        {%- if message.tool_calls -%}
+            {{- render_tool_calls(message.tool_calls) -}}
+        {%- endif -%}
+        {{- "<|im_end|>\n" -}}
+        {%- endgeneration -%}
+    {%- else -%}
+        {%- if message.get("content") -%}
+            {{- parse_content(message.content) -}}
+        {%- endif -%}
+        {{- "<|im_end|>\n" -}}
+    {%- endif -%}
+{%- endfor -%}
+{%- if add_generation_prompt -%}
+    {{- "<|im_start|>assistant\n" -}}
+{%- endif -%}
