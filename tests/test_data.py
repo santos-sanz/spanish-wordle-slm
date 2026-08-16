@@ -43,7 +43,7 @@ def test_training_mix_prioritizes_competitive_tracks() -> None:
     records = _records_for_targets(solver, solver.splits["train"][:8])
     agent = sum("get_candidates" in record["messages"][0]["content"] for record in records)
     pure = len(records) - agent
-    assert 0.5 < pure / len(records) < 0.7
+    assert 0.5 < pure / len(records) < 0.75
     assert all("best_guess" not in json.dumps(record) for record in records)
 
 
@@ -61,6 +61,21 @@ def test_agent_policy_copies_a_compatible_candidate() -> None:
         tool_result = json.loads(record["messages"][-2]["content"])
         guess = json.loads(record["messages"][-1]["content"])["guess"]
         assert guess == tool_result["candidates"][0]
+
+
+def test_repair_curriculum_replaces_the_repeated_guess() -> None:
+    solver = WordleSolver()
+    records = _records_for_targets(solver, solver.splits["train"][:1])
+    repairs = [
+        record
+        for record in records
+        if len(record["messages"]) == 5 and record["messages"][-2]["role"] == "user"
+    ]
+    assert repairs
+    for record in repairs:
+        repeated = json.loads(record["messages"][-3]["content"])["guess"]
+        corrected = json.loads(record["messages"][-1]["content"])["guess"]
+        assert repeated != corrected
 
 
 def test_distilled_agent_policy_solves_validation_with_small_tool_results() -> None:

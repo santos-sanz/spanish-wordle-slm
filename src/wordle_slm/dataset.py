@@ -35,6 +35,10 @@ AGENT_SYSTEM = (
     + " Puedes usar get_candidates una vez por turno para consultar soluciones compatibles."
 )
 ORACLE_SYSTEM = PURE_SYSTEM + " Usa best_guess para obtener la jugada del solver."
+REPAIR_PROMPT = (
+    "Respuesta inválida o repetida. Devuelve únicamente JSON con una palabra válida "
+    'que no hayas usado: {"guess":"palabra"}.'
+)
 
 
 def state_prompt(history: list[tuple[str, int]], turn: int) -> str:
@@ -78,6 +82,21 @@ def _agent_direct_record(history: list[tuple[str, int]], turn: int, guess: str) 
         "messages": [
             {"role": "system", "content": AGENT_SYSTEM},
             {"role": "user", "content": state_prompt(history, turn)},
+            {"role": "assistant", "content": json.dumps({"guess": guess})},
+        ]
+    }
+
+
+def _pure_repair_record(
+    history: list[tuple[str, int]], turn: int, guess: str
+) -> dict[str, Any]:
+    repeated = history[-1][0]
+    return {
+        "messages": [
+            {"role": "system", "content": PURE_SYSTEM},
+            {"role": "user", "content": state_prompt(history, turn)},
+            {"role": "assistant", "content": json.dumps({"guess": repeated})},
+            {"role": "user", "content": REPAIR_PROMPT},
             {"role": "assistant", "content": json.dumps({"guess": guess})},
         ]
     }
@@ -139,6 +158,7 @@ def _games_for_target(solver: WordleSolver, target: str) -> list[list[tuple[str,
 
 def _records_for_targets(solver: WordleSolver, targets: list[str]) -> list[dict[str, Any]]:
     pure: list[dict[str, Any]] = []
+    repairs: list[dict[str, Any]] = []
     for target in targets:
         for game_index, game in enumerate(_games_for_target(solver, target)):
             history: list[tuple[str, int]] = []
@@ -152,6 +172,8 @@ def _records_for_targets(solver: WordleSolver, targets: list[str]) -> list[dict[
                     history = [*history, (guess, code)]
                     continue
                 pure.append(_pure_record(history, turn_index, guess))
+                if history:
+                    repairs.append(_pure_repair_record(history, turn_index, guess))
                 history = [*history, (guess, code)]
 
     # Agent is a different policy from Pure: it should exploit the information
@@ -189,9 +211,9 @@ def _records_for_targets(solver: WordleSolver, targets: list[str]) -> list[dict[
 
     rng = random.Random(20260814)
     # Competitive selection is Pure/Agent only; Oracle bypasses the model in
-    # the harness. The natural trajectory counts yield approximately 60/40,
-    # keeping Pure dominant while fully supervising the learnable Agent policy.
-    records = pure + agent
+    # the harness. Duplicate the Agent curriculum once so the refinement mix
+    # balances normal play, late-turn repair behavior, and candidate copying.
+    records = pure + repairs + agent + agent
     rng.shuffle(records)
     return records
 
