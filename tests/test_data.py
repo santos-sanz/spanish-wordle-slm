@@ -1,7 +1,10 @@
 import json
 from pathlib import Path
 
-from wordle_slm.benchmark_visualization import _paired_win_interval
+from wordle_slm.benchmark_visualization import (
+    _paired_decisive_interval,
+    _paired_win_interval,
+)
 from wordle_slm.data import deterministic_split
 from wordle_slm.dataset import _records_for_targets
 from wordle_slm.solver import WordleSolver, entropy_for_counts
@@ -35,6 +38,20 @@ def test_paired_win_interval_detects_clear_slm_advantage() -> None:
     rival = [{"target": str(index), "solved": False} for index in range(20)]
     observed, low, high = _paired_win_interval(slm, rival, samples=500)
     assert (observed, low, high) == (1.0, 1.0, 1.0)
+
+
+def test_paired_decisive_interval_uses_turns_when_wins_tie() -> None:
+    slm = [
+        {"target": str(index), "solved": True, "scoredTurns": 3}
+        for index in range(20)
+    ]
+    rival = [
+        {"target": str(index), "solved": True, "scoredTurns": 5}
+        for index in range(20)
+    ]
+    metric, observed, low, high = _paired_decisive_interval(slm, rival, samples=500)
+    assert metric == "mean_scored_turns"
+    assert (observed, low, high) == (2.0, 2.0, 2.0)
 
 
 def test_entropy_prefers_even_partition() -> None:

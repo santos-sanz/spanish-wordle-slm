@@ -49,6 +49,36 @@ def _paired_win_interval(
     return float(differences.mean()), float(low), float(high)
 
 
+def _paired_decisive_interval(
+    slm_games: list[dict[str, Any]],
+    rival_games: list[dict[str, Any]],
+    *,
+    samples: int = 10_000,
+) -> tuple[str, float, float, float]:
+    rival_by_target = {game["target"]: game for game in rival_games}
+    pairs = [(game, rival_by_target.get(game["target"])) for game in slm_games]
+    if not pairs or any(rival is None for _, rival in pairs):
+        raise RuntimeError("benchmark target sets differ")
+    win_differences = np.asarray(
+        [int(small["solved"]) - int(rival["solved"]) for small, rival in pairs],
+        dtype=np.float64,
+    )
+    if float(win_differences.mean()) != 0.0:
+        metric = "win_rate"
+        differences = win_differences
+    else:
+        metric = "mean_scored_turns"
+        differences = np.asarray(
+            [float(rival["scoredTurns"]) - float(small["scoredTurns"]) for small, rival in pairs],
+            dtype=np.float64,
+        )
+    rng = np.random.default_rng(20260814)
+    indices = rng.integers(0, len(differences), size=(samples, len(differences)))
+    bootstrap = differences[indices].mean(axis=1)
+    low, high = np.quantile(bootstrap, [0.025, 0.975])
+    return metric, float(differences.mean()), float(low), float(high)
+
+
 def _save_figure(fig: plt.Figure, stem: str) -> dict[str, str]:
     BENCHMARK_DIR.mkdir(parents=True, exist_ok=True)
     png = BENCHMARK_DIR / f"{stem}.png"
@@ -177,40 +207,28 @@ def _dashboard(results: dict[str, dict[str, Any]]) -> dict[str, str]:
 
     axis = axes[1, 1]
     intervals = [
-        _paired_win_interval(
+        _paired_decisive_interval(
             results[f"slm-{track}"]["games"], results[f"deepseek-{track}"]["games"]
         )
         for track in tracks
     ]
-    observed = np.asarray([item[0] for item in intervals])
-    lows = np.asarray([item[1] for item in intervals])
-    highs = np.asarray([item[2] for item in intervals])
     axis.axvline(0, color="#344054", linewidth=1.1, linestyle="--")
-    axis.errorbar(
-        observed,
-        np.arange(2),
-        xerr=np.vstack((observed - lows, highs - observed)),
-        fmt="o",
-        markersize=8,
-        color=SLM_COLOR,
-        ecolor=SLM_COLOR,
-        capsize=5,
-        linewidth=2,
-    )
-    axis.set_title("Paired win-rate advantage", loc="left", fontweight="bold", color=INK)
-    axis.set_xlabel("SLM win rate minus benchmark win rate; 95% bootstrap CI")
+    for index, (metric, point, low, high) in enumerate(intervals):
+        scale = max(abs(low), abs(high), abs(point), 0.01) * 1.2
+        normalized = np.asarray([low, point, high]) / scale
+        axis.plot(normalized[[0, 2]], [index, index], color=SLM_COLOR, linewidth=2)
+        axis.plot(normalized[1], index, "o", color=SLM_COLOR, markersize=8)
+        axis.plot(normalized[[0, 2]], [index, index], "|", color=SLM_COLOR, markersize=10)
+        if metric == "win_rate":
+            label = f"{point:+.1%} [{low:+.1%}, {high:+.1%}] win rate"
+        else:
+            label = f"{point:+.2f} [{low:+.2f}, {high:+.2f}] turns"
+        axis.text(1.03, index, label, va="center", fontsize=9, color=INK)
+    axis.set_title("Paired decisive advantage", loc="left", fontweight="bold", color=INK)
+    axis.set_xlabel("Positive favors SLM · each row independently scaled · 95% bootstrap CI")
     axis.set_yticks(np.arange(2), ["Pure", "Agent"])
-    axis.set_xlim(min(-0.1, float(lows.min()) - 0.05), max(0.1, float(highs.max()) + 0.05))
-    axis.xaxis.set_major_formatter(lambda value, _: f"{value:+.0%}")
-    for index, (point, low, high) in enumerate(intervals):
-        axis.text(
-            high + 0.01,
-            index,
-            f"{point:+.1%} [{low:+.1%}, {high:+.1%}]",
-            va="center",
-            fontsize=9,
-            color=INK,
-        )
+    axis.set_xlim(-1.2, 1.65)
+    axis.set_xticks([])
     _style_axis(axis)
     return _save_figure(fig, "competition-dashboard")
 
