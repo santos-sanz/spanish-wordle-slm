@@ -129,7 +129,13 @@ def test_training_visualization_stitches_resumed_runs(tmp_path, monkeypatch) -> 
 
     monkeypatch.setattr(visualization, "RUN_DIR", tmp_path)
     tmp_path.joinpath("state.json").write_text(
-        json.dumps({"iterations_planned": 3000, "completed": False})
+        json.dumps(
+            {
+                "iterations_planned": 4500,
+                "completed": False,
+                "run_iteration_offsets": {"full-01": 0, "full-02": 400},
+            }
+        )
     )
     tmp_path.joinpath("full-01.yaml").write_text("iters: 500\n")
     tmp_path.joinpath("full-01.log").write_text(

@@ -215,7 +215,9 @@ def _run_lora(config: dict[str, Any], name: str, timeout: float | None = None) -
     return RunResult(elapsed, timed_out, last_iteration, peak_memory)
 
 
-def _select_lowest_loss_checkpoint(run_name: str, adapter_path: Path) -> dict[str, Any]:
+def _select_lowest_loss_checkpoint(
+    run_name: str, adapter_path: Path, *, iteration_offset: int = 0
+) -> dict[str, Any]:
     metrics_path = RUN_DIR / f"{run_name}.metrics.jsonl"
     validation = [
         json.loads(line)
@@ -240,7 +242,8 @@ def _select_lowest_loss_checkpoint(run_name: str, adapter_path: Path) -> dict[st
     shutil.copy2(adapter_path / "adapter_config.json", selected / "adapter_config.json")
     return {
         "selection": "minimum_validation_loss",
-        "iteration": iteration,
+        "iteration": iteration + iteration_offset,
+        "run_iteration": iteration,
         "validation_loss": loss,
         "source": str(checkpoint),
         "adapter_path": str(selected),
@@ -339,6 +342,8 @@ def train(*, smoke: bool = False) -> dict[str, Any]:
         config["resume_adapter_file"] = str(resume_file)
     run_index = int(state.get("run_index", 0)) + 1
     run_name = f"full-{run_index:02d}"
+    state.setdefault("run_iteration_offsets", {})[run_name] = completed_iterations
+    state_path.write_text(json.dumps(state, indent=2) + "\n", encoding="utf-8")
     result = _run_lora(config, run_name, timeout=target_seconds)
     state["elapsed_seconds"] = float(state["elapsed_seconds"]) + result.elapsed_seconds
     persisted_iterations = (
@@ -354,7 +359,9 @@ def train(*, smoke: bool = False) -> dict[str, Any]:
         }
     )
     if not result.timed_out:
-        state["selected_checkpoint"] = _select_lowest_loss_checkpoint(run_name, final_path)
+        state["selected_checkpoint"] = _select_lowest_loss_checkpoint(
+            run_name, final_path, iteration_offset=completed_iterations
+        )
     state_path.write_text(json.dumps(state, indent=2) + "\n", encoding="utf-8")
     return state
 

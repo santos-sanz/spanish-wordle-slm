@@ -91,8 +91,14 @@ def parse_training_log(text: str, *, iteration_offset: int = 0) -> TrainingSerie
 def load_training_series() -> TrainingSeries:
     paths = sorted(RUN_DIR.glob("full-*.log"))
     planned = _planned_iterations()
+    state_path = RUN_DIR / "state.json"
+    state = json.loads(state_path.read_text(encoding="utf-8")) if state_path.exists() else {}
+    configured_offsets = state.get("run_iteration_offsets", {})
     offsets: list[int] = []
     for index, path in enumerate(paths):
+        if path.stem in configured_offsets:
+            offsets.append(int(configured_offsets[path.stem]))
+            continue
         if index == 0:
             offsets.append(0)
             continue
@@ -119,9 +125,8 @@ def load_training_series() -> TrainingSeries:
         checkpoints.extend(
             point for point in parsed.checkpoints if next_offset is None or point <= next_offset
         )
-    state_path = RUN_DIR / "state.json"
     completed = (
-        bool(json.loads(state_path.read_text(encoding="utf-8")).get("completed", False))
+        bool(state.get("completed", False))
         if state_path.exists()
         else bool(paths and parse_training_log(paths[-1].read_text(encoding="utf-8")).completed)
     )
