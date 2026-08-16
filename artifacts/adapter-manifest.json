@@ -2,7 +2,7 @@
   "adapter": {
     "repository": "santos-sanz/spanish-wordle-lfm2.5-2.6b-qlora",
     "private": true,
-    "revision": "655ef00f9060d994a61cc6ad237f4c50554e65e3",
+    "revision": "5360fce27b13ec9a3e0bcf1026258f600ba43d3e",
     "config_sha256": "3a908e78c170e359141b50bfa4a9b2fd85673c0151311dfc0e504f042bde48aa",
     "weights_sha256": "6c7a48c8fa56b1f08fa4f902e7c044e520aec672c71952ff489db85113cb71c6"
   },
