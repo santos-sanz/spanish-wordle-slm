@@ -38,6 +38,15 @@ def test_empty_history_has_one_canonical_supervised_action() -> None:
     assert first_turn_answers == {json.dumps({"guess": expected})}
 
 
+def test_training_mix_prioritizes_competitive_tracks() -> None:
+    solver = WordleSolver()
+    records = _records_for_targets(solver, solver.splits["train"][:8])
+    pure = sum("tools" not in record for record in records)
+    assert len(records) - pure == pure // 4
+    assert pure / len(records) >= 0.8
+    assert all("best_guess" not in json.dumps(record) for record in records)
+
+
 def test_paired_win_interval_detects_clear_slm_advantage() -> None:
     slm = [{"target": str(index), "solved": True} for index in range(20)]
     rival = [{"target": str(index), "solved": False} for index in range(20)]

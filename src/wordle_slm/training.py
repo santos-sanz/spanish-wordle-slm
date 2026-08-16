@@ -123,7 +123,7 @@ def _base_config(*, adapter_path: Path, iters: int, seq_length: int, layers: int
         "batch_size": 1,
         "iters": iters,
         "val_batches": 20,
-        "learning_rate": 2e-5,
+        "learning_rate": 3e-5,
         "steps_per_report": 5,
         "steps_per_eval": 50,
         "grad_accumulation_steps": 8,
@@ -132,7 +132,7 @@ def _base_config(*, adapter_path: Path, iters: int, seq_length: int, layers: int
         "max_seq_length": seq_length,
         "mask_prompt": True,
         "grad_checkpoint": True,
-        "lora_parameters": {"rank": 8, "scale": 16.0, "dropout": 0.05},
+        "lora_parameters": {"rank": 16, "scale": 32.0, "dropout": 0.05},
     }
 
 
@@ -259,7 +259,7 @@ def train(*, smoke: bool = False) -> dict[str, Any]:
         path = ADAPTER_DIR / "smoke"
         shutil.rmtree(path, ignore_errors=True)
         result = _run_lora(
-            _base_config(adapter_path=path, iters=20, seq_length=512, layers=8), "smoke"
+            _base_config(adapter_path=path, iters=20, seq_length=512, layers=16), "smoke"
         )
         if result.timed_out:
             raise RuntimeError("the smoke test exceeded its time limit")
@@ -280,7 +280,7 @@ def train(*, smoke: bool = False) -> dict[str, Any]:
     calibration_path = ADAPTER_DIR / "calibration"
     if "sequence_length" not in state:
         calibration: RunResult | None = None
-        for candidate_seq, candidate_layers in ((512, 8), (384, 8), (384, 4)):
+        for candidate_seq, candidate_layers in ((512, 16), (384, 16), (384, 8)):
             shutil.rmtree(calibration_path, ignore_errors=True)
             try:
                 candidate = _run_lora(

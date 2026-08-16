@@ -169,8 +169,11 @@ def _records_for_targets(solver: WordleSolver, targets: list[str]) -> list[dict[
     rng = random.Random(20260814)
     rng.shuffle(agent)
     rng.shuffle(oracle)
-    # Keep all pure records; select tool records to obtain an exact 60/30/10 mix.
-    records = pure + agent[: len(pure) // 2] + oracle[: len(pure) // 6]
+    # Competitive selection is Pure/Agent only; Oracle bypasses the model in
+    # the harness. Keep every policy state and enough tool examples for an
+    # exact 80/20 Pure/Agent mix, concentrating capacity on feedback-sensitive
+    # play instead of teaching a non-competitive ceiling.
+    records = pure + agent[: len(pure) // 4]
     rng.shuffle(records)
     return records
 
