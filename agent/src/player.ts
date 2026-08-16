@@ -164,9 +164,13 @@ export async function chooseGuess(options: {
                 // mlx_lm 0.31.3 drops the CLI adapter while resolving its
                 // default-model alias. Sending it per request makes the
                 // loaded policy explicit and testable.
-                adapters: resolve(
-                  process.env.WORDLE_ADAPTER_PATH?.trim() || "adapters/selected",
-                ),
+                ...(process.env.WORDLE_ADAPTER_PATH?.trim().toLowerCase() === "none"
+                  ? {}
+                  : {
+                      adapters: resolve(
+                        process.env.WORDLE_ADAPTER_PATH?.trim() || "adapters/selected",
+                      ),
+                    }),
               },
       }),
     toolExecution: "sequential",

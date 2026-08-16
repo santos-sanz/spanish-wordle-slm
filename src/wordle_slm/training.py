@@ -361,33 +361,39 @@ def train(*, smoke: bool = False) -> dict[str, Any]:
 
 def serve() -> None:
     configured_adapter = os.environ.get("WORDLE_ADAPTER_PATH")
+    without_adapter = configured_adapter is not None and configured_adapter.strip().lower() == "none"
     adapter = (
         Path(configured_adapter).expanduser()
-        if configured_adapter
+        if configured_adapter and not without_adapter
         else ADAPTER_DIR / "selected"
     )
     if not adapter.is_absolute():
         adapter = ROOT / adapter
     if not configured_adapter and not adapter.joinpath("adapters.safetensors").exists():
         adapter = ADAPTER_DIR / "final"
-    if not adapter.joinpath("adapters.safetensors").exists():
+    if not without_adapter and not adapter.joinpath("adapters.safetensors").exists():
         raise RuntimeError(f"adapter is not available: {adapter}")
-    os.execvp(
+    command = [
         sys.executable,
+        "-m",
+        "mlx_lm",
+        "server",
+        "--model",
+        str(MODEL_DIR),
+    ]
+    if not without_adapter:
+        command.extend(["--adapter-path", str(adapter)])
+    command.extend(
         [
-            sys.executable,
-            "-m",
-            "mlx_lm",
-            "server",
-            "--model",
-            str(MODEL_DIR),
-            "--adapter-path",
-            str(adapter),
             "--chat-template",
             INFERENCE_CHAT_TEMPLATE.read_text(encoding="utf-8"),
             "--host",
             "127.0.0.1",
             "--port",
             "8080",
-        ],
+        ]
+    )
+    os.execvp(
+        sys.executable,
+        command,
     )

@@ -85,7 +85,7 @@ Iter 50: Saved adapter weights to adapter.safetensors.
 
 
 def test_training_visualization_stitches_resumed_runs(tmp_path, monkeypatch) -> None:
-    import wordle_slm.visualization as visualization
+    from wordle_slm import visualization
 
     monkeypatch.setattr(visualization, "RUN_DIR", tmp_path)
     tmp_path.joinpath("state.json").write_text(
