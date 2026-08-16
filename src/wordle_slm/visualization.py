@@ -89,24 +89,42 @@ def parse_training_log(text: str, *, iteration_offset: int = 0) -> TrainingSerie
 
 
 def load_training_series() -> TrainingSeries:
+    paths = sorted(RUN_DIR.glob("full-*.log"))
+    planned = _planned_iterations()
+    offsets: list[int] = []
+    for index, path in enumerate(paths):
+        if index == 0:
+            offsets.append(0)
+            continue
+        config = path.with_suffix(".yaml")
+        match = (
+            re.search(r"^iters:\s*(\d+)$", config.read_text(encoding="utf-8"), re.MULTILINE)
+            if config.exists()
+            else None
+        )
+        offsets.append(max(0, planned - int(match.group(1))) if match else offsets[-1])
+
     train: list[TrainPoint] = []
     validation: list[ValidationPoint] = []
     checkpoints: list[int] = []
-    offset = 0
-    completed = False
-    for path in sorted(RUN_DIR.glob("full-*.log")):
+    for index, (path, offset) in enumerate(zip(paths, offsets, strict=True)):
         parsed = parse_training_log(
             path.read_text(encoding="utf-8", errors="replace"), iteration_offset=offset
         )
-        train.extend(parsed.train)
-        validation.extend(parsed.validation)
-        checkpoints.extend(parsed.checkpoints)
-        observed = [point.iteration for point in parsed.train] + [
-            point.iteration for point in parsed.validation
-        ]
-        if observed:
-            offset = max(observed)
-        completed = parsed.completed
+        next_offset = offsets[index + 1] if index + 1 < len(offsets) else None
+        train.extend(point for point in parsed.train if next_offset is None or point.iteration <= next_offset)
+        validation.extend(
+            point for point in parsed.validation if next_offset is None or point.iteration <= next_offset
+        )
+        checkpoints.extend(
+            point for point in parsed.checkpoints if next_offset is None or point <= next_offset
+        )
+    state_path = RUN_DIR / "state.json"
+    completed = (
+        bool(json.loads(state_path.read_text(encoding="utf-8")).get("completed", False))
+        if state_path.exists()
+        else bool(paths and parse_training_log(paths[-1].read_text(encoding="utf-8")).completed)
+    )
     return TrainingSeries(train, validation, checkpoints, completed)
 
 
@@ -128,6 +146,11 @@ def _duration(seconds: object) -> str:
 
 
 def _planned_iterations() -> int:
+    state = RUN_DIR / "state.json"
+    if state.exists():
+        return int(
+            json.loads(state.read_text(encoding="utf-8")).get("iterations_planned", 3000)
+        )
     config = RUN_DIR / "full-01.yaml"
     if config.exists():
         match = re.search(
@@ -135,11 +158,6 @@ def _planned_iterations() -> int:
         )
         if match:
             return int(match.group(1))
-    state = RUN_DIR / "state.json"
-    if state.exists():
-        return int(
-            json.loads(state.read_text(encoding="utf-8")).get("iterations_planned", 3000)
-        )
     return 3000
 
 

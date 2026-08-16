@@ -9,7 +9,7 @@ from wordle_slm.core import history_text
 from wordle_slm.data import deterministic_split
 from wordle_slm.dataset import _records_for_targets
 from wordle_slm.solver import WordleSolver, entropy_for_counts
-from wordle_slm.visualization import parse_training_log
+from wordle_slm.visualization import load_training_series, parse_training_log
 
 
 def test_split_is_deterministic_and_disjoint() -> None:
@@ -82,6 +82,32 @@ Iter 50: Saved adapter weights to adapter.safetensors.
     assert parsed.validation[0].loss == 0.786
     assert parsed.train[0].trained_tokens == 486
     assert parsed.checkpoints == [50]
+
+
+def test_training_visualization_stitches_resumed_runs(tmp_path, monkeypatch) -> None:
+    import wordle_slm.visualization as visualization
+
+    monkeypatch.setattr(visualization, "RUN_DIR", tmp_path)
+    tmp_path.joinpath("state.json").write_text(
+        json.dumps({"iterations_planned": 3000, "completed": False})
+    )
+    tmp_path.joinpath("full-01.yaml").write_text("iters: 500\n")
+    tmp_path.joinpath("full-01.log").write_text(
+        "Iter 400: Train loss 0.5, Learning Rate 3e-5, It/sec 1.0, "
+        "Tokens/sec 10.0, Trained Tokens 4000, Peak mem 3.0 GB\n"
+        "Iter 500: Train loss 0.4, Learning Rate 3e-5, It/sec 1.0, "
+        "Tokens/sec 10.0, Trained Tokens 5000, Peak mem 3.0 GB\n"
+    )
+    tmp_path.joinpath("full-02.yaml").write_text("iters: 2600\n")
+    tmp_path.joinpath("full-02.log").write_text(
+        "Iter 50: Train loss 0.3, Learning Rate 3e-5, It/sec 1.0, "
+        "Tokens/sec 10.0, Trained Tokens 500, Peak mem 3.0 GB\n"
+    )
+
+    series = load_training_series()
+
+    assert [point.iteration for point in series.train] == [400, 450]
+    assert series.completed is False
 
 
 def test_preference_data_excludes_hidden_test_and_has_strict_preferences() -> None:
