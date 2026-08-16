@@ -5,7 +5,7 @@ from wordle_slm.benchmark_visualization import (
     _paired_decisive_interval,
     _paired_win_interval,
 )
-from wordle_slm.core import history_text
+from wordle_slm.core import ALL_GREEN, history_text
 from wordle_slm.data import deterministic_split
 from wordle_slm.dataset import _records_for_targets
 from wordle_slm.solver import WordleSolver, entropy_for_counts
@@ -41,10 +41,50 @@ def test_empty_history_has_one_canonical_supervised_action() -> None:
 def test_training_mix_prioritizes_competitive_tracks() -> None:
     solver = WordleSolver()
     records = _records_for_targets(solver, solver.splits["train"][:8])
-    pure = sum("tools" not in record for record in records)
-    assert len(records) - pure == pure // 4
-    assert pure / len(records) >= 0.8
+    agent = sum("get_candidates" in record["messages"][0]["content"] for record in records)
+    pure = len(records) - agent
+    assert 0.5 < pure / len(records) < 0.7
     assert all("best_guess" not in json.dumps(record) for record in records)
+
+
+def test_agent_policy_copies_a_compatible_candidate() -> None:
+    solver = WordleSolver()
+    records = _records_for_targets(solver, solver.splits["train"][:1])
+    final_tool_records = [
+        record
+        for record in records
+        if "tools" in record
+        and record["messages"][-1]["role"] == "assistant"
+        and record["messages"][-1].get("content")
+    ]
+    for record in final_tool_records:
+        tool_result = json.loads(record["messages"][-2]["content"])
+        guess = json.loads(record["messages"][-1]["content"])["guess"]
+        assert guess == tool_result["candidates"][0]
+
+
+def test_distilled_agent_policy_solves_validation_with_small_tool_results() -> None:
+    solver = WordleSolver()
+    max_candidates = 0
+    solved = 0
+    for target in solver.splits["valid"]:
+        history: list[tuple[str, int]] = []
+        for turn in range(1, 7):
+            if turn == 1:
+                guess = solver.best_guess(solver.all_candidates, 6)
+            else:
+                candidates = solver.candidate_words(history)
+                max_candidates = max(max_candidates, len(candidates))
+                guess = candidates[0]
+            code = int(
+                solver.matrix[solver.guess_index[guess], solver.answer_index[target]]
+            )
+            history.append((guess, code))
+            if code == ALL_GREEN:
+                solved += 1
+                break
+    assert solved == len(solver.splits["valid"])
+    assert max_candidates <= 80
 
 
 def test_paired_win_interval_detects_clear_slm_advantage() -> None:

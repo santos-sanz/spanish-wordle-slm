@@ -73,6 +73,16 @@ def _pure_record(history: list[tuple[str, int]], turn: int, guess: str) -> dict[
     }
 
 
+def _agent_direct_record(history: list[tuple[str, int]], turn: int, guess: str) -> dict[str, Any]:
+    return {
+        "messages": [
+            {"role": "system", "content": AGENT_SYSTEM},
+            {"role": "user", "content": state_prompt(history, turn)},
+            {"role": "assistant", "content": json.dumps({"guess": guess})},
+        ]
+    }
+
+
 def _tool_records(
     *,
     mode: str,
@@ -129,8 +139,6 @@ def _games_for_target(solver: WordleSolver, target: str) -> list[list[tuple[str,
 
 def _records_for_targets(solver: WordleSolver, targets: list[str]) -> list[dict[str, Any]]:
     pure: list[dict[str, Any]] = []
-    agent: list[dict[str, Any]] = []
-    oracle: list[dict[str, Any]] = []
     for target in targets:
         for game_index, game in enumerate(_games_for_target(solver, target)):
             history: list[tuple[str, int]] = []
@@ -144,36 +152,46 @@ def _records_for_targets(solver: WordleSolver, targets: list[str]) -> list[dict[
                     history = [*history, (guess, code)]
                     continue
                 pure.append(_pure_record(history, turn_index, guess))
-                candidates = solver.candidate_words(history)
-                agent_records = _tool_records(
-                    mode="agent",
-                    history=history,
-                    turn=turn_index,
-                    guess=guess,
-                    result={"count": len(candidates), "candidates": candidates},
-                )
-                # The call itself remains useful for large states, but a 616-word tool
-                # result would push the supervised final answer beyond 512 tokens.
-                agent.extend(agent_records if len(candidates) <= 80 else agent_records[:1])
-                oracle.extend(
-                    _tool_records(
-                        mode="oracle",
-                        history=history,
-                        turn=turn_index,
-                        guess=guess,
-                        result={"guess": guess},
-                    )
-                )
                 history = [*history, (guess, code)]
 
+    # Agent is a different policy from Pure: it should exploit the information
+    # it is actually allowed to see. Start without a tool call, then copy the
+    # first compatible unused answer returned by get_candidates. This simple,
+    # learnable policy solves every validation target within six turns, whereas
+    # asking a 2.6B model to reconstruct the solver's entropy ranking from a
+    # candidate list needlessly turns tool use into another reasoning task.
+    agent: list[dict[str, Any]] = []
+    for target in targets:
+        target_index = solver.answer_index[target]
+        history: list[tuple[str, int]] = []
+        used: set[str] = set()
+        for turn in range(1, 7):
+            if turn == 1:
+                guess = solver.best_guess(solver.all_candidates, 6)
+                agent.append(_agent_direct_record(history, turn, guess))
+            else:
+                candidates = solver.candidate_words(history)
+                guess = next(word for word in candidates if word not in used)
+                agent.extend(
+                    _tool_records(
+                        mode="agent",
+                        history=history,
+                        turn=turn,
+                        guess=guess,
+                        result={"count": len(candidates), "candidates": candidates},
+                    )
+                )
+            used.add(guess)
+            code = int(solver.matrix[solver.guess_index[guess], target_index])
+            history.append((guess, code))
+            if code == ALL_GREEN:
+                break
+
     rng = random.Random(20260814)
-    rng.shuffle(agent)
-    rng.shuffle(oracle)
     # Competitive selection is Pure/Agent only; Oracle bypasses the model in
-    # the harness. Keep every policy state and enough tool examples for an
-    # exact 80/20 Pure/Agent mix, concentrating capacity on feedback-sensitive
-    # play instead of teaching a non-competitive ceiling.
-    records = pure + agent[: len(pure) // 4]
+    # the harness. The natural trajectory counts yield approximately 60/40,
+    # keeping Pure dominant while fully supervising the learnable Agent policy.
+    records = pure + agent
     rng.shuffle(records)
     return records
 
