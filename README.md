@@ -110,7 +110,10 @@ The experiment succeeds only if the paired 95% bootstrap interval favors the
 SLM in both competitive tracks. Oracle is reported only as a ceiling.
 
 For the remote baseline, copy `.env.example` to `.env` and set
-`OPENROUTER_API_KEY`. Never commit `.env`.
+`OPENROUTER_API_KEY`. `OPENROUTER_MODEL` is configurable; the checked-in
+example uses the low-cost `openai/gpt-5-nano` model for smoke runs. Set it to
+`deepseek/deepseek-v4-pro-0813` before the official DeepSeek comparison. If it
+is omitted, the code falls back to that DeepSeek model. Never commit `.env`.
 
 ## Data and licensing
 

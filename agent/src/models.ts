@@ -10,6 +10,8 @@ import { resolve } from "node:path";
 
 export type ModelTarget = "slm" | "deepseek";
 
+const DEFAULT_OPENROUTER_MODEL = "deepseek/deepseek-v4-pro-0813";
+
 export async function loadModel(target: ModelTarget): Promise<{
   models: Models;
   model: Model<any>;
@@ -21,8 +23,9 @@ export async function loadModel(target: ModelTarget): Promise<{
     }
     models.setProvider(openrouterProvider());
     await models.refresh({ providers: ["openrouter"], force: true });
-    const model = models.getModel("openrouter", "deepseek/deepseek-v4-pro-0813");
-    if (!model) throw new Error("OpenRouter did not publish deepseek/deepseek-v4-pro-0813");
+    const modelId = process.env.OPENROUTER_MODEL?.trim() || DEFAULT_OPENROUTER_MODEL;
+    const model = models.getModel("openrouter", modelId);
+    if (!model) throw new Error(`OpenRouter did not publish ${modelId}`);
     return { models, model };
   }
 
