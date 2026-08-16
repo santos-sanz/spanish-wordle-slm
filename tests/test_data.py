@@ -5,6 +5,7 @@ from wordle_slm.benchmark_visualization import (
     _paired_decisive_interval,
     _paired_win_interval,
 )
+from wordle_slm.core import history_text
 from wordle_slm.data import deterministic_split
 from wordle_slm.dataset import _records_for_targets
 from wordle_slm.solver import WordleSolver, entropy_for_counts
@@ -19,6 +20,10 @@ def test_split_is_deterministic_and_disjoint() -> None:
     assert len(first["train"]) == 70
     assert len(first["valid"]) == 10
     assert set(first["train"]).isdisjoint(first["test"])
+
+
+def test_empty_history_prompt_matches_spanish_benchmark() -> None:
+    assert history_text([]) == "Sin intentos previos."
 
 
 def test_empty_history_has_one_canonical_supervised_action() -> None:

@@ -70,4 +70,4 @@ def feedback_text(target: str, guess: str) -> str:
 
 def history_text(history: Iterable[tuple[str, int]]) -> str:
     rows = [f"{guess} -> {''.join(map(str, decode_feedback(code)))}" for guess, code in history]
-    return "No guesses yet." if not rows else "\n".join(rows)
+    return "Sin intentos previos." if not rows else "\n".join(rows)

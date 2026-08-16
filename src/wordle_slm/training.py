@@ -14,6 +14,7 @@ from typing import Any
 
 import yaml
 from huggingface_hub import snapshot_download
+from mlx_lm.utils import load_tokenizer
 
 from .data import ROOT, TRAINING_DIR
 
@@ -42,6 +43,47 @@ def _sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def _install_training_chat_template() -> None:
+    """Keep MLX response masking and inference on the same no-thinking prefix."""
+    shutil.copy2(INFERENCE_CHAT_TEMPLATE, MODEL_DIR / "chat_template.jinja")
+
+
+def _validate_response_mask_alignment() -> dict[str, Any]:
+    tokenizer = load_tokenizer(MODEL_DIR)
+    first_turn: dict[str, Any] | None = None
+    for line in TRAINING_DIR.joinpath("train.jsonl").read_text(encoding="utf-8").splitlines():
+        record = json.loads(line)
+        messages = record.get("messages", [])
+        if (
+            "tools" not in record
+            and len(messages) == 3
+            and messages[1].get("content", "").startswith("Turno 1/6")
+        ):
+            first_turn = record
+            break
+    if first_turn is None:
+        raise RuntimeError("training data has no Pure first-turn example")
+    messages = first_turn["messages"]
+    full = tokenizer.apply_chat_template(messages, return_dict=False)
+    prompt = tokenizer.apply_chat_template(
+        messages[:-1], add_generation_prompt=True, return_dict=False
+    )
+    if full[: len(prompt)] != prompt:
+        raise RuntimeError(
+            "chat-template mask misalignment: generation prompt is not an exact training prefix"
+        )
+    supervised = tokenizer.decode(full[len(prompt) :])
+    if not supervised.startswith('{"guess"'):
+        raise RuntimeError(
+            f"chat-template mask hides the JSON response prefix: {supervised[:40]!r}"
+        )
+    return {
+        "prompt_tokens": len(prompt),
+        "supervised_tokens": len(full) - len(prompt),
+        "supervised_prefix": supervised[:16],
+    }
+
+
 def download_model() -> dict[str, Any]:
     MODEL_DIR.parent.mkdir(parents=True, exist_ok=True)
     snapshot_download(
@@ -52,6 +94,7 @@ def download_model() -> dict[str, Any]:
     weight = MODEL_DIR / "model.safetensors"
     if not weight.exists() or weight.stat().st_size != 2_191_851_544:
         raise RuntimeError("downloaded model weight has an unexpected size")
+    _install_training_chat_template()
     manifest = {
         "model_id": MODEL_ID,
         "revision": MODEL_REVISION,
@@ -209,6 +252,8 @@ def train(*, smoke: bool = False) -> dict[str, Any]:
         raise RuntimeError("model is not downloaded; run download-model first")
     if not TRAINING_DIR.joinpath("train.jsonl").exists():
         raise RuntimeError("training data is missing; run prepare-data first")
+    _install_training_chat_template()
+    mask_alignment = _validate_response_mask_alignment()
     RUN_DIR.mkdir(parents=True, exist_ok=True)
     if smoke:
         path = ADAPTER_DIR / "smoke"
@@ -223,6 +268,7 @@ def train(*, smoke: bool = False) -> dict[str, Any]:
             "elapsed_seconds": result.elapsed_seconds,
             "peak_memory_gb": result.peak_memory_gb,
             "adapter_path": str(path),
+            "mask_alignment": mask_alignment,
         }
 
     state_path = RUN_DIR / "state.json"
@@ -289,9 +335,8 @@ def train(*, smoke: bool = False) -> dict[str, Any]:
         layers=layers,
     )
     resume_file = final_path / "adapters.safetensors"
-    config["resume_adapter_file"] = str(
-        resume_file if resume_file.exists() else calibration_path / "adapters.safetensors"
-    )
+    if completed_iterations > 0 and resume_file.exists():
+        config["resume_adapter_file"] = str(resume_file)
     run_index = int(state.get("run_index", 0)) + 1
     run_name = f"full-{run_index:02d}"
     result = _run_lora(config, run_name, timeout=target_seconds)
