@@ -1,5 +1,6 @@
 import { Agent, type AgentTool } from "@earendil-works/pi-agent-core";
 import { Type, contentText, type Model, type Models } from "@earendil-works/pi-ai";
+import { resolve } from "node:path";
 import { WordleBridge, type HistoryRow } from "./bridge.js";
 
 export type Track = "pure" | "agent" | "oracle";
@@ -157,7 +158,16 @@ export async function chooseGuess(options: {
         samplingParams:
           selectedModel.provider === "openrouter"
             ? { seed: 20260814, provider: { allow_fallbacks: false } }
-            : { seed: 20260814, logit_bias: { [LFM_THINK_START_TOKEN_ID]: -100 } },
+            : {
+                seed: 20260814,
+                logit_bias: { [LFM_THINK_START_TOKEN_ID]: -100 },
+                // mlx_lm 0.31.3 drops the CLI adapter while resolving its
+                // default-model alias. Sending it per request makes the
+                // loaded policy explicit and testable.
+                adapters: resolve(
+                  process.env.WORDLE_ADAPTER_PATH?.trim() || "adapters/selected",
+                ),
+              },
       }),
     toolExecution: "sequential",
   });
