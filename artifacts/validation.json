@@ -17,13 +17,13 @@
   },
   "training_tokenization": {
     "train": {
-      "records": 8866,
+      "records": 6711,
       "zero_supervised": 0,
       "over_512": 0,
       "longest_tokens": 425
     },
     "valid": {
-      "records": 1260,
+      "records": 954,
       "zero_supervised": 0,
       "over_512": 0,
       "longest_tokens": 425

@@ -2,7 +2,8 @@ import json
 from pathlib import Path
 
 from wordle_slm.data import deterministic_split
-from wordle_slm.solver import entropy_for_counts
+from wordle_slm.dataset import _records_for_targets
+from wordle_slm.solver import WordleSolver, entropy_for_counts
 from wordle_slm.visualization import parse_training_log
 
 
@@ -14,6 +15,19 @@ def test_split_is_deterministic_and_disjoint() -> None:
     assert len(first["train"]) == 70
     assert len(first["valid"]) == 10
     assert set(first["train"]).isdisjoint(first["test"])
+
+
+def test_empty_history_has_one_canonical_supervised_action() -> None:
+    solver = WordleSolver()
+    records = _records_for_targets(solver, solver.splits["train"][:3])
+    first_turn_answers = {
+        record["messages"][-1]["content"]
+        for record in records
+        if "tools" not in record
+        and record["messages"][1]["content"].startswith("Turno 1/6")
+    }
+    expected = solver.best_guess(solver.all_candidates, 6)
+    assert first_turn_answers == {json.dumps({"guess": expected})}
 
 
 def test_entropy_prefers_even_partition() -> None:

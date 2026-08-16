@@ -132,9 +132,17 @@ def _records_for_targets(solver: WordleSolver, targets: list[str]) -> list[dict[
     agent: list[dict[str, Any]] = []
     oracle: list[dict[str, Any]] = []
     for target in targets:
-        for game in _games_for_target(solver, target):
+        for game_index, game in enumerate(_games_for_target(solver, target)):
             history: list[tuple[str, int]] = []
             for turn_index, (guess, code) in enumerate(game, start=1):
+                # Perturbed trajectories force audio/seron/lenta on turn one to
+                # expose recovery states. Those actions are context, not policy
+                # targets: supervising them would assign four different labels
+                # to the identical empty-history prompt. Only the canonical
+                # solver trajectory may supervise turn one.
+                if game_index > 0 and turn_index == 1:
+                    history = [*history, (guess, code)]
+                    continue
                 pure.append(_pure_record(history, turn_index, guess))
                 candidates = solver.candidate_words(history)
                 agent_records = _tool_records(
