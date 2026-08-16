@@ -1,7 +1,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 
 type Game = { target: string; solved: boolean; scoredTurns: number };
-type Result = { summary: Record<string, unknown>; games: Game[] };
+type Result = { complete: boolean; targetCount: number; summary: Record<string, unknown>; games: Game[] };
 
 function quantile(values: number[], probability: number): number {
   const sorted = [...values].sort((a, b) => a - b);
@@ -52,7 +52,11 @@ function compare(slm: Result, deepseek: Result) {
 }
 
 async function load(name: string): Promise<Result> {
-  return JSON.parse(await readFile(`artifacts/benchmark/${name}.json`, "utf8"));
+  const result = JSON.parse(await readFile(`artifacts/benchmark/${name}.json`, "utf8")) as Result;
+  if (!result.complete || result.games.length !== result.targetCount) {
+    throw new Error(`${name} benchmark is incomplete (${result.games.length}/${result.targetCount})`);
+  }
+  return result;
 }
 
 const tracks = {} as Record<string, unknown>;

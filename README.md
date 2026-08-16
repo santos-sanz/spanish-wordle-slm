@@ -111,6 +111,10 @@ npm run report
 uv run wordle-slm report
 ```
 
+Long benchmarks persist after every game and can continue safely with
+`--resume`; a resume is rejected if model, track, split, target count, or target
+prefix differs from the checkpoint.
+
 Repeat the two benchmark commands for `agent`. The hidden test split must only
 be used after the adapter, prompt, and generation configuration are frozen.
 The experiment succeeds only if the paired 95% bootstrap interval favors the

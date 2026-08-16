@@ -51,6 +51,7 @@ def main() -> None:
     benchmark_parser.add_argument("--track", choices=("pure", "agent", "oracle"), default="pure")
     benchmark_parser.add_argument("--split", choices=("train", "valid", "test"), default="test")
     benchmark_parser.add_argument("--limit", type=int)
+    benchmark_parser.add_argument("--resume", action="store_true")
     subparsers.add_parser("report")
     arguments = parser.parse_args()
 
@@ -104,6 +105,8 @@ def main() -> None:
         ]
         if arguments.limit is not None:
             command.extend(["--limit", str(arguments.limit)])
+        if arguments.resume:
+            command.append("--resume")
         subprocess.run(command, cwd=ROOT, check=True)
     elif arguments.command == "report":
         report = ROOT / "artifacts" / "benchmark" / "summary.json"

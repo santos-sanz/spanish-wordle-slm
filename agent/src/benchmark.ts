@@ -23,6 +23,13 @@ type GameResult = {
   history: HistoryRow[];
 };
 
+type BenchmarkFile = {
+  complete: boolean;
+  targetCount: number;
+  summary: Record<string, unknown>;
+  games: GameResult[];
+};
+
 async function loadTargets(split: string): Promise<string[]> {
   const value = JSON.parse(await readFile("data/processed/splits.json", "utf8"));
   if (!Array.isArray(value[split])) throw new Error(`unknown split: ${split}`);
@@ -36,6 +43,7 @@ async function main() {
       track: { type: "string", default: "pure" },
       split: { type: "string", default: "test" },
       limit: { type: "string" },
+      resume: { type: "boolean", default: false },
     },
   });
   const provider = values.provider as ModelTarget;
@@ -48,9 +56,68 @@ async function main() {
   );
   const bridge = new WordleBridge();
   const { models, model } = await loadModel(provider);
-  const games: GameResult[] = [];
+  await mkdir("artifacts/benchmark", { recursive: true });
+  const output = resolve("artifacts/benchmark", `${provider}-${track}.json`);
+  let games: GameResult[] = [];
+  if (values.resume) {
+    try {
+      const previous = JSON.parse(await readFile(output, "utf8")) as BenchmarkFile;
+      const prefixMatches = previous.games.every(
+        (game, index) => game.target === targets[index],
+      );
+      if (
+        previous.summary.model !== model.id ||
+        previous.summary.track !== track ||
+        previous.summary.split !== values.split ||
+        previous.targetCount !== targets.length ||
+        !prefixMatches
+      ) {
+        throw new Error("existing benchmark checkpoint does not match this run");
+      }
+      games = previous.games;
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+    }
+  }
+
+  const summaryFor = (currentGames: GameResult[]) => ({
+    provider,
+    model: model.id,
+    track,
+    split: values.split,
+    games: currentGames.length,
+    wins: currentGames.filter((game) => game.solved).length,
+    winRate: currentGames.length
+      ? currentGames.filter((game) => game.solved).length / currentGames.length
+      : 0,
+    meanScoredTurns: currentGames.length
+      ? currentGames.reduce((sum, game) => sum + game.scoredTurns, 0) / currentGames.length
+      : 0,
+    invalidActions: currentGames.reduce((sum, game) => sum + game.invalidActions, 0),
+    toolCalls: currentGames.reduce((sum, game) => sum + game.toolCalls, 0),
+    latencyMs: currentGames.reduce((sum, game) => sum + game.latencyMs, 0),
+    inputTokens: currentGames.reduce((sum, game) => sum + game.inputTokens, 0),
+    outputTokens: currentGames.reduce((sum, game) => sum + game.outputTokens, 0),
+    costUsd: currentGames.reduce((sum, game) => sum + game.costUsd, 0),
+    errors: currentGames.reduce((sum, game) => sum + game.errors.length, 0),
+    effectiveProviders: [...new Set(currentGames.flatMap((game) => game.effectiveProviders))],
+    responseModels: [...new Set(currentGames.flatMap((game) => game.responseModels))],
+  });
+
+  const persist = async (complete: boolean) => {
+    const result: BenchmarkFile = {
+      complete,
+      targetCount: targets.length,
+      summary: summaryFor(games),
+      games,
+    };
+    await writeFile(output, `${JSON.stringify(result, null, 2)}\n`);
+  };
+
+  const startIndex = games.length;
   try {
-    for (const [index, target] of targets.entries()) {
+    for (const [relativeIndex, target] of targets.slice(startIndex).entries()) {
+      const index = startIndex + relativeIndex;
       const history: HistoryRow[] = [];
       let invalidActions = 0;
       let toolCalls = 0;
@@ -102,33 +169,14 @@ async function main() {
         errors,
         history,
       });
+      await persist(false);
       process.stderr.write(`[${index + 1}/${targets.length}] ${target}: ${solved ? history.length : "loss"}\n`);
     }
   } finally {
     bridge.close();
   }
-  const summary = {
-    provider,
-    model: model.id,
-    track,
-    split: values.split,
-    games: games.length,
-    wins: games.filter((game) => game.solved).length,
-    winRate: games.filter((game) => game.solved).length / games.length,
-    meanScoredTurns: games.reduce((sum, game) => sum + game.scoredTurns, 0) / games.length,
-    invalidActions: games.reduce((sum, game) => sum + game.invalidActions, 0),
-    toolCalls: games.reduce((sum, game) => sum + game.toolCalls, 0),
-    latencyMs: games.reduce((sum, game) => sum + game.latencyMs, 0),
-    inputTokens: games.reduce((sum, game) => sum + game.inputTokens, 0),
-    outputTokens: games.reduce((sum, game) => sum + game.outputTokens, 0),
-    costUsd: games.reduce((sum, game) => sum + game.costUsd, 0),
-    errors: games.reduce((sum, game) => sum + game.errors.length, 0),
-    effectiveProviders: [...new Set(games.flatMap((game) => game.effectiveProviders))],
-    responseModels: [...new Set(games.flatMap((game) => game.responseModels))],
-  };
-  await mkdir("artifacts/benchmark", { recursive: true });
-  const output = resolve("artifacts/benchmark", `${provider}-${track}.json`);
-  await writeFile(output, `${JSON.stringify({ summary, games }, null, 2)}\n`);
+  const summary = summaryFor(games);
+  await persist(true);
   console.log(JSON.stringify(summary, null, 2));
 }
 

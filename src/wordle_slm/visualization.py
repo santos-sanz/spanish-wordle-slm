@@ -370,7 +370,14 @@ def render_training_dashboard() -> dict[str, object]:
 def watch_training_dashboard(interval_seconds: float = 15.0) -> None:
     try:
         while True:
-            summary = render_training_dashboard()
+            try:
+                summary = render_training_dashboard()
+            except RuntimeError as error:
+                if "no training metrics found" not in str(error):
+                    raise
+                print("waiting for the first full-training metric", flush=True)
+                time.sleep(interval_seconds)
+                continue
             print(
                 f"iteration={summary['iteration']}/{summary['iterations_planned']} "
                 f"val={summary['latest_validation_loss']} best={summary['best_validation_loss']} "

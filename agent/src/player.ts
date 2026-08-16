@@ -145,6 +145,10 @@ export async function chooseGuess(options: {
       tools,
       messages: [],
     },
+    prepareNextTurnWithContext: ({ context }) => {
+      if (track !== "agent" || candidateCalls === 0 || !context.tools?.length) return undefined;
+      return { context: { ...context, tools: [] } };
+    },
     streamFn: (selectedModel, context, options) =>
       models.streamSimple(selectedModel, context, {
         ...options,
