@@ -7,6 +7,7 @@
     "build": "tsc --noEmit",
     "test": "vitest run",
     "benchmark": "tsx agent/src/benchmark.ts",
+    "merge-benchmark": "tsx agent/src/merge-benchmark.ts",
     "report": "tsx agent/src/report.ts"
   },
   "dependencies": {

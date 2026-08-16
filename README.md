@@ -115,7 +115,10 @@ uv run wordle-slm visualize-benchmark
 
 Long benchmarks persist after every game and can continue safely with
 `--resume`; a resume is rejected if model, track, split, target count, or target
-prefix differs from the checkpoint.
+prefix differs from the checkpoint. Remote runs can be split with `--offset`,
+`--limit`, and distinct `--output-name` values, then merged with the checked-in
+`npm run merge-benchmark` command; the merger rejects gaps, overlaps, model
+drift, and non-canonical target order.
 
 Repeat the two benchmark commands for `agent`. The hidden test split must only
 be used after the adapter, prompt, and generation configuration are frozen.

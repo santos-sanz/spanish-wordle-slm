@@ -26,6 +26,7 @@ type GameResult = {
 type BenchmarkFile = {
   complete: boolean;
   targetCount: number;
+  targetOffset: number;
   summary: Record<string, unknown>;
   games: GameResult[];
 };
@@ -43,6 +44,7 @@ async function main() {
       track: { type: "string", default: "pure" },
       split: { type: "string", default: "test" },
       limit: { type: "string" },
+      offset: { type: "string", default: "0" },
       resume: { type: "boolean", default: false },
       outputName: { type: "string" },
     },
@@ -51,10 +53,13 @@ async function main() {
   const track = values.track as Track;
   if (!(["slm", "deepseek"] as string[]).includes(provider)) throw new Error("invalid provider");
   if (!(["pure", "agent", "oracle"] as string[]).includes(track)) throw new Error("invalid track");
-  const targets = (await loadTargets(values.split)).slice(
-    0,
-    values.limit ? Number(values.limit) : undefined,
-  );
+  const targetOffset = Number(values.offset);
+  const limit = values.limit ? Number(values.limit) : undefined;
+  if (!Number.isSafeInteger(targetOffset) || targetOffset < 0) throw new Error("invalid offset");
+  if (limit !== undefined && (!Number.isSafeInteger(limit) || limit <= 0)) throw new Error("invalid limit");
+  const allTargets = await loadTargets(values.split);
+  const targets = allTargets.slice(targetOffset, limit === undefined ? undefined : targetOffset + limit);
+  if (!targets.length) throw new Error("benchmark target selection is empty");
   const bridge = new WordleBridge();
   const { models, model } = await loadModel(provider);
   await mkdir("artifacts/benchmark", { recursive: true });
@@ -73,6 +78,7 @@ async function main() {
         previous.summary.track !== track ||
         previous.summary.split !== values.split ||
         previous.targetCount !== targets.length ||
+        previous.targetOffset !== targetOffset ||
         !prefixMatches
       ) {
         throw new Error("existing benchmark checkpoint does not match this run");
@@ -111,6 +117,7 @@ async function main() {
     const result: BenchmarkFile = {
       complete,
       targetCount: targets.length,
+      targetOffset,
       summary: summaryFor(games),
       games,
     };

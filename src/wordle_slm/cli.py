@@ -52,6 +52,7 @@ def main() -> None:
     benchmark_parser.add_argument("--track", choices=("pure", "agent", "oracle"), default="pure")
     benchmark_parser.add_argument("--split", choices=("train", "valid", "test"), default="test")
     benchmark_parser.add_argument("--limit", type=int)
+    benchmark_parser.add_argument("--offset", type=int, default=0)
     benchmark_parser.add_argument("--resume", action="store_true")
     benchmark_parser.add_argument("--output-name")
     subparsers.add_parser("report")
@@ -105,6 +106,8 @@ def main() -> None:
             arguments.track,
             "--split",
             arguments.split,
+            "--offset",
+            str(arguments.offset),
         ]
         if arguments.limit is not None:
             command.extend(["--limit", str(arguments.limit)])
