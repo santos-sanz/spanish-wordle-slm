@@ -107,6 +107,7 @@ Run one paired benchmark track and generate the statistical report:
 ```bash
 uv run wordle-slm benchmark --provider slm --track pure --split test
 uv run wordle-slm benchmark --provider deepseek --track pure --split test
+uv run wordle-slm benchmark --provider slm --track oracle --split test --output-name oracle-ceiling
 npm run report
 uv run wordle-slm report
 uv run wordle-slm visualize-benchmark

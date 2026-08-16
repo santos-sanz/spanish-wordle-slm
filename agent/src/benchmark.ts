@@ -44,6 +44,7 @@ async function main() {
       split: { type: "string", default: "test" },
       limit: { type: "string" },
       resume: { type: "boolean", default: false },
+      outputName: { type: "string" },
     },
   });
   const provider = values.provider as ModelTarget;
@@ -57,7 +58,9 @@ async function main() {
   const bridge = new WordleBridge();
   const { models, model } = await loadModel(provider);
   await mkdir("artifacts/benchmark", { recursive: true });
-  const output = resolve("artifacts/benchmark", `${provider}-${track}.json`);
+  const outputName = values.outputName ?? `${provider}-${track}`;
+  if (!/^[a-z0-9][a-z0-9-]*$/u.test(outputName)) throw new Error("invalid output name");
+  const output = resolve("artifacts/benchmark", `${outputName}.json`);
   let games: GameResult[] = [];
   if (values.resume) {
     try {

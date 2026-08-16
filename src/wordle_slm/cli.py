@@ -53,6 +53,7 @@ def main() -> None:
     benchmark_parser.add_argument("--split", choices=("train", "valid", "test"), default="test")
     benchmark_parser.add_argument("--limit", type=int)
     benchmark_parser.add_argument("--resume", action="store_true")
+    benchmark_parser.add_argument("--output-name")
     subparsers.add_parser("report")
     subparsers.add_parser("visualize-benchmark")
     arguments = parser.parse_args()
@@ -109,6 +110,8 @@ def main() -> None:
             command.extend(["--limit", str(arguments.limit)])
         if arguments.resume:
             command.append("--resume")
+        if arguments.output_name:
+            command.extend(["--outputName", arguments.output_name])
         subprocess.run(command, cwd=ROOT, check=True)
     elif arguments.command == "report":
         report = ROOT / "artifacts" / "benchmark" / "summary.json"
