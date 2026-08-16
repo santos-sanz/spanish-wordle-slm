@@ -319,7 +319,7 @@ def serve() -> None:
     adapter = (
         Path(configured_adapter).expanduser()
         if configured_adapter
-        else ADAPTER_DIR / "dpo-selected"
+        else ADAPTER_DIR / "selected"
     )
     if not adapter.is_absolute():
         adapter = ROOT / adapter

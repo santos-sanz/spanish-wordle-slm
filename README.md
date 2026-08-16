@@ -92,11 +92,11 @@ comparable, so their curves are reported separately.
 Serve the trained adapter:
 
 ```bash
-uv run wordle-slm serve
+uv run wordle-slm serve  # serves adapters/selected unless WORDLE_ADAPTER_PATH is set
 ```
 
-The server selects `adapters/dpo-selected` by default and falls back to the
-SFT adapter only when no selected DPO policy exists. Set `WORDLE_ADAPTER_PATH`
+The server selects `adapters/selected` by default and falls back to the
+latest SFT adapter when no selected checkpoint exists. Set `WORDLE_ADAPTER_PATH`
 to override it explicitly. It also uses the tracked no-thinking inference chat
 template so generation matches the response-only format used during training.
 The local request also suppresses LFM's `<think>` opener; otherwise reasoning
