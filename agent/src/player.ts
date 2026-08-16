@@ -175,17 +175,22 @@ export async function chooseGuess(options: {
   if (agent.state.errorMessage) throw new Error(`Pi provider error: ${agent.state.errorMessage}`);
   let invalidActions = 0;
   let guess = parseGuess(finalText(agent.state.messages));
+  const previousGuesses = new Set(history.map((row) => row.guess));
   while (invalidActions < 2) {
     const validation = guess ? await bridge.validateWord(guess) : { valid: false };
-    if (validation.valid) break;
+    if (validation.valid && guess && !previousGuesses.has(guess)) break;
     invalidActions += 1;
     await agent.prompt(
-      'Respuesta inválida. Devuelve únicamente JSON con una palabra válida: {"guess":"palabra"}.',
+      'Respuesta inválida o repetida. Devuelve únicamente JSON con una palabra válida que no hayas usado: {"guess":"palabra"}.',
     );
     if (agent.state.errorMessage) throw new Error(`Pi provider error: ${agent.state.errorMessage}`);
     guess = parseGuess(finalText(agent.state.messages));
   }
-  if (!guess || !(await bridge.validateWord(guess)).valid) guess = null;
+  if (
+    !guess ||
+    !(await bridge.validateWord(guess)).valid ||
+    previousGuesses.has(guess)
+  ) guess = null;
   const usage = telemetry(agent.state.messages);
   return {
     guess,
