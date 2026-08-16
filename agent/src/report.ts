@@ -134,4 +134,186 @@ await writeFile(
   "artifacts/benchmark/summary.md",
   report,
 );
+const generatedAt = new Date().toISOString();
+const competition = ["pure", "agent"].flatMap((track) =>
+  ["slm", "deepseek"].map((provider) => {
+    const row = results[`${provider}-${track}`].summary;
+    return {
+      track: track === "pure" ? "Pure" : "Agent",
+      policy: provider === "slm" ? "Spanish Wordle SLM" : "Benchmark model",
+      model: provider === "slm" ? "LFM2.5 2.6B + QLoRA" : String(row.model),
+      games: Number(row.games),
+      wins: Number(row.wins),
+      winRate: Number(row.winRate),
+      meanScoredTurns: Number(row.meanScoredTurns),
+      invalidActions: Number(row.invalidActions),
+      toolCalls: Number(row.toolCalls),
+      latencySeconds: Number(row.latencyMs) / 1000,
+      inputTokens: Number(row.inputTokens),
+      outputTokens: Number(row.outputTokens),
+      costUsd: Number(row.costUsd),
+    };
+  }),
+);
+const decisions = ["pure", "agent"].map((track) => {
+  const decision = tracks[track] as any;
+  return {
+    track: track === "pure" ? "Pure" : "Agent",
+    decisiveMetric: decision.decisiveMetric,
+    observedWinRateDifference: decision.observedWinRateDifference,
+    observedTurnAdvantage: decision.observedTurnAdvantage,
+    ci95Low: decision.ci95[0],
+    ci95High: decision.ci95[1],
+    decision: decision.slmWins ? "SLM wins" : "Not demonstrated",
+  };
+});
+const artifact = {
+  surface: "report",
+  manifest: {
+    version: 1,
+    surface: "report",
+    title: "Spanish Wordle SLM competition",
+    description: "Paired hidden-test comparison of a local MLX SLM and a larger OpenRouter model.",
+    generatedAt,
+    cards: [
+      {
+        id: "pure_slm",
+        description: "Frozen SLM performance without tools.",
+        dataset: "competition",
+        sourceId: "benchmark_results",
+        filter: { track: "Pure", policy: "Spanish Wordle SLM" },
+        metrics: [
+          { label: "Pure win rate", field: "winRate", format: "percent" },
+          { label: "Mean turns", field: "meanScoredTurns", format: "number" },
+        ],
+      },
+      {
+        id: "agent_slm",
+        description: "Frozen SLM performance with candidate lookup.",
+        dataset: "competition",
+        sourceId: "benchmark_results",
+        filter: { track: "Agent", policy: "Spanish Wordle SLM" },
+        metrics: [
+          { label: "Agent win rate", field: "winRate", format: "percent" },
+          { label: "Mean turns", field: "meanScoredTurns", format: "number" },
+        ],
+      },
+    ],
+    charts: [
+      {
+        id: "win_rate",
+        title: "Win rate by competitive track",
+        subtitle: "Higher is better; every policy receives the same hidden targets.",
+        type: "bar",
+        dataset: "competition",
+        sourceId: "benchmark_results",
+        valueFormat: "percent",
+        encodings: {
+          x: { field: "track", type: "nominal", label: "Track" },
+          y: { field: "winRate", type: "quantitative", label: "Win rate" },
+          color: { field: "policy", type: "nominal", label: "Policy" },
+          tooltip: [
+            { field: "wins", type: "quantitative", label: "Wins" },
+            { field: "games", type: "quantitative", label: "Games" },
+          ],
+        },
+      },
+      {
+        id: "mean_turns",
+        title: "Mean scored turns",
+        subtitle: "Lower is better; unsolved games count as seven turns.",
+        type: "bar",
+        dataset: "competition",
+        sourceId: "benchmark_results",
+        encodings: {
+          x: { field: "track", type: "nominal", label: "Track" },
+          y: { field: "meanScoredTurns", type: "quantitative", label: "Mean turns" },
+          color: { field: "policy", type: "nominal", label: "Policy" },
+        },
+      },
+    ],
+    tables: [
+      {
+        id: "competition_table",
+        title: "Complete competition summary",
+        subtitle: "Outcomes, behavior, latency, tokens, and hosted-model cost.",
+        dataset: "competition",
+        sourceId: "benchmark_results",
+        columns: [
+          { field: "track", label: "Track", type: "text" },
+          { field: "policy", label: "Policy", type: "text" },
+          { field: "wins", label: "Wins", format: "number" },
+          { field: "games", label: "Games", format: "number" },
+          { field: "winRate", label: "Win rate", format: "percent" },
+          { field: "meanScoredTurns", label: "Mean turns", format: "number" },
+          { field: "invalidActions", label: "Invalid", format: "number" },
+          { field: "toolCalls", label: "Tool calls", format: "number" },
+          { field: "latencySeconds", label: "Latency (s)", format: "number" },
+          { field: "costUsd", label: "Cost", format: "currency" },
+        ],
+      },
+      {
+        id: "decision_table",
+        title: "Paired statistical decisions",
+        subtitle: "The 95% interval must be strictly positive for the first metric that differs.",
+        dataset: "decisions",
+        sourceId: "paired_bootstrap",
+        columns: [
+          { field: "track", label: "Track", type: "text" },
+          { field: "decisiveMetric", label: "Metric", type: "text" },
+          { field: "observedWinRateDifference", label: "Win-rate diff", format: "percent" },
+          { field: "observedTurnAdvantage", label: "Turn advantage", format: "number" },
+          { field: "ci95Low", label: "CI low", format: "number" },
+          { field: "ci95High", label: "CI high", format: "number" },
+          { field: "decision", label: "Decision", type: "text" },
+        ],
+      },
+    ],
+    sources: [
+      { id: "benchmark_results", label: "Immutable paired benchmark JSON", path: "artifacts/benchmark/*.json" },
+      { id: "paired_bootstrap", label: "Seeded paired bootstrap implementation", path: "agent/src/report.ts" },
+    ],
+    blocks: [
+      {
+        id: "executive_summary",
+        type: "markdown",
+        body: `## Technical conclusion\n\n**Objective achieved: ${success ? "yes" : "no"}.** The adapter is judged on Pure and Agent only. Oracle is a non-competitive ceiling.`,
+      },
+      { id: "metrics", type: "metric-strip", cardIds: ["pure_slm", "agent_slm"] },
+      { id: "win_chart", type: "chart", chartId: "win_rate" },
+      { id: "turn_chart", type: "chart", chartId: "mean_turns" },
+      { id: "decision_detail", type: "table", tableId: "decision_table" },
+      {
+        id: "methodology",
+        type: "markdown",
+        body: `## Methodology and controls\n\n- ${targetCount} paired hidden targets per track; deterministic order and seed 20260814.\n- Pure receives history only. Agent may call get_candidates once per turn.\n- At most two invalid-output repairs per turn; a loss scores seven turns.\n- The adapter, prompt, and harness are frozen before opening the hidden test.\n- OpenRouter fallback is disabled; the effective provider and response model are recorded.`,
+      },
+      { id: "full_results", type: "table", tableId: "competition_table" },
+      {
+        id: "limitations",
+        type: "markdown",
+        body: "## Limitations\n\nResults apply to the fixed Spanish Wordle distribution. Hosted latency and cost may vary. Statistical intervals quantify target-level uncertainty, not future provider drift.",
+      },
+    ],
+  },
+  snapshot: {
+    version: 1,
+    generatedAt,
+    status: "complete",
+    datasets: { competition, decisions },
+    accessIssues: [],
+  },
+  sources: [
+    { id: "benchmark_results", description: "Four complete paired benchmark result files." },
+    { id: "paired_bootstrap", description: "10,000 resamples with deterministic seed 20260814." },
+  ],
+  package_info: {
+    originUrl: "artifact://spanish-wordle-slm-competition",
+    controls: { edit: false, refresh: false },
+  },
+};
+await writeFile(
+  "artifacts/benchmark/technical-report.artifact.json",
+  `${JSON.stringify(artifact, null, 2)}\n`,
+);
 console.log(JSON.stringify(summary, null, 2));
