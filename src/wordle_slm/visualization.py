@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import math
+import os
 import re
 import time
 from dataclasses import asdict, dataclass
@@ -168,11 +169,20 @@ def _planned_iterations() -> int:
 
 def summarize(series: TrainingSeries) -> dict[str, object]:
     planned = _planned_iterations()
+    state_path = RUN_DIR / "state.json"
+    state = json.loads(state_path.read_text(encoding="utf-8")) if state_path.exists() else {}
+    phase_start = max(
+        (int(value) for value in state.get("run_iteration_offsets", {}).values()),
+        default=0,
+    )
     current_iteration = max((point.iteration for point in series.train), default=0)
     recent_speed = [point.iterations_per_second for point in series.train[-12:]]
     speed = float(np.median(recent_speed)) if recent_speed else 0.0
     eta_seconds = (planned - current_iteration) / speed if speed > 0 else None
-    best_validation = min(series.validation, key=lambda point: point.loss) if series.validation else None
+    phase_validation = [point for point in series.validation if point.iteration > phase_start]
+    best_validation = (
+        min(phase_validation, key=lambda point: point.loss) if phase_validation else None
+    )
     smoothed = _ewma([point.loss for point in series.train])
     return {
         "generated_at": datetime.now(UTC).isoformat(),
@@ -185,6 +195,7 @@ def summarize(series: TrainingSeries) -> dict[str, object]:
         "latest_validation_loss": series.validation[-1].loss if series.validation else None,
         "best_validation_loss": best_validation.loss if best_validation else None,
         "best_validation_iteration": best_validation.iteration if best_validation else None,
+        "phase_start_iteration": phase_start,
         "peak_memory_gb": max((point.peak_memory_gb for point in series.train), default=0),
         "iterations_per_second": speed,
         "eta_seconds": eta_seconds,
@@ -256,7 +267,7 @@ def render_training_dashboard() -> dict[str, object]:
     _card(
         fig,
         0.29,
-        "BEST VALIDATION LOSS",
+        "BEST VALIDATION LOSS · CURRENT PHASE",
         f"{float(summary['best_validation_loss']):.3f}  @ {int(summary['best_validation_iteration']):,}",
         "#A15C00",
     )
@@ -308,6 +319,18 @@ def render_training_dashboard() -> dict[str, object]:
         markeredgewidth=1.5,
         label="Validation loss",
     )
+    phase_start = int(summary["phase_start_iteration"])
+    if phase_start > 0:
+        axis.axvline(phase_start, color="#7A5AF8", linewidth=1.2, linestyle="--")
+        axis.text(
+            phase_start,
+            0.98,
+            " refinement data",
+            transform=axis.get_xaxis_transform(),
+            color="#6941C6",
+            fontsize=8.5,
+            va="top",
+        )
     if series.checkpoints:
         axis.scatter(
             series.checkpoints,
@@ -319,7 +342,10 @@ def render_training_dashboard() -> dict[str, object]:
             label="Saved checkpoint",
             zorder=5,
         )
-    best = min(series.validation, key=lambda point: point.loss)
+    phase_validation = [
+        point for point in series.validation if point.iteration > phase_start
+    ]
+    best = min(phase_validation, key=lambda point: point.loss)
     axis.annotate(
         f"best {best.loss:.3f}",
         xy=(best.iteration, best.loss),
@@ -372,8 +398,8 @@ def render_training_dashboard() -> dict[str, object]:
     png_path = OUTPUT_DIR / "loss-curve.png"
     svg_path = OUTPUT_DIR / "loss-curve.svg"
     json_path = OUTPUT_DIR / "status.json"
-    png_temp = OUTPUT_DIR / ".loss-curve.png.tmp"
-    svg_temp = OUTPUT_DIR / ".loss-curve.svg.tmp"
+    png_temp = OUTPUT_DIR / f".loss-curve.{os.getpid()}.png.tmp"
+    svg_temp = OUTPUT_DIR / f".loss-curve.{os.getpid()}.svg.tmp"
     fig.savefig(png_temp, format="png", dpi=170, facecolor=fig.get_facecolor())
     fig.savefig(svg_temp, format="svg", facecolor=fig.get_facecolor())
     plt.close(fig)
