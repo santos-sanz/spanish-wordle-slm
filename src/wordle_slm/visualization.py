@@ -219,6 +219,9 @@ def summarize(series: TrainingSeries) -> dict[str, object]:
             int(state["refinement_iteration_offset"])
             if "refinement_iteration_offset" in state
             else 0,
+            int(state["clean_refinement_iteration_offset"])
+            if "clean_refinement_iteration_offset" in state
+            else 0,
         ],
         default=0,
     )
