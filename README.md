@@ -1,8 +1,9 @@
 # Spanish Wordle SLM
 
 A reproducible experiment that fine-tunes `LiquidAI/LFM2.5-2.6B-MLX-6bit`
-with QLoRA on Apple Silicon and compares it with
-`deepseek/deepseek-v4-pro-0813` on Spanish Wordle.
+with QLoRA on Apple Silicon and compares it first with
+`deepseek/deepseek-v4-flash-0731` on Spanish Wordle. The Pro model remains
+deferred until the SLM beats Flash under the frozen criterion.
 
 The experiment has three tracks:
 
@@ -10,6 +11,41 @@ The experiment has three tracks:
 - **Agent**: the model may request the compatible answer candidates.
 - **Oracle**: the model may request the solver's best guess. This is a system
   ceiling and is not used for the competitive claim.
+
+## Documentation and current evidence
+
+The project has two complementary records:
+
+- [Experimental retrospective](docs/experimental-retrospective.md): the
+  end-to-end article covering objectives, architecture, training decisions,
+  failed branches, quota failures, benchmark results and lessons learned.
+- [Experimental learning log](docs/experimental-learning-log.md): the
+  chronological audit log to read before changing a prompt, parser, dataset,
+  adapter or benchmark.
+
+The current clean Flash comparison uses the same 124 hidden targets in both
+competitive tracks and has `errors=0`:
+
+| Track | SLM | Flash | Statistical status |
+|---|---:|---:|---|
+| Pure | 2/124 | 0/124 | Not demonstrated: paired 95% CI `[0.0, 4.0]` pp |
+| Agent | 115/124 | 46/124 | SLM wins: paired 95% CI `[46.0, 65.3]` pp |
+
+The project therefore remains an honest `success=false`: Agent is a strong
+result, but the two-track claim still requires Pure to clear the positive
+paired interval. Pro, Tencent HY3 and GPT-5.6 Luna runs are not accepted as
+comparisons because their remote smokes or full runs were blocked by routing,
+provider errors or insufficient credit.
+
+Visual evidence is kept next to the machine-readable artifacts:
+
+- [Training loss curve](artifacts/training/loss-curve.png) ·
+  [SVG](artifacts/training/loss-curve.svg)
+- [Flash competition dashboard](artifacts/benchmark/competition-dashboard-flash.png) ·
+  [SVG](artifacts/benchmark/competition-dashboard-flash.svg)
+- [Flash cumulative progress](artifacts/benchmark/competition-progress-flash.png) ·
+  [SVG](artifacts/benchmark/competition-progress-flash.svg)
+- [Flash report](artifacts/benchmark/summary-flash.md)
 
 ## Reproduce
 
@@ -126,10 +162,10 @@ The experiment succeeds only if the paired 95% bootstrap interval favors the
 SLM in both competitive tracks. Oracle is reported only as a ceiling.
 
 For the remote baseline, copy `.env.example` to `.env` and set
-`OPENROUTER_API_KEY`. `OPENROUTER_MODEL` is configurable; the checked-in
-example uses the low-cost `openai/gpt-5-nano` model for smoke runs. Set it to
-`deepseek/deepseek-v4-pro-0813` before the official DeepSeek comparison. If it
-is omitted, the code falls back to that DeepSeek model. Never commit `.env`.
+`OPENROUTER_API_KEY`. The checked-in example pins the current rival,
+`deepseek/deepseek-v4-flash-0731`, with fallbacks disabled by the harness. Do
+not switch to `deepseek/deepseek-v4-pro-0813` until Flash has been beaten under
+the frozen criterion. Never commit `.env`.
 
 ## Data and licensing
 

@@ -1,0 +1,3207 @@
+{
+  "complete": true,
+  "targetCount": 124,
+  "targetOffset": 0,
+  "summary": {
+    "provider": "deepseek",
+    "model": "deepseek/deepseek-v4-flash-0731",
+    "track": "pure",
+    "split": "test",
+    "games": 124,
+    "wins": 0,
+    "winRate": 0,
+    "meanScoredTurns": 7,
+    "invalidActions": 302,
+    "toolCalls": 0,
+    "latencyMs": 6536984.776381998,
+    "inputTokens": 67420,
+    "outputTokens": 249617,
+    "costUsd": 0.07933155999999997,
+    "errors": 0,
+    "effectiveProviders": [
+      "openrouter"
+    ],
+    "responseModels": [
+      "deepseek/deepseek-v4-flash-0731"
+    ]
+  },
+  "games": [
+    {
+      "target": "adios",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 51873.879376,
+      "inputTokens": 465,
+      "outputTokens": 1828,
+      "costUsd": 0.0005769400000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "11010"
+        }
+      ]
+    },
+    {
+      "target": "agrio",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 47467.97066700001,
+      "inputTokens": 599,
+      "outputTokens": 2178,
+      "costUsd": 0.0006937,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01021"
+        }
+      ]
+    },
+    {
+      "target": "albur",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 48090.260916,
+      "inputTokens": 599,
+      "outputTokens": 2160,
+      "costUsd": 0.00068866,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01102"
+        }
+      ]
+    },
+    {
+      "target": "altar",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 32331.977042000013,
+      "inputTokens": 465,
+      "outputTokens": 1754,
+      "costUsd": 0.0005562200000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01102"
+        }
+      ]
+    },
+    {
+      "target": "amiga",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 46753.817834000016,
+      "inputTokens": 599,
+      "outputTokens": 2170,
+      "costUsd": 0.0006914600000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "plato",
+          "feedback": "00100"
+        }
+      ]
+    },
+    {
+      "target": "amigo",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 36370.92895800003,
+      "inputTokens": 465,
+      "outputTokens": 1717,
+      "costUsd": 0.00054586,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01010"
+        }
+      ]
+    },
+    {
+      "target": "andar",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 56523.10591700004,
+      "inputTokens": 465,
+      "outputTokens": 1710,
+      "costUsd": 0.0005439,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01002"
+        }
+      ]
+    },
+    {
+      "target": "arete",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 76095.91858299996,
+      "inputTokens": 721,
+      "outputTokens": 2488,
+      "costUsd": 0.0007975800000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "mundo",
+          "feedback": "00000"
+        },
+        {
+          "guess": "cesta",
+          "feedback": "01021"
+        }
+      ]
+    },
+    {
+      "target": "arpon",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 59445.81300099997,
+      "inputTokens": 465,
+      "outputTokens": 1813,
+      "costUsd": 0.0005727400000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01001"
+        }
+      ]
+    },
+    {
+      "target": "arroz",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 60440.759667000035,
+      "inputTokens": 465,
+      "outputTokens": 1689,
+      "costUsd": 0.0005380200000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01001"
+        }
+      ]
+    },
+    {
+      "target": "atril",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 137762.906792,
+      "inputTokens": 465,
+      "outputTokens": 1777,
+      "costUsd": 0.00056266,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01121"
+        }
+      ]
+    },
+    {
+      "target": "audaz",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 47018.25754099991,
+      "inputTokens": 465,
+      "outputTokens": 1835,
+      "costUsd": 0.0005789,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01000"
+        }
+      ]
+    },
+    {
+      "target": "bahia",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 42398.07900000003,
+      "inputTokens": 599,
+      "outputTokens": 2219,
+      "costUsd": 0.00070518,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "02020"
+        }
+      ]
+    },
+    {
+      "target": "bajon",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 55577.058959000045,
+      "inputTokens": 587,
+      "outputTokens": 2205,
+      "costUsd": 0.0006995800000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "02000"
+        },
+        {
+          "guess": "mango",
+          "feedback": "02101"
+        }
+      ]
+    },
+    {
+      "target": "banco",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 76054.10337499995,
+      "inputTokens": 597,
+      "outputTokens": 2201,
+      "costUsd": 0.0006998600000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "mundo",
+          "feedback": "00202"
+        }
+      ]
+    },
+    {
+      "target": "bañar",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 46470.14750000008,
+      "inputTokens": 465,
+      "outputTokens": 1767,
+      "costUsd": 0.00055986,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "02002"
+        }
+      ]
+    },
+    {
+      "target": "bollo",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 55257.59658299992,
+      "inputTokens": 465,
+      "outputTokens": 1870,
+      "costUsd": 0.0005887,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00200"
+        }
+      ]
+    },
+    {
+      "target": "bolso",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 79071.54391700006,
+      "inputTokens": 599,
+      "outputTokens": 2230,
+      "costUsd": 0.00070826,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "10200"
+        }
+      ]
+    },
+    {
+      "target": "botar",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 39841.61791700008,
+      "inputTokens": 465,
+      "outputTokens": 1657,
+      "costUsd": 0.00052906,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01002"
+        }
+      ]
+    },
+    {
+      "target": "botin",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 51742.4698330001,
+      "inputTokens": 465,
+      "outputTokens": 1763,
+      "costUsd": 0.0005587400000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00020"
+        }
+      ]
+    },
+    {
+      "target": "boxeo",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 57000.47875000001,
+      "inputTokens": 587,
+      "outputTokens": 2064,
+      "costUsd": 0.0006601,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00000"
+        },
+        {
+          "guess": "mundo",
+          "feedback": "00002"
+        }
+      ]
+    },
+    {
+      "target": "boxer",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 5,
+      "toolCalls": 0,
+      "latencyMs": 87841.7266259999,
+      "inputTokens": 993,
+      "outputTokens": 3663,
+      "costUsd": 0.00116466,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00002"
+        },
+        {
+          "guess": "comer",
+          "feedback": "02022"
+        }
+      ]
+    },
+    {
+      "target": "braza",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 47770.286084000254,
+      "inputTokens": 465,
+      "outputTokens": 1679,
+      "costUsd": 0.00053522,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01001"
+        }
+      ]
+    },
+    {
+      "target": "bruja",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 68175.80516699981,
+      "inputTokens": 599,
+      "outputTokens": 2188,
+      "costUsd": 0.0006965000000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "canto",
+          "feedback": "01000"
+        }
+      ]
+    },
+    {
+      "target": "busca",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 57360.358374999836,
+      "inputTokens": 465,
+      "outputTokens": 1791,
+      "costUsd": 0.00056658,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "11000"
+        }
+      ]
+    },
+    {
+      "target": "cacao",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 48252.752708999906,
+      "inputTokens": 599,
+      "outputTokens": 2187,
+      "costUsd": 0.00069622,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "02000"
+        }
+      ]
+    },
+    {
+      "target": "cacho",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 37732.16533400002,
+      "inputTokens": 465,
+      "outputTokens": 1801,
+      "costUsd": 0.00056938,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "02000"
+        }
+      ]
+    },
+    {
+      "target": "caido",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 32157.787250000052,
+      "inputTokens": 364,
+      "outputTokens": 1536,
+      "costUsd": 0.00048103999999999996,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": []
+    },
+    {
+      "target": "cajon",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 49501.44270900008,
+      "inputTokens": 465,
+      "outputTokens": 1631,
+      "costUsd": 0.00052178,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "02000"
+        }
+      ]
+    },
+    {
+      "target": "caldo",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 33245.74254100025,
+      "inputTokens": 465,
+      "outputTokens": 1679,
+      "costUsd": 0.00053522,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "02200"
+        }
+      ]
+    },
+    {
+      "target": "calvo",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 56451.25600000005,
+      "inputTokens": 599,
+      "outputTokens": 2173,
+      "costUsd": 0.0006923000000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "02200"
+        }
+      ]
+    },
+    {
+      "target": "cañon",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 60991.41720799985,
+      "inputTokens": 723,
+      "outputTokens": 2647,
+      "costUsd": 0.0008423800000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "02000"
+        },
+        {
+          "guess": "mango",
+          "feedback": "02101"
+        }
+      ]
+    },
+    {
+      "target": "cerca",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 38834.64229099988,
+      "inputTokens": 465,
+      "outputTokens": 1715,
+      "costUsd": 0.0005453000000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01001"
+        }
+      ]
+    },
+    {
+      "target": "cerco",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 48078.903249999974,
+      "inputTokens": 465,
+      "outputTokens": 1757,
+      "costUsd": 0.0005570600000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00001"
+        }
+      ]
+    },
+    {
+      "target": "chico",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 30142.115833000047,
+      "inputTokens": 465,
+      "outputTokens": 1815,
+      "costUsd": 0.0005733,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00010"
+        }
+      ]
+    },
+    {
+      "target": "chile",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 4,
+      "toolCalls": 0,
+      "latencyMs": 85680.97395799984,
+      "inputTokens": 861,
+      "outputTokens": 3231,
+      "costUsd": 0.00102522,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00110"
+        },
+        {
+          "guess": "lindo",
+          "feedback": "11000"
+        }
+      ]
+    },
+    {
+      "target": "china",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 4,
+      "toolCalls": 0,
+      "latencyMs": 60856.64941600012,
+      "inputTokens": 859,
+      "outputTokens": 3137,
+      "costUsd": 0.0009986200000000002,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01010"
+        },
+        {
+          "guess": "amigo",
+          "feedback": "10200"
+        }
+      ]
+    },
+    {
+      "target": "clima",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 51247.39829200017,
+      "inputTokens": 584,
+      "outputTokens": 2172,
+      "costUsd": 0.00068992,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01110"
+        },
+        {
+          "guess": "final",
+          "feedback": "01011"
+        }
+      ]
+    },
+    {
+      "target": "cobro",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 71289.36045900034,
+      "inputTokens": 465,
+      "outputTokens": 1671,
+      "costUsd": 0.0005329800000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00001"
+        }
+      ]
+    },
+    {
+      "target": "cotar",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 42414.8151250002,
+      "inputTokens": 465,
+      "outputTokens": 1764,
+      "costUsd": 0.00055902,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01002"
+        }
+      ]
+    },
+    {
+      "target": "deseo",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 42539.45633300021,
+      "inputTokens": 465,
+      "outputTokens": 1660,
+      "costUsd": 0.0005299,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "10000"
+        }
+      ]
+    },
+    {
+      "target": "dobla",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 37311.96220899979,
+      "inputTokens": 465,
+      "outputTokens": 1875,
+      "costUsd": 0.0005901000000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01100"
+        }
+      ]
+    },
+    {
+      "target": "doler",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 57329.66904200008,
+      "inputTokens": 599,
+      "outputTokens": 2168,
+      "costUsd": 0.0006909,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00202"
+        }
+      ]
+    },
+    {
+      "target": "espia",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 41531.957499000244,
+      "inputTokens": 465,
+      "outputTokens": 1832,
+      "costUsd": 0.00057806,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "11020"
+        }
+      ]
+    },
+    {
+      "target": "fallo",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 63523.473958000075,
+      "inputTokens": 599,
+      "outputTokens": 2162,
+      "costUsd": 0.00068922,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "02200"
+        }
+      ]
+    },
+    {
+      "target": "falto",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 66356.9237490003,
+      "inputTokens": 465,
+      "outputTokens": 1781,
+      "costUsd": 0.00056378,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "02200"
+        }
+      ]
+    },
+    {
+      "target": "farsa",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 34772.52375000017,
+      "inputTokens": 465,
+      "outputTokens": 1695,
+      "costUsd": 0.0005397,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "12001"
+        }
+      ]
+    },
+    {
+      "target": "fauna",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 47952.76779099973,
+      "inputTokens": 599,
+      "outputTokens": 2165,
+      "costUsd": 0.00069006,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "02000"
+        }
+      ]
+    },
+    {
+      "target": "feliz",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 43386.04554200079,
+      "inputTokens": 599,
+      "outputTokens": 2174,
+      "costUsd": 0.00069258,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "perro",
+          "feedback": "02000"
+        }
+      ]
+    },
+    {
+      "target": "firme",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 38674.44458300015,
+      "inputTokens": 599,
+      "outputTokens": 2233,
+      "costUsd": 0.0007091,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00011"
+        }
+      ]
+    },
+    {
+      "target": "flama",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 36257.52550100023,
+      "inputTokens": 465,
+      "outputTokens": 1720,
+      "costUsd": 0.0005467,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01100"
+        }
+      ]
+    },
+    {
+      "target": "flora",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 39070.75741699943,
+      "inputTokens": 465,
+      "outputTokens": 1703,
+      "costUsd": 0.0005419400000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01101"
+        }
+      ]
+    },
+    {
+      "target": "flota",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 117009.60058399988,
+      "inputTokens": 599,
+      "outputTokens": 2186,
+      "costUsd": 0.00069594,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "coche",
+          "feedback": "01000"
+        }
+      ]
+    },
+    {
+      "target": "fluir",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 45258.22329100035,
+      "inputTokens": 465,
+      "outputTokens": 1695,
+      "costUsd": 0.0005397,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00122"
+        }
+      ]
+    },
+    {
+      "target": "fruto",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 49671.96220800001,
+      "inputTokens": 599,
+      "outputTokens": 2204,
+      "costUsd": 0.00070098,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00001"
+        }
+      ]
+    },
+    {
+      "target": "gente",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 48287.88216499984,
+      "inputTokens": 587,
+      "outputTokens": 1921,
+      "costUsd": 0.0006200600000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00000"
+        },
+        {
+          "guess": "mundo",
+          "feedback": "00200"
+        }
+      ]
+    },
+    {
+      "target": "gordo",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 29565.212667000014,
+      "inputTokens": 364,
+      "outputTokens": 1536,
+      "costUsd": 0.00048103999999999996,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": []
+    },
+    {
+      "target": "grasa",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 35592.13404199947,
+      "inputTokens": 599,
+      "outputTokens": 2154,
+      "costUsd": 0.00068698,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "11001"
+        }
+      ]
+    },
+    {
+      "target": "hogar",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 31214.229624999687,
+      "inputTokens": 465,
+      "outputTokens": 1758,
+      "costUsd": 0.00055734,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01002"
+        }
+      ]
+    },
+    {
+      "target": "hueco",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 38936.132625000086,
+      "inputTokens": 587,
+      "outputTokens": 1939,
+      "costUsd": 0.0006251000000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00000"
+        },
+        {
+          "guess": "punto",
+          "feedback": "02002"
+        }
+      ]
+    },
+    {
+      "target": "hueso",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 34405.42941599991,
+      "inputTokens": 465,
+      "outputTokens": 1720,
+      "costUsd": 0.0005467,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "10000"
+        }
+      ]
+    },
+    {
+      "target": "huevo",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 4,
+      "toolCalls": 0,
+      "latencyMs": 95937.35758399963,
+      "inputTokens": 859,
+      "outputTokens": 3054,
+      "costUsd": 0.0009753800000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00000"
+        },
+        {
+          "guess": "punto",
+          "feedback": "02002"
+        }
+      ]
+    },
+    {
+      "target": "jamas",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 49304.552459000144,
+      "inputTokens": 465,
+      "outputTokens": 1819,
+      "costUsd": 0.0005744200000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "12000"
+        }
+      ]
+    },
+    {
+      "target": "jugar",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 50151.86549999984,
+      "inputTokens": 599,
+      "outputTokens": 2178,
+      "costUsd": 0.0006937,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01002"
+        }
+      ]
+    },
+    {
+      "target": "justo",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 52381.5976250004,
+      "inputTokens": 465,
+      "outputTokens": 1823,
+      "costUsd": 0.00057554,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "10000"
+        }
+      ]
+    },
+    {
+      "target": "koala",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 46341.230082999915,
+      "inputTokens": 463,
+      "outputTokens": 1996,
+      "costUsd": 0.0006237,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "claro",
+          "feedback": "01201"
+        }
+      ]
+    },
+    {
+      "target": "kurdo",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 39461.56604199996,
+      "inputTokens": 465,
+      "outputTokens": 1776,
+      "costUsd": 0.00056238,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00001"
+        }
+      ]
+    },
+    {
+      "target": "labio",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 35774.16191699961,
+      "inputTokens": 465,
+      "outputTokens": 1651,
+      "costUsd": 0.00052738,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "02120"
+        }
+      ]
+    },
+    {
+      "target": "leche",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 38337.485291000456,
+      "inputTokens": 465,
+      "outputTokens": 1656,
+      "costUsd": 0.0005287800000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00100"
+        }
+      ]
+    },
+    {
+      "target": "legua",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 33680.13975000009,
+      "inputTokens": 465,
+      "outputTokens": 1621,
+      "costUsd": 0.00051898,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01100"
+        }
+      ]
+    },
+    {
+      "target": "lejos",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 4,
+      "toolCalls": 0,
+      "latencyMs": 62452.87762399996,
+      "inputTokens": 733,
+      "outputTokens": 2677,
+      "costUsd": 0.00085218,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "10100"
+        }
+      ]
+    },
+    {
+      "target": "libro",
+      "solved": false,
+      "turns": 0,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 38009.42037500022,
+      "inputTokens": 364,
+      "outputTokens": 1536,
+      "costUsd": 0.00048103999999999996,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": []
+    },
+    {
+      "target": "lloro",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 36891.63325000042,
+      "inputTokens": 465,
+      "outputTokens": 1723,
+      "costUsd": 0.00054754,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00101"
+        }
+      ]
+    },
+    {
+      "target": "macho",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 41829.01070800051,
+      "inputTokens": 587,
+      "outputTokens": 1974,
+      "costUsd": 0.0006349000000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "02000"
+        },
+        {
+          "guess": "mango",
+          "feedback": "22002"
+        }
+      ]
+    },
+    {
+      "target": "mania",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 68880.61170799984,
+      "inputTokens": 465,
+      "outputTokens": 1639,
+      "costUsd": 0.00052402,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "02020"
+        }
+      ]
+    },
+    {
+      "target": "manta",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 42228.41650000028,
+      "inputTokens": 460,
+      "outputTokens": 1898,
+      "costUsd": 0.0005958399999999999,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "audio",
+          "feedback": "10000"
+        }
+      ]
+    },
+    {
+      "target": "matar",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 44545.69845799962,
+      "inputTokens": 465,
+      "outputTokens": 1837,
+      "costUsd": 0.0005794600000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "02002"
+        }
+      ]
+    },
+    {
+      "target": "mayor",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 40678.86933299992,
+      "inputTokens": 465,
+      "outputTokens": 1699,
+      "costUsd": 0.00054082,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "02002"
+        }
+      ]
+    },
+    {
+      "target": "media",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 33328.661750000436,
+      "inputTokens": 465,
+      "outputTokens": 1797,
+      "costUsd": 0.00056826,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01020"
+        }
+      ]
+    },
+    {
+      "target": "menor",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 58593.67720800033,
+      "inputTokens": 723,
+      "outputTokens": 2736,
+      "costUsd": 0.0008673000000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00002"
+        },
+        {
+          "guess": "comer",
+          "feedback": "01112"
+        }
+      ]
+    },
+    {
+      "target": "metro",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 48224.20933299977,
+      "inputTokens": 597,
+      "outputTokens": 2193,
+      "costUsd": 0.00069762,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "libro",
+          "feedback": "00022"
+        }
+      ]
+    },
+    {
+      "target": "mosca",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 32818.177916999906,
+      "inputTokens": 465,
+      "outputTokens": 1792,
+      "costUsd": 0.00056686,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "11000"
+        }
+      ]
+    },
+    {
+      "target": "nariz",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 34659.34220900014,
+      "inputTokens": 465,
+      "outputTokens": 1682,
+      "costUsd": 0.00053606,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "02021"
+        }
+      ]
+    },
+    {
+      "target": "negro",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 98597.05379199982,
+      "inputTokens": 599,
+      "outputTokens": 2183,
+      "costUsd": 0.0006951,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00001"
+        }
+      ]
+    },
+    {
+      "target": "nueva",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 49536.487417000346,
+      "inputTokens": 465,
+      "outputTokens": 1810,
+      "costUsd": 0.0005719000000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "serio",
+          "feedback": "01000"
+        }
+      ]
+    },
+    {
+      "target": "olivo",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 63018.24720800016,
+      "inputTokens": 723,
+      "outputTokens": 2578,
+      "costUsd": 0.0008230600000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00110"
+        },
+        {
+          "guess": "limon",
+          "feedback": "11010"
+        }
+      ]
+    },
+    {
+      "target": "pasta",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 4,
+      "toolCalls": 0,
+      "latencyMs": 67226.50004100055,
+      "inputTokens": 856,
+      "outputTokens": 3123,
+      "costUsd": 0.0009942800000000002,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "libro",
+          "feedback": "00000"
+        },
+        {
+          "guess": "manta",
+          "feedback": "02022"
+        }
+      ]
+    },
+    {
+      "target": "patio",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 61068.978250999935,
+      "inputTokens": 597,
+      "outputTokens": 2222,
+      "costUsd": 0.0007057400000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "crear",
+          "feedback": "00010"
+        }
+      ]
+    },
+    {
+      "target": "peaje",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 37439.670083999634,
+      "inputTokens": 465,
+      "outputTokens": 1694,
+      "costUsd": 0.0005394200000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01000"
+        }
+      ]
+    },
+    {
+      "target": "pinta",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 29651.864665999077,
+      "inputTokens": 465,
+      "outputTokens": 1686,
+      "costUsd": 0.0005371800000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01010"
+        }
+      ]
+    },
+    {
+      "target": "pinza",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 4,
+      "toolCalls": 0,
+      "latencyMs": 59290.20766699966,
+      "inputTokens": 861,
+      "outputTokens": 3211,
+      "costUsd": 0.0010196200000000002,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01010"
+        },
+        {
+          "guess": "cinta",
+          "feedback": "02202"
+        }
+      ]
+    },
+    {
+      "target": "pollo",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 34003.66416800022,
+      "inputTokens": 465,
+      "outputTokens": 1667,
+      "costUsd": 0.00053186,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00200"
+        }
+      ]
+    },
+    {
+      "target": "polvo",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 59814.121875999495,
+      "inputTokens": 597,
+      "outputTokens": 2207,
+      "costUsd": 0.0007015400000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "mundo",
+          "feedback": "00002"
+        }
+      ]
+    },
+    {
+      "target": "pongo",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 31384.20554099977,
+      "inputTokens": 465,
+      "outputTokens": 1677,
+      "costUsd": 0.0005346600000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00000"
+        }
+      ]
+    },
+    {
+      "target": "preso",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 37492.63108200021,
+      "inputTokens": 465,
+      "outputTokens": 1767,
+      "costUsd": 0.00055986,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "10001"
+        }
+      ]
+    },
+    {
+      "target": "prisa",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 40142.72008299921,
+      "inputTokens": 465,
+      "outputTokens": 1690,
+      "costUsd": 0.0005383,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "11011"
+        }
+      ]
+    },
+    {
+      "target": "pulpa",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 46267.667959000915,
+      "inputTokens": 599,
+      "outputTokens": 2157,
+      "costUsd": 0.00068782,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01200"
+        }
+      ]
+    },
+    {
+      "target": "quema",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 43988.28691700008,
+      "inputTokens": 465,
+      "outputTokens": 1659,
+      "costUsd": 0.0005296200000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01000"
+        }
+      ]
+    },
+    {
+      "target": "ruedo",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 69822.06566699874,
+      "inputTokens": 723,
+      "outputTokens": 2681,
+      "costUsd": 0.0008519,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00001"
+        },
+        {
+          "guess": "bruto",
+          "feedback": "01102"
+        }
+      ]
+    },
+    {
+      "target": "rumba",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 38435.3354589995,
+      "inputTokens": 465,
+      "outputTokens": 1830,
+      "costUsd": 0.0005775000000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01001"
+        }
+      ]
+    },
+    {
+      "target": "sabio",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 88095.9439169988,
+      "inputTokens": 465,
+      "outputTokens": 1853,
+      "costUsd": 0.00058394,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "22020"
+        }
+      ]
+    },
+    {
+      "target": "salmo",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 44269.94762500096,
+      "inputTokens": 599,
+      "outputTokens": 2170,
+      "costUsd": 0.0006914600000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "22200"
+        }
+      ]
+    },
+    {
+      "target": "salsa",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 47365.247915999964,
+      "inputTokens": 587,
+      "outputTokens": 1983,
+      "costUsd": 0.0006374200000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "22200"
+        },
+        {
+          "guess": "salud",
+          "feedback": "22200"
+        }
+      ]
+    },
+    {
+      "target": "sanar",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 4,
+      "toolCalls": 0,
+      "latencyMs": 59262.60745799914,
+      "inputTokens": 731,
+      "outputTokens": 2809,
+      "costUsd": 0.00088886,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "mundo",
+          "feedback": "00200"
+        }
+      ]
+    },
+    {
+      "target": "sarza",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 44526.25483300071,
+      "inputTokens": 465,
+      "outputTokens": 1684,
+      "costUsd": 0.00053662,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "22001"
+        }
+      ]
+    },
+    {
+      "target": "sauco",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 34475.81462499965,
+      "inputTokens": 465,
+      "outputTokens": 1743,
+      "costUsd": 0.00055314,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "22000"
+        }
+      ]
+    },
+    {
+      "target": "secar",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 44938.71008300036,
+      "inputTokens": 465,
+      "outputTokens": 2013,
+      "costUsd": 0.00062874,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "21002"
+        }
+      ]
+    },
+    {
+      "target": "secta",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 51356.800708998926,
+      "inputTokens": 599,
+      "outputTokens": 2173,
+      "costUsd": 0.0006923000000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "21000"
+        }
+      ]
+    },
+    {
+      "target": "sexta",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 88630.12787500024,
+      "inputTokens": 465,
+      "outputTokens": 1616,
+      "costUsd": 0.00051758,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "21000"
+        }
+      ]
+    },
+    {
+      "target": "señal",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 38278.52295800019,
+      "inputTokens": 465,
+      "outputTokens": 1751,
+      "costUsd": 0.0005553800000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "21100"
+        }
+      ]
+    },
+    {
+      "target": "siete",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 55472.240041999146,
+      "inputTokens": 599,
+      "outputTokens": 2172,
+      "costUsd": 0.00069202,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "20010"
+        }
+      ]
+    },
+    {
+      "target": "signo",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 54984.91091599967,
+      "inputTokens": 597,
+      "outputTokens": 2172,
+      "costUsd": 0.00069174,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "libro",
+          "feedback": "02002"
+        }
+      ]
+    },
+    {
+      "target": "sorda",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 35760.19741600007,
+      "inputTokens": 465,
+      "outputTokens": 1667,
+      "costUsd": 0.00053186,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "21001"
+        }
+      ]
+    },
+    {
+      "target": "tallo",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 3,
+      "toolCalls": 0,
+      "latencyMs": 71759.37170900032,
+      "inputTokens": 725,
+      "outputTokens": 2692,
+      "costUsd": 0.00085526,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "02200"
+        },
+        {
+          "guess": "palma",
+          "feedback": "02200"
+        }
+      ]
+    },
+    {
+      "target": "tarde",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 72592.71629200038,
+      "inputTokens": 587,
+      "outputTokens": 2093,
+      "costUsd": 0.0006682200000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "02001"
+        },
+        {
+          "guess": "parte",
+          "feedback": "02212"
+        }
+      ]
+    },
+    {
+      "target": "tibio",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 46323.338709,
+      "inputTokens": 465,
+      "outputTokens": 1675,
+      "costUsd": 0.0005341,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00020"
+        }
+      ]
+    },
+    {
+      "target": "tieso",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 50970.23687500041,
+      "inputTokens": 465,
+      "outputTokens": 1657,
+      "costUsd": 0.00052906,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "10010"
+        }
+      ]
+    },
+    {
+      "target": "trama",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 49252.606792001054,
+      "inputTokens": 465,
+      "outputTokens": 1747,
+      "costUsd": 0.00055426,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "01001"
+        }
+      ]
+    },
+    {
+      "target": "tribu",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 41063.469625,
+      "inputTokens": 465,
+      "outputTokens": 1679,
+      "costUsd": 0.00053522,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00011"
+        }
+      ]
+    },
+    {
+      "target": "tumor",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 59287.816499999724,
+      "inputTokens": 465,
+      "outputTokens": 1697,
+      "costUsd": 0.0005402600000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00002"
+        }
+      ]
+    },
+    {
+      "target": "valla",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 4,
+      "toolCalls": 0,
+      "latencyMs": 129024.5020839991,
+      "inputTokens": 857,
+      "outputTokens": 3216,
+      "costUsd": 0.0010204600000000002,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "02200"
+        },
+        {
+          "guess": "calma",
+          "feedback": "02202"
+        }
+      ]
+    },
+    {
+      "target": "vapor",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 4,
+      "toolCalls": 0,
+      "latencyMs": 148305.07862500002,
+      "inputTokens": 859,
+      "outputTokens": 3193,
+      "costUsd": 0.0010143,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "02002"
+        },
+        {
+          "guess": "cavar",
+          "feedback": "02102"
+        }
+      ]
+    },
+    {
+      "target": "vejez",
+      "solved": false,
+      "turns": 2,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 59885.33729300089,
+      "inputTokens": 587,
+      "outputTokens": 2282,
+      "costUsd": 0.0007211400000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "salir",
+          "feedback": "00000"
+        },
+        {
+          "guess": "punto",
+          "feedback": "00000"
+        }
+      ]
+    },
+    {
+      "target": "vieja",
+      "solved": false,
+      "turns": 1,
+      "scoredTurns": 7,
+      "invalidActions": 2,
+      "toolCalls": 0,
+      "latencyMs": 39150.10025099944,
+      "inputTokens": 465,
+      "outputTokens": 1668,
+      "costUsd": 0.0005321400000000001,
+      "effectiveProviders": [
+        "openrouter"
+      ],
+      "responseModels": [
+        "deepseek/deepseek-v4-flash-0731"
+      ],
+      "errors": [],
+      "history": [
+        {
+          "guess": "reino",
+          "feedback": "01100"
+        }
+      ]
+    }
+  ]
+}
